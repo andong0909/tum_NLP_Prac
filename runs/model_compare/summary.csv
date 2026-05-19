@@ -1,0 +1,7 @@
+Model,Model ID,prose_UAS,prose_LAS,poetry_UAS,poetry_LAS,avg_UAS,avg_LAS
+CIRCSE,latin-circse-ud-2.17-251125,73.83,67.57,73.68,67.59,73.75,67.58
+UDante,latin-udante-ud-2.17-251125,69.7,62.9,69.02,61.71,69.36,62.3
+Perseus,latin-perseus-ud-2.17-251125,69.33,62.43,68.98,61.19,69.16,61.81
+ITTB,latin-ittb-ud-2.17-251125,69.35,61.14,66.33,57.64,67.84,59.39
+PROIEL,latin-proiel-ud-2.17-251125,68.79,60.5,65.02,55.91,66.91,58.2
+LLCT,latin-llct-ud-2.17-251125,45.42,31.32,36.09,21.05,40.76,26.19
