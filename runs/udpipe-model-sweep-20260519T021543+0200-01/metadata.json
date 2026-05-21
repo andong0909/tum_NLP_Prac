@@ -1,0 +1,115 @@
+{
+  "run_id": "udpipe-model-sweep-20260519T021543+0200-01",
+  "run_timestamp": "2026-05-19T02:15:43+02:00",
+  "task": "EvaLatin 2024 dependency parsing",
+  "purpose": "Compare the six current Latin UD 2.17 UDPipe models on the released EvaLatin 2024 prose and poetry gold data.",
+  "inference": {
+    "runner": "scripts/run_udpipe_api.py",
+    "api_endpoint": "https://lindat.mff.cuni.cz/services/udpipe/api/process",
+    "input_format": "conllu",
+    "parser_enabled": true
+  },
+  "evaluation": {
+    "scorer": "scripts/conll18_ud_eval.py",
+    "test_data": {
+      "prose": "data/test/EvaLatin_2024_Syntactic_Parsing_test_data/EvaLatin_2024_prose-test-data.conllu",
+      "poetry": "data/test/EvaLatin_2024_Syntactic_Parsing_test_data/EvaLatin_2024_poetry_test_data.conllu"
+    },
+    "gold_data": {
+      "prose": "data/gold/EvaLatin_2024_Syntactic_Parsing_test_data_gold/EvaLatin_2024_prose_gold.conllu",
+      "poetry": "data/gold/EvaLatin_2024_Syntactic_Parsing_test_data_gold/EvaLatin_2024_poetry_gold.conllu"
+    },
+    "metrics": ["UAS", "LAS", "CLAS", "MLAS", "BLEX"]
+  },
+  "models": [
+    {
+      "name": "CIRCSE",
+      "model_id": "latin-circse-ud-2.17-251125",
+      "training_data": {
+        "kind": "external_pretrained_model",
+        "known_source": "UDPipe Latin CIRCSE UD model",
+        "local_training": false,
+        "notes": "This run used the published UDPipe model for inference only."
+      },
+      "results": {
+        "prose": {"UAS": 73.83, "LAS": 67.57, "CLAS": 62.86, "MLAS": 58.25, "BLEX": 62.86, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-circse-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-circse-ud-2.17-251125.score.txt"},
+        "poetry": {"UAS": 73.68, "LAS": 67.59, "CLAS": 66.28, "MLAS": 62.98, "BLEX": 66.28, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-circse-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-circse-ud-2.17-251125.score.txt"}
+      }
+    },
+    {
+      "name": "UDante",
+      "model_id": "latin-udante-ud-2.17-251125",
+      "training_data": {
+        "kind": "external_pretrained_model",
+        "known_source": "UDPipe Latin UDante UD model",
+        "local_training": false,
+        "notes": "This run used the published UDPipe model for inference only."
+      },
+      "results": {
+        "prose": {"UAS": 69.7, "LAS": 62.9, "CLAS": 57.81, "MLAS": 53.1, "BLEX": 57.81, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-udante-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-udante-ud-2.17-251125.score.txt"},
+        "poetry": {"UAS": 69.02, "LAS": 61.71, "CLAS": 60.38, "MLAS": 56.23, "BLEX": 60.38, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-udante-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-udante-ud-2.17-251125.score.txt"}
+      }
+    },
+    {
+      "name": "Perseus",
+      "model_id": "latin-perseus-ud-2.17-251125",
+      "training_data": {
+        "kind": "external_pretrained_model",
+        "known_source": "UDPipe Latin Perseus UD model",
+        "local_training": false,
+        "notes": "This run used the published UDPipe model for inference only."
+      },
+      "results": {
+        "prose": {"UAS": 69.33, "LAS": 62.43, "CLAS": 57.46, "MLAS": 52.58, "BLEX": 57.46, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-perseus-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-perseus-ud-2.17-251125.score.txt"},
+        "poetry": {"UAS": 68.98, "LAS": 61.19, "CLAS": 59.9, "MLAS": 55.64, "BLEX": 59.9, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-perseus-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-perseus-ud-2.17-251125.score.txt"}
+      }
+    },
+    {
+      "name": "ITTB",
+      "model_id": "latin-ittb-ud-2.17-251125",
+      "training_data": {
+        "kind": "external_pretrained_model",
+        "known_source": "UDPipe Latin ITTB UD model",
+        "local_training": false,
+        "notes": "This run used the published UDPipe model for inference only."
+      },
+      "results": {
+        "prose": {"UAS": 69.35, "LAS": 61.14, "CLAS": 56.36, "MLAS": 50.85, "BLEX": 56.36, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-ittb-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-ittb-ud-2.17-251125.score.txt"},
+        "poetry": {"UAS": 66.33, "LAS": 57.64, "CLAS": 56.03, "MLAS": 51.65, "BLEX": 56.03, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-ittb-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-ittb-ud-2.17-251125.score.txt"}
+      }
+    },
+    {
+      "name": "PROIEL",
+      "model_id": "latin-proiel-ud-2.17-251125",
+      "training_data": {
+        "kind": "external_pretrained_model",
+        "known_source": "UDPipe Latin PROIEL UD model",
+        "local_training": false,
+        "notes": "This run used the published UDPipe model for inference only."
+      },
+      "results": {
+        "prose": {"UAS": 68.79, "LAS": 60.5, "CLAS": 56.62, "MLAS": 50.08, "BLEX": 56.62, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-proiel-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-proiel-ud-2.17-251125.score.txt"},
+        "poetry": {"UAS": 65.02, "LAS": 55.91, "CLAS": 54.87, "MLAS": 49.81, "BLEX": 54.87, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-proiel-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-proiel-ud-2.17-251125.score.txt"}
+      }
+    },
+    {
+      "name": "LLCT",
+      "model_id": "latin-llct-ud-2.17-251125",
+      "training_data": {
+        "kind": "external_pretrained_model",
+        "known_source": "UDPipe Latin LLCT UD model",
+        "local_training": false,
+        "notes": "This run used the published UDPipe model for inference only."
+      },
+      "results": {
+        "prose": {"UAS": 45.42, "LAS": 31.32, "CLAS": 25.3, "MLAS": 21.38, "BLEX": 25.3, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-llct-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/prose_latin-llct-ud-2.17-251125.score.txt"},
+        "poetry": {"UAS": 36.09, "LAS": 21.05, "CLAS": 18.84, "MLAS": 16.01, "BLEX": 18.84, "output_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-llct-ud-2.17-251125.conllu", "score_file": "runs/udpipe-model-sweep-20260519T021543+0200-01/poetry_latin-llct-ud-2.17-251125.score.txt"}
+      }
+    }
+  ],
+  "artifacts": {
+    "summary_markdown": "runs/udpipe-model-sweep-20260519T021543+0200-01/summary.md",
+    "summary_csv": "runs/udpipe-model-sweep-20260519T021543+0200-01/summary.csv",
+    "las_chart": "runs/udpipe-model-sweep-20260519T021543+0200-01/latin_model_las_chart.svg"
+  }
+}
