@@ -62,6 +62,30 @@ Verified local scores for `latin-evalatin24-240520`:
 | Prose | 80.49 | 75.20 |
 | Poetry | 78.31 | 72.36 |
 
+## MLX Qwen LoRA Fine-Tuning Status
+
+An MLX LoRA experiment has been added under `experiments/latin_lora_mlx_ft/` to test whether a small Qwen model can learn the EvaLatin parsing-completion task locally on Apple Silicon.
+
+The current fine-tuning setup follows the same task shape as the UDPipe baseline:
+
+- input: original EvaLatin CoNLL-U with tokenization, lemmas, POS, morphology, and blank `HEAD`/`DEPREL`
+- target: gold EvaLatin CoNLL-U with `HEAD` and `DEPREL` filled
+- split: 80/10/10 over 854 paired examples
+  - train: 684 examples
+  - validation: 85 examples
+  - test: 85 examples
+
+I attempted LoRA fine-tuning with Qwen3.5 0.6B/0.8B-class 4-bit MLX models on a MacBook. The current blocker is sequence length and local memory. Many CoNLL-U sentence blocks are long; with `max_seq_length=2048`, examples are truncated and training can produce `nan` loss. Raising the cap to `4096` reduces truncation but can exceed laptop Metal memory and trigger out-of-memory errors.
+
+Current next step: further split or filter long CoNLL-U examples so each training row fits the MacBook memory budget, then rerun LoRA training and evaluate generated CoNLL-U with `conll18_ud_eval.py` using `UPOS`, `UAS`, `LAS`, `CLAS`, `MLAS`, and `BLEX`.
+
+Local adapter outputs and evaluation runs are intentionally ignored by Git under:
+
+```text
+experiments/latin_lora_mlx_ft/adapters/
+experiments/latin_lora_mlx_ft/runs/
+```
+
 ## Other Latin Models To Try
 
 List available models:

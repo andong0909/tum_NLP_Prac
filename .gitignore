@@ -1,4 +1,9 @@
 .DS_Store
 __pycache__/
 *.pyc
-
+.venv
+.venv/
+experiments/latin_lora_mlx_ft/.venv
+experiments/latin_lora_mlx_ft/.venv/
+experiments/latin_lora_mlx_ft/adapters/
+experiments/latin_lora_mlx_ft/runs/
