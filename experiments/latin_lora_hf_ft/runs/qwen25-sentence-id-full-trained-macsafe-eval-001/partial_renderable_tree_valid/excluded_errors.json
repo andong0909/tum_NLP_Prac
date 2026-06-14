@@ -1,0 +1,17 @@
+{
+  "excluded_count": 1,
+  "kept_count": 57,
+  "total_count": 58,
+  "excluded": [
+    {
+      "index": 57,
+      "sent_id": "TacGerma-Q-01-112",
+      "error": {
+        "index": 57,
+        "sent_id": "TacGerma-Q-01-112",
+        "error": "Predicted token IDs do not match input order: expected ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'], got ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']",
+        "prediction": "1\t17\tadvmod:tmod\n2\t7\tdiscourse\n3\t7\tadvmod:tmod\n4\t5\tnsubj\n5\t7\tnsubj:pass\n6\t7\tcase\n7\t0\troot\n8\t17\tadvmod\n9\t17\tnsubj\n10\t17\tconj\n11\t12\tcc\n12\t10\tconj\n13\t10\tobl\n14\t13\tconj\n15\t14\tcc\n16\t14\tnmod\n17\t10\tconj"
+      }
+    }
+  ]
+}

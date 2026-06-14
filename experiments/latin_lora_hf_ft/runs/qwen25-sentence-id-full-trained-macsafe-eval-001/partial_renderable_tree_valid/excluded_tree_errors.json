@@ -1,0 +1,17 @@
+{
+  "excluded_count": 2,
+  "kept_count": 55,
+  "pre_tree_count": 57,
+  "excluded": [
+    {
+      "kept_index": 4,
+      "sent_id": "SenHerFu-P-15-401",
+      "error": "Cycle detected while following token 3: revisited 3"
+    },
+    {
+      "kept_index": 47,
+      "sent_id": "TacGerma-Q-01-93",
+      "error": "Cycle detected while following token 16: revisited 16"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "label": "Partial diagnostic score over renderable sentence subset only. Not an official full-split score.",
+  "run_dir": "runs/qwen25-sentence-id-full-trained-macsafe-eval-001",
+  "input_jsonl": "latin_sentence_id_head_deprel_data_macsafe_2048/test.jsonl",
+  "pred_jsonl": "runs/qwen25-sentence-id-full-trained-macsafe-eval-001/id_head_deprel_predictions.jsonl",
+  "total_sentences": 58,
+  "kept_sentences": 57,
+  "excluded_sentences": 1,
+  "excluded_indices": [
+    57
+  ],
+  "scores": {}
+}
