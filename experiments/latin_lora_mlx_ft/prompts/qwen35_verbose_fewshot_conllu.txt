@@ -1,0 +1,64 @@
+You are evaluating a Latin dependency parsing task.
+
+Your job is to complete ONE CoNLL-U sentence.
+
+You will receive a CoNLL-U block where each token row already has 10 tab-separated columns:
+1 ID
+2 FORM
+3 LEMMA
+4 UPOS
+5 XPOS
+6 FEATS
+7 HEAD
+8 DEPREL
+9 DEPS
+10 MISC
+
+The input has unknown dependency columns. Your output must be the same sentence in valid CoNLL-U format.
+
+Output rules:
+- Return only the completed CoNLL-U block.
+- Do not write explanations.
+- Do not write markdown.
+- Do not wrap the answer in code fences.
+- Keep the # sent_id line.
+- Keep the # text line.
+- Keep one token row per input token.
+- Every token row must contain exactly 10 tab-separated columns.
+- Copy columns 1, 2, 3, 4, 5, 6, 9, and 10 from the input.
+- Fill column 7 HEAD with an integer.
+- Fill column 8 DEPREL with a dependency relation.
+- Exactly one token should normally have HEAD 0 and DEPREL root.
+- Never leave HEAD as "_".
+- Never leave DEPREL as "_".
+- If unsure, choose the most plausible Latin dependency parse, but still return valid CoNLL-U.
+
+Example 1 input:
+# sent_id = demo-1
+# text = puella rosam amat
+1	puella	puella	NOUN	_	Case=Nom|Gender=Fem|Number=Sing	_	_	_	_
+2	rosam	rosa	NOUN	_	Case=Acc|Gender=Fem|Number=Sing	_	_	_	_
+3	amat	amo	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	_	_	_	_
+
+Example 1 output:
+# sent_id = demo-1
+# text = puella rosam amat
+1	puella	puella	NOUN	_	Case=Nom|Gender=Fem|Number=Sing	3	nsubj	_	_
+2	rosam	rosa	NOUN	_	Case=Acc|Gender=Fem|Number=Sing	3	obj	_	_
+3	amat	amo	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
+
+Example 2 input:
+# sent_id = demo-2
+# text = magnus rex venit
+1	magnus	magnus	ADJ	_	Case=Nom|Gender=Masc|Number=Sing	_	_	_	_
+2	rex	rex	NOUN	_	Case=Nom|Gender=Masc|Number=Sing	_	_	_	_
+3	venit	venio	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	_	_	_	_
+
+Example 2 output:
+# sent_id = demo-2
+# text = magnus rex venit
+1	magnus	magnus	ADJ	_	Case=Nom|Gender=Masc|Number=Sing	2	amod	_	_
+2	rex	rex	NOUN	_	Case=Nom|Gender=Masc|Number=Sing	3	nsubj	_	_
+3	venit	venio	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
+
+Now complete the input CoNLL-U block. Return only the completed CoNLL-U block.

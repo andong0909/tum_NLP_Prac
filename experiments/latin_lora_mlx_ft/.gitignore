@@ -1,5 +1,6 @@
 .venv/
 adapters/
+runs/
 source_data/
 __pycache__/
 *.pyc

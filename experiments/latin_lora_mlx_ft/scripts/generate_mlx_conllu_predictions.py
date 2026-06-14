@@ -7,12 +7,12 @@ from mlx_lm.generate import generate
 from mlx_lm.sample_utils import make_sampler
 from mlx_lm.utils import load
 
-from prompting import SYSTEM_PROMPT
+from prompting import load_prompt
 
 
-def build_prompt(tokenizer, sentence, chat_template_config):
+def build_prompt(tokenizer, system_prompt, sentence, chat_template_config):
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": system_prompt},
         {"role": "user", "content": sentence},
     ]
     template_kwargs = json.loads(chat_template_config) if chat_template_config else {}
@@ -24,7 +24,7 @@ def build_prompt(tokenizer, sentence, chat_template_config):
             **template_kwargs,
         )
         return tokenizer.encode(prompt, add_special_tokens=False)
-    return tokenizer.encode(f"{SYSTEM_PROMPT}\n\n{sentence}\n\n")
+    return tokenizer.encode(f"{system_prompt}\n\n{sentence}\n\n")
 
 
 def clean_generation(text):
@@ -57,6 +57,17 @@ def main():
         default='{"enable_thinking": false}',
         help="JSON kwargs passed to tokenizer.apply_chat_template.",
     )
+    parser.add_argument(
+        "--system-prompt",
+        default=None,
+        help="Override the system prompt. Defaults to the first JSONL example.",
+    )
+    parser.add_argument(
+        "--system-prompt-file",
+        type=Path,
+        default=None,
+        help="File containing a system prompt override.",
+    )
     args = parser.parse_args()
 
     examples = [
@@ -68,6 +79,12 @@ def main():
         examples = examples[: args.limit]
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    if not examples:
+        raise ValueError(f"No examples found in {args.input}")
+
+    system_prompt = load_prompt(args.system_prompt, args.system_prompt_file)
+    if args.system_prompt is None and args.system_prompt_file is None:
+        system_prompt = examples[0]["messages"][0]["content"]
 
     model, tokenizer = load(
         args.model,
@@ -79,7 +96,12 @@ def main():
     predictions = []
     for index, example in enumerate(examples, 1):
         sentence = example["messages"][1]["content"]
-        prompt = build_prompt(tokenizer, sentence, args.chat_template_config)
+        prompt = build_prompt(
+            tokenizer,
+            system_prompt,
+            sentence,
+            args.chat_template_config,
+        )
         generated = generate(
             model,
             tokenizer,

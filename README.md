@@ -62,28 +62,60 @@ Verified local scores for `latin-evalatin24-240520`:
 | Prose | 80.49 | 75.20 |
 | Poetry | 78.31 | 72.36 |
 
-## MLX Qwen LoRA Fine-Tuning Status
+## LLM LoRA Fine-Tuning Status
 
-An MLX LoRA experiment has been added under `experiments/latin_lora_mlx_ft/` to test whether a small Qwen model can learn the EvaLatin parsing-completion task locally on Apple Silicon.
+Two LLM fine-tuning tracks are now included under `experiments/`:
 
-The current fine-tuning setup follows the same task shape as the UDPipe baseline:
+- `experiments/latin_lora_mlx_ft/`: Apple MLX experiments and data preparation.
+- `experiments/latin_lora_hf_ft/`: Hugging Face/PEFT training for CUDA Slurm clusters.
+
+The latest Hugging Face protocol follows a parser-wrapper design rather than
+asking the LLM to regenerate full CoNLL-U:
 
 - input: original EvaLatin CoNLL-U with tokenization, lemmas, POS, morphology, and blank `HEAD`/`DEPREL`
-- target: gold EvaLatin CoNLL-U with `HEAD` and `DEPREL` filled
+- target: one `HEAD<TAB>DEPREL` line per syntactic token, in token order
+- post-processing: render the predicted `HEAD`/`DEPREL` lines back into the original CoNLL-U skeleton, then score with `conll18_ud_eval.py`
 - split: 80/10/10 over 854 paired examples
   - train: 684 examples
   - validation: 85 examples
   - test: 85 examples
 
-I attempted LoRA fine-tuning with Qwen3.5 0.6B/0.8B-class 4-bit MLX models on a MacBook. The current blocker is sequence length and local memory. Many CoNLL-U sentence blocks are long; with `max_seq_length=2048`, examples are truncated and training can produce `nan` loss. Raising the cap to `4096` reduces truncation but can exceed laptop Metal memory and trigger out-of-memory errors.
+The CUDA cluster run successfully fine-tuned `Qwen/Qwen2.5-0.5B-Instruct` with
+normal LoRA, bf16, and an A100 40 GB allocation. The completed adapter is a
+generated artifact and is not tracked in Git:
 
-Current next step: further split or filter long CoNLL-U examples so each training row fits the MacBook memory budget, then rerun LoRA training and evaluate generated CoNLL-U with `conll18_ud_eval.py` using `UPOS`, `UAS`, `LAS`, `CLAS`, `MLAS`, and `BLEX`.
+```text
+experiments/latin_lora_hf_ft/hf_outputs/qwen25-05b-head-deprel-a100-lora-full/
+```
 
-Local adapter outputs and evaluation runs are intentionally ignored by Git under:
+Training finished cleanly after 3 epochs:
+
+```text
+eval_loss: 0.5038
+train_loss: 0.7946
+```
+
+Evaluation is intentionally strict. The renderer requires exactly one
+`HEAD<TAB>DEPREL` prediction per syntactic token. Current smoke tests show:
+
+- base Qwen2.5 output is unscoreable when it predicts too few dependency lines
+- the LoRA adapter is closer but still unscoreable in the current smoke run when it predicts extra dependency lines
+
+This means the next review task is not training stability; it is inference
+format control. Candidate fixes include reducing `MAX_NEW_TOKENS`, adding an
+explicit stop sequence, or making the evaluation wrapper record line-count
+validity separately before running the official scorer. Do not report repaired
+or truncated predictions as raw model scores unless they are clearly labeled as
+fallback-assisted.
+
+Generated adapters, run logs, and prediction outputs are intentionally ignored
+by Git under:
 
 ```text
 experiments/latin_lora_mlx_ft/adapters/
 experiments/latin_lora_mlx_ft/runs/
+experiments/latin_lora_hf_ft/hf_outputs/
+experiments/latin_lora_hf_ft/runs/
 ```
 
 ## Other Latin Models To Try

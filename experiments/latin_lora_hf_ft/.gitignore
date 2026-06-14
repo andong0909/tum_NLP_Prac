@@ -1,0 +1,8 @@
+.venv-hf/
+hf_outputs/
+runs/
+slurm-*.out
+wandb/
+__pycache__/
+*.pyc
+.DS_Store

@@ -4,9 +4,9 @@ set -eu
 cd "$(dirname "$0")"
 
 MODEL="${MODEL:-mlx-community/Qwen3.5-0.8B-MLX-4bit}"
-DATA_DIR="${DATA_DIR:-latin_lora_data}"
-ADAPTER_PATH="${ADAPTER_PATH:-adapters/latin-qwen-copycols-prompt-4096-001}"
-MAX_SEQ_LENGTH="${MAX_SEQ_LENGTH:-4096}"
+DATA_DIR="${DATA_DIR:-latin_lora_data_macsafe_2048}"
+ADAPTER_PATH="${ADAPTER_PATH:-adapters/latin-qwen-copycols-macsafe-2048-001}"
+MAX_SEQ_LENGTH="${MAX_SEQ_LENGTH:-2048}"
 ITERS="${ITERS:-200}"
 BATCH_SIZE="${BATCH_SIZE:-1}"
 GRAD_ACCUMULATION_STEPS="${GRAD_ACCUMULATION_STEPS:-4}"
@@ -14,8 +14,8 @@ NUM_LAYERS="${NUM_LAYERS:-4}"
 LEARNING_RATE="${LEARNING_RATE:-1e-5}"
 STEPS_PER_REPORT="${STEPS_PER_REPORT:-10}"
 STEPS_PER_EVAL="${STEPS_PER_EVAL:-50}"
-VAL_BATCHES="${VAL_BATCHES:--1}"
-TEST_BATCHES="${TEST_BATCHES:--1}"
+VAL_BATCHES="${VAL_BATCHES:-10}"
+TEST_BATCHES="${TEST_BATCHES:-10}"
 SAVE_EVERY="${SAVE_EVERY:-100}"
 
 if [ ! -x .venv/bin/mlx_lm.lora ]; then
