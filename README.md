@@ -69,6 +69,10 @@ Two LLM fine-tuning tracks are now included under `experiments/`:
 - `experiments/latin_lora_mlx_ft/`: Apple MLX experiments and data preparation.
 - `experiments/latin_lora_hf_ft/`: Hugging Face/PEFT training for CUDA Slurm clusters.
 
+For a chronological lab notebook of the LLM attempts, motivations, outcomes,
+failure modes, and next steps, see
+[`experiments/latin_lora_hf_ft/EXPERIMENT_LOG.md`](experiments/latin_lora_hf_ft/EXPERIMENT_LOG.md).
+
 The latest Hugging Face protocol follows a parser-wrapper design rather than
 asking the LLM to regenerate full CoNLL-U:
 

@@ -10,6 +10,9 @@ preparation live in:
 ../latin_lora_mlx_ft/
 ```
 
+For the chronological record of attempts, motivations, outcomes, and next
+steps, see [`EXPERIMENT_LOG.md`](EXPERIMENT_LOG.md).
+
 ## Current Status
 
 The most successful protocol so far is the sentence-level
