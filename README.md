@@ -73,16 +73,17 @@ The latest Hugging Face protocol follows a parser-wrapper design rather than
 asking the LLM to regenerate full CoNLL-U:
 
 - input: original EvaLatin CoNLL-U with tokenization, lemmas, POS, morphology, and blank `HEAD`/`DEPREL`
-- target: one `HEAD<TAB>DEPREL` line per syntactic token, in token order
-- post-processing: render the predicted `HEAD`/`DEPREL` lines back into the original CoNLL-U skeleton, then score with `conll18_ud_eval.py`
+- current target: one `ID<TAB>HEAD<TAB>DEPREL` line per syntactic token, in token order
+- post-processing: render predicted dependency rows back into the original CoNLL-U skeleton, then score with `conll18_ud_eval.py`
 - split: 80/10/10 over 854 paired examples
   - train: 684 examples
   - validation: 85 examples
   - test: 85 examples
 
-The CUDA cluster run successfully fine-tuned `Qwen/Qwen2.5-0.5B-Instruct` with
-normal LoRA, bf16, and an A100 40 GB allocation. The completed adapter is a
-generated artifact and is not tracked in Git:
+The first CUDA cluster run successfully fine-tuned `Qwen/Qwen2.5-0.5B-Instruct`
+with normal LoRA, bf16, and an A100 40 GB allocation on the original
+`HEAD<TAB>DEPREL` target. That run trained stably but remained hard to score
+because generation did not reliably produce exactly one line per token.
 
 ```text
 experiments/latin_lora_hf_ft/hf_outputs/qwen25-05b-head-deprel-a100-lora-full/
@@ -107,6 +108,27 @@ explicit stop sequence, or making the evaluation wrapper record line-count
 validity separately before running the official scorer. Do not report repaired
 or truncated predictions as raw model scores unless they are clearly labeled as
 fallback-assisted.
+
+The newer sentence-level `ID<TAB>HEAD<TAB>DEPREL` protocol is the current best
+candidate. It keeps full sentence context in the prompt but anchors every
+generated row with a token id. On the Mac-safe 2048-token split, a fully trained
+adapter rendered 57/58 test sentences and produced valid dependency trees for
+55/58. The partial diagnostic score over those 55 renderable and tree-valid
+sentences was:
+
+| Split | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Mac-safe test | 55/58 renderable + tree-valid sentences | 100.00 | 49.36 | 40.47 | 39.02 | 33.70 | 39.02 |
+
+This is not an official full-split score because one sentence failed rendering
+and two rendered sentences formed invalid dependency trees. The excluded
+sentences were:
+
+- render-excluded: `TacGerma-Q-01-112` (model generated 17 rows for 18 tokens)
+- tree-excluded: `SenHerFu-P-15-401`, `TacGerma-Q-01-93`
+
+Current next steps are to add a token-count cue and/or an explicit `END` marker
+to reduce early stopping and over-generation, then rerun the full official split.
 
 Generated adapters, run logs, and prediction outputs are intentionally ignored
 by Git under:

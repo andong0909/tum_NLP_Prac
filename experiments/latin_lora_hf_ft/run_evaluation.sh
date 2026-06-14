@@ -94,6 +94,7 @@ python ../latin_lora_mlx_ft/scripts/score_single_conllu_run.py \
   --gold "$RUN_DIR/gold.conllu" \
   --pred "$RUN_DIR/pred.conllu" \
   --system-name "$SYSTEM_NAME" \
+  --scorer ../latin_lora_mlx_ft/scripts/conll18_ud_eval.py \
   --run-name "$RUN_ID" \
   --out-root runs \
   --model "$MODEL" \

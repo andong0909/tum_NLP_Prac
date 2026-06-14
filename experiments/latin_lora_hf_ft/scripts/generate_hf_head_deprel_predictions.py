@@ -76,12 +76,25 @@ def main():
     if args.adapter_path:
         model = PeftModel.from_pretrained(model, str(args.adapter_path))
     model.eval()
+    model.generation_config.do_sample = False
+    model.generation_config.temperature = None
+    model.generation_config.top_p = None
+    model.generation_config.top_k = None
 
     examples = load_examples(args.input, args.limit)
     args.output.parent.mkdir(parents=True, exist_ok=True)
 
     with args.output.open("w", encoding="utf-8") as handle:
         for index, example in enumerate(examples, 1):
+            sent_id = next(
+                (
+                    line.split("=", 1)[1].strip()
+                    for line in example["messages"][1]["content"].splitlines()
+                    if line.startswith("# sent_id")
+                ),
+                str(index),
+            )
+            print(f"Generating {index}/{len(examples)} ({sent_id})", flush=True)
             prompt = build_prompt(tokenizer, example["messages"])
             encoded = tokenizer(
                 prompt,
@@ -100,14 +113,6 @@ def main():
                 )
             new_tokens = generated[0, encoded["input_ids"].shape[1] :]
             prediction = clean_generation(tokenizer.decode(new_tokens, skip_special_tokens=True))
-            sent_id = next(
-                (
-                    line.split("=", 1)[1].strip()
-                    for line in example["messages"][1]["content"].splitlines()
-                    if line.startswith("# sent_id")
-                ),
-                str(index),
-            )
             handle.write(
                 json.dumps(
                     {"sent_id": sent_id, "assistant": prediction},
@@ -115,7 +120,8 @@ def main():
                 )
                 + "\n"
             )
-            print(f"Generated {index}/{len(examples)}")
+            handle.flush()
+            print(f"Generated {index}/{len(examples)} ({sent_id})", flush=True)
 
     print(f"Wrote predictions to {args.output}")
 

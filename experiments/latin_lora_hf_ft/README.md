@@ -10,6 +10,42 @@ preparation live in:
 ../latin_lora_mlx_ft/
 ```
 
+## Current Status
+
+The most successful protocol so far is the sentence-level
+`ID<TAB>HEAD<TAB>DEPREL` variant. It keeps the full blank CoNLL-U sentence as
+input, uses a short system prompt, and asks the model to emit one compact row
+per syntactic token.
+
+Latest result from the Mac-safe 2048-token split:
+
+```text
+Model: Qwen/Qwen2.5-0.5B-Instruct
+Adapter: hf_outputs/qwen25-05b-sentence-id-head-deprel-a100-lora-full/
+Training data: latin_sentence_id_head_deprel_data_macsafe_2048/
+Training: normal LoRA, bf16, 3 epochs, A100 40 GB Slurm job
+Evaluation data: latin_sentence_id_head_deprel_data_macsafe_2048/test.jsonl
+```
+
+The official scorer could not run on all 58 Mac-safe test sentences because:
+
+- 1 sentence failed rendering: `TacGerma-Q-01-112`
+- 2 rendered sentences had invalid dependency trees: `SenHerFu-P-15-401`, `TacGerma-Q-01-93`
+
+Partial diagnostic score over the remaining 55/58 renderable and tree-valid
+sentences:
+
+| System | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `lora_qwen25_sentence_id_head_deprel_partial` | 55/58 Mac-safe test sentences | 100.00 | 49.36 | 40.47 | 39.02 | 33.70 | 39.02 |
+
+This is not an official full-split score. It is a useful diagnostic that shows
+the sentence-ID protocol is scoreable for most short examples and materially
+better than the original unanchored `HEAD<TAB>DEPREL` target.
+
+Next protocol change to try: add `# token_count = N` to the user message and an
+explicit `END` line to the assistant target, so the model learns when to stop.
+
 ## Protocol
 
 The model sees the full input CoNLL-U sentence, including all original token
@@ -48,6 +84,320 @@ The generated folders are:
 ```text
 latin_head_deprel_data/
 latin_head_deprel_data_macsafe_2048/
+```
+
+### Sentence-Level ID/HEAD/DEPREL Variant
+
+This is the recommended next candidate for the actual parsing task. It keeps
+the full blank CoNLL-U sentence as input, but makes the target row-anchored:
+
+```text
+ID<TAB>HEAD<TAB>DEPREL
+ID<TAB>HEAD<TAB>DEPREL
+...
+```
+
+The system prompt is intentionally short:
+
+```text
+Predict Latin dependencies. Given blank CoNLL-U, output only ID<TAB>HEAD<TAB>DEPREL rows, one per syntactic token, in input order.
+```
+
+This keeps sentence context while avoiding the earlier ambiguity of returning
+bare `HEAD<TAB>DEPREL` lines.
+
+Build the splits:
+
+```sh
+python3 scripts/convert_chat_conllu_to_sentence_id_head_deprel.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data \
+  --out-dir latin_sentence_id_head_deprel_data
+
+python3 scripts/convert_chat_conllu_to_sentence_id_head_deprel.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data_macsafe_2048 \
+  --out-dir latin_sentence_id_head_deprel_data_macsafe_2048
+```
+
+Smoke-train:
+
+```sh
+DATA_DIR="latin_sentence_id_head_deprel_data_macsafe_2048" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-sentence-id-head-deprel-smoke" \
+MAX_SEQ_LENGTH=2048 \
+MAX_STEPS=100 \
+PRECISION=bf16 \
+./run_training_smoke.sh
+```
+
+Full Slurm run:
+
+```sh
+DATA_DIR="latin_sentence_id_head_deprel_data" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-sentence-id-head-deprel-a100-lora-full" \
+MAX_SEQ_LENGTH=4096 \
+MAX_STEPS=-1 \
+EPOCHS=3 \
+PRECISION=bf16 \
+sbatch run_training.slurm
+```
+
+Evaluate:
+
+```sh
+LIMIT=5 \
+RUN_ID="qwen25-sentence-id-lora-smoke-005" \
+SYSTEM_NAME="lora_qwen25_sentence_id_head_deprel" \
+ADAPTER_PATH="hf_outputs/qwen25-05b-sentence-id-head-deprel-smoke" \
+TEST_FILE="latin_sentence_id_head_deprel_data/test.jsonl" \
+MAX_NEW_TOKENS=1024 \
+PRECISION=bf16 \
+./run_sentence_id_evaluation.sh qwen25-sentence-id-lora-smoke-005
+```
+
+### Token-Level Variant
+
+The sentence-level `HEAD<TAB>DEPREL` protocol is efficient, but brittle: the
+model must generate exactly one line per token. The token-level variant turns
+each sentence into one example per syntactic token.
+
+Input:
+
+```text
+full CoNLL-U sentence with blank HEAD/DEPREL
+target token ID/FORM/LEMMA/UPOS/XPOS/FEATS
+```
+
+Output:
+
+```text
+ID<TAB>HEAD<TAB>DEPREL
+```
+
+This makes each generation tiny and easier to validate. The tradeoff is that
+the model predicts arcs independently, so a later validation step still needs to
+check for impossible trees, missing roots, cycles, or inconsistent global
+structure.
+
+Build the token-level splits:
+
+```sh
+python3 scripts/convert_chat_conllu_to_token_head_deprel.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data \
+  --out-dir latin_token_head_deprel_data
+
+python3 scripts/convert_chat_conllu_to_token_head_deprel.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data_macsafe_2048 \
+  --out-dir latin_token_head_deprel_data_macsafe_2048
+```
+
+Smoke-train the token-level format:
+
+```sh
+DATA_DIR="latin_token_head_deprel_data_macsafe_2048" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-token-head-deprel-smoke" \
+MAX_SEQ_LENGTH=2048 \
+MAX_STEPS=20 \
+PRECISION=bf16 \
+./run_training_smoke.sh
+```
+
+Submit a full token-level Slurm run:
+
+```sh
+DATA_DIR="latin_token_head_deprel_data" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-token-head-deprel-a100-lora-full" \
+MAX_SEQ_LENGTH=4096 \
+MAX_STEPS=-1 \
+EPOCHS=3 \
+PRECISION=bf16 \
+sbatch run_training.slurm
+```
+
+For token-level inference, reuse the HF generator with a small output budget:
+
+```sh
+python3 scripts/generate_hf_head_deprel_predictions.py \
+  --input latin_token_head_deprel_data/test.jsonl \
+  --output runs/qwen25-token/head_deprel_token_predictions.jsonl \
+  --model "Qwen/Qwen2.5-0.5B-Instruct" \
+  --adapter-path hf_outputs/qwen25-05b-token-head-deprel-a100-lora-full \
+  --max-input-length 4096 \
+  --max-new-tokens 24 \
+  --bf16
+```
+
+Then render token predictions back into CoNLL-U:
+
+```sh
+python3 scripts/render_token_head_deprel_to_conllu.py \
+  --input-jsonl latin_token_head_deprel_data/test.jsonl \
+  --pred-jsonl runs/qwen25-token/head_deprel_token_predictions.jsonl \
+  --output-conllu runs/qwen25-token/pred.conllu \
+  --report runs/qwen25-token/render_report.json
+```
+
+Or use the wrapper, which limits smoke tests by complete sentences:
+
+```sh
+LIMIT_SENTENCES=5 \
+RUN_ID="qwen25-token-lora-smoke-005" \
+SYSTEM_NAME="lora_qwen25_token_head_deprel" \
+ADAPTER_PATH="hf_outputs/qwen25-05b-token-head-deprel-a100-lora-full" \
+TEST_FILE="latin_token_head_deprel_data/test.jsonl" \
+MAX_NEW_TOKENS=24 \
+PRECISION=bf16 \
+./run_token_evaluation.sh qwen25-token-lora-smoke-005
+```
+
+### Compact Word-Lines Variant
+
+This is a diagnostic format for testing whether the model can reliably output
+the correct number of dependency rows. The prompt removes the full CoNLL-U
+table and shows only word lines:
+
+```text
+# sent_id = ...
+# text = ...
+1<TAB>quae
+2<TAB>fera
+3<TAB>tyranni
+...
+```
+
+The target is:
+
+```text
+1<TAB>4<TAB>det
+2<TAB>4<TAB>amod
+3<TAB>4<TAB>nmod
+...
+```
+
+This is not expected to be the strongest linguistic setup because the model
+loses lemma, UPOS, morphology, and XPOS. It is mainly a formatting/capability
+test: can the model produce one structured dependency row per input word?
+
+Build the compact splits:
+
+```sh
+python3 scripts/convert_chat_conllu_to_word_lines_head_deprel.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data \
+  --out-dir latin_word_lines_head_deprel_data
+
+python3 scripts/convert_chat_conllu_to_word_lines_head_deprel.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data_macsafe_2048 \
+  --out-dir latin_word_lines_head_deprel_data_macsafe_2048
+```
+
+Smoke-train the compact format:
+
+```sh
+DATA_DIR="latin_word_lines_head_deprel_data_macsafe_2048" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-word-lines-head-deprel-smoke" \
+MAX_SEQ_LENGTH=1024 \
+MAX_STEPS=50 \
+PRECISION=bf16 \
+./run_training_smoke.sh
+```
+
+Submit a full compact-format Slurm run:
+
+```sh
+DATA_DIR="latin_word_lines_head_deprel_data" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-word-lines-head-deprel-a100-lora-full" \
+MAX_SEQ_LENGTH=2048 \
+MAX_STEPS=-1 \
+EPOCHS=3 \
+PRECISION=bf16 \
+sbatch run_training.slurm
+```
+
+Evaluate a compact-format adapter:
+
+```sh
+LIMIT=5 \
+RUN_ID="qwen25-word-lines-lora-smoke-005" \
+SYSTEM_NAME="lora_qwen25_word_lines_head_deprel" \
+ADAPTER_PATH="hf_outputs/qwen25-05b-word-lines-head-deprel-a100-lora-full" \
+TEST_FILE="latin_word_lines_head_deprel_data/test.jsonl" \
+MAX_NEW_TOKENS=512 \
+PRECISION=bf16 \
+./run_word_lines_evaluation.sh qwen25-word-lines-lora-smoke-005
+```
+
+### Single-Row Diagnostic Variant
+
+This is the most artificial troubleshooting setup. Each JSONL record contains
+only one syntactic CoNLL-U token row, regardless of sentence boundaries:
+
+```text
+1<TAB>quae<TAB>quis<TAB>PRON<TAB>K<TAB>Case=Nom|...<TAB>_<TAB>_<TAB>_<TAB>...
+```
+
+The target is exactly one row:
+
+```text
+1<TAB>4<TAB>det
+```
+
+This should not be treated as a real dependency parser because a dependency
+decision needs sentence context. The purpose is narrower: compare prompt wording
+and check whether the model can obey the required output shape when the task is
+reduced to a single CoNLL-U row.
+
+Build prompt variants:
+
+```sh
+for style in minimal strict verbose; do
+  python3 scripts/convert_chat_conllu_to_row_head_deprel.py \
+    --input-dir ../latin_lora_mlx_ft/latin_lora_data \
+    --out-dir "latin_row_head_deprel_data_${style}" \
+    --prompt-style "$style"
+done
+```
+
+Recommended first smoke train:
+
+```sh
+DATA_DIR="latin_row_head_deprel_data_strict" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-row-head-deprel-strict-smoke" \
+MAX_SEQ_LENGTH=512 \
+MAX_STEPS=100 \
+PRECISION=bf16 \
+./run_training_smoke.sh
+```
+
+Run the same command with `minimal` and `verbose` folders to compare prompt
+wording:
+
+```sh
+DATA_DIR="latin_row_head_deprel_data_minimal" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-row-head-deprel-minimal-smoke" \
+MAX_SEQ_LENGTH=512 \
+MAX_STEPS=100 \
+PRECISION=bf16 \
+./run_training_smoke.sh
+
+DATA_DIR="latin_row_head_deprel_data_verbose" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-row-head-deprel-verbose-smoke" \
+MAX_SEQ_LENGTH=512 \
+MAX_STEPS=100 \
+PRECISION=bf16 \
+./run_training_smoke.sh
+```
+
+Evaluate a row-level adapter:
+
+```sh
+LIMIT_SENTENCES=5 \
+RUN_ID="qwen25-row-strict-smoke-005" \
+SYSTEM_NAME="lora_qwen25_row_strict" \
+ADAPTER_PATH="hf_outputs/qwen25-05b-row-head-deprel-strict-smoke" \
+TEST_FILE="latin_row_head_deprel_data_strict/test.jsonl" \
+MAX_INPUT_LENGTH=512 \
+MAX_NEW_TOKENS=16 \
+PRECISION=bf16 \
+./run_row_evaluation.sh qwen25-row-strict-smoke-005
 ```
 
 ## Copy To Cluster
@@ -127,7 +477,7 @@ MAX_SEQ_LENGTH=4096 \
 MAX_STEPS=-1 \
 EPOCHS=3 \
 PRECISION=bf16 \
-sbatch --gpus=a100-40 run_training.slurm
+sbatch run_training.slurm
 ```
 
 The successful full run produced:
@@ -208,7 +558,7 @@ SYSTEM_NAME="base_qwen25_head_deprel" \
 ADAPTER_PATH="" \
 PRECISION=bf16 \
 MAX_NEW_TOKENS=1024 \
-sbatch --gpus=a100-40 run_evaluation.slurm
+sbatch run_evaluation.slurm
 ```
 
 Smoke-test the adapter:
@@ -220,7 +570,7 @@ SYSTEM_NAME="lora_qwen25_head_deprel" \
 ADAPTER_PATH="hf_outputs/qwen25-05b-head-deprel-a100-lora-full" \
 PRECISION=bf16 \
 MAX_NEW_TOKENS=1024 \
-sbatch --gpus=a100-40 run_evaluation.slurm
+sbatch run_evaluation.slurm
 ```
 
 Current strict smoke-test status:
@@ -239,7 +589,7 @@ SYSTEM_NAME="lora_qwen25_head_deprel" \
 ADAPTER_PATH="hf_outputs/qwen25-05b-head-deprel-a100-lora-full" \
 PRECISION=bf16 \
 MAX_NEW_TOKENS=1024 \
-sbatch --gpus=a100-40 run_evaluation.slurm
+sbatch run_evaluation.slurm
 ```
 
 Outputs:
