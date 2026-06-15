@@ -15,10 +15,10 @@ steps, see [`EXPERIMENT_LOG.md`](EXPERIMENT_LOG.md).
 
 ## Current Status
 
-The most successful protocol so far is the sentence-level
-`ID<TAB>HEAD<TAB>DEPREL` variant. It keeps the full blank CoNLL-U sentence as
-input, uses a short system prompt, and asks the model to emit one compact row
-per syntactic token.
+The most successful protocol so far remains the sentence-level
+`ID<TAB>HEAD<TAB>DEPREL` variant without an explicit `END` marker. It keeps the
+full blank CoNLL-U sentence as input, uses a short system prompt, and asks the
+model to emit one compact row per syntactic token.
 
 Latest result from the Mac-safe 2048-token split:
 
@@ -46,8 +46,19 @@ This is not an official full-split score. It is a useful diagnostic that shows
 the sentence-ID protocol is scoreable for most short examples and materially
 better than the original unanchored `HEAD<TAB>DEPREL` target.
 
-Next protocol change to try: add `# token_count = N` to the user message and an
-explicit `END` line to the assistant target, so the model learns when to stop.
+A follow-up `# token_count = N` + `END` protocol was tested to improve output
+stopping. It did improve rendering on the Mac-safe split, but it did not improve
+the parsing result:
+
+| Protocol | Scope | Rendered | Tree-valid scored | UPOS | UAS | LAS | CLAS | MLAS | BLEX | Status |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Sentence-ID | Mac-safe | 57/58 | 55/58 | 100.00 | 49.36 | 40.47 | 39.02 | 33.70 | 39.02 | Best diagnostic so far |
+| Sentence-ID + `END` | Mac-safe | 58/58 | 52/58 | 100.00 | 40.36 | 31.81 | 30.53 | 26.44 | 30.53 | Better rendering, worse trees |
+| Sentence-ID + `END`, Mac-safe adapter | Full 85 | 82/85 | 62/85 | 100.00 | 32.95 | 25.75 | 23.20 | 19.38 | 23.20 | Generalization diagnostic |
+
+These are partial diagnostic scores, not official full-split scores. The `END`
+variant shows that row-count control is not enough: the main bottleneck is now
+tree validity, especially cycles and self-head predictions.
 
 ## Protocol
 
@@ -108,6 +119,113 @@ Predict Latin dependencies. Given blank CoNLL-U, output only ID<TAB>HEAD<TAB>DEP
 
 This keeps sentence context while avoiding the earlier ambiguity of returning
 bare `HEAD<TAB>DEPREL` lines.
+
+### Sentence-Level ID/HEAD/DEPREL + END Variant
+
+This protocol adds two controls to the sentence-ID format:
+
+- `# token_count = N` is inserted into the input CoNLL-U block.
+- `END` is appended after the final target row.
+
+Input shape:
+
+```text
+Predict Latin dependencies. Given blank CoNLL-U and # token_count, output exactly that many ID<TAB>HEAD<TAB>DEPREL rows, then END.
+
+# sent_id = ...
+# text = ...
+# token_count = 18
+1	...
+2	...
+...
+```
+
+Target shape:
+
+```text
+1	4	nsubj
+2	4	advmod
+...
+18	0	root
+END
+```
+
+Build the splits:
+
+```sh
+python3 scripts/convert_chat_conllu_to_sentence_id_head_deprel_end.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data \
+  --out-dir latin_sentence_id_head_deprel_end_data
+
+python3 scripts/convert_chat_conllu_to_sentence_id_head_deprel_end.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data_macsafe_2048 \
+  --out-dir latin_sentence_id_head_deprel_end_data_macsafe_2048
+```
+
+Train the Mac-safe split first:
+
+```sh
+DATA_DIR="latin_sentence_id_head_deprel_end_data_macsafe_2048" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-sentence-id-head-deprel-end-macsafe" \
+MAX_SEQ_LENGTH=2048 \
+MAX_STEPS=-1 \
+EPOCHS=3 \
+PRECISION=bf16 \
+sbatch run_training.slurm
+```
+
+Evaluate the Mac-safe adapter:
+
+```sh
+RUN_ID="qwen25-sentence-id-end-macsafe-001" \
+SYSTEM_NAME="lora_qwen25_sentence_id_head_deprel_end" \
+ADAPTER_PATH="hf_outputs/qwen25-05b-sentence-id-head-deprel-end-macsafe" \
+TEST_FILE="latin_sentence_id_head_deprel_end_data_macsafe_2048/test.jsonl" \
+MAX_NEW_TOKENS=1024 \
+PRECISION=bf16 \
+sbatch \
+  --job-name=latin-end-eval \
+  --output=slurm-%x-%j.out \
+  --gpus=a100-40 \
+  --mem=48G \
+  --cpus-per-task=4 \
+  --time=01:00:00 \
+  --wrap='./run_sentence_id_end_evaluation.sh "$RUN_ID"'
+```
+
+The Mac-safe run produced 58/58 renderable predictions, but only 52/58 were
+tree-valid after filtering cycles. A full-set diagnostic using the Mac-safe
+adapter rendered 82/85 predictions and scored 62/85 after tree filtering.
+
+Train/evaluate the full split only if you want to test whether training on the
+larger `END` data can recover tree quality:
+
+```sh
+DATA_DIR="latin_sentence_id_head_deprel_end_data" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-sentence-id-head-deprel-end-a100-lora-full" \
+MAX_SEQ_LENGTH=4096 \
+MAX_STEPS=-1 \
+EPOCHS=3 \
+PRECISION=bf16 \
+sbatch run_training.slurm
+```
+
+```sh
+RUN_ID="qwen25-sentence-id-end-full-001" \
+SYSTEM_NAME="lora_qwen25_sentence_id_head_deprel_end" \
+ADAPTER_PATH="hf_outputs/qwen25-05b-sentence-id-head-deprel-end-a100-lora-full" \
+TEST_FILE="latin_sentence_id_head_deprel_end_data/test.jsonl" \
+MAX_NEW_TOKENS=2048 \
+PRECISION=bf16 \
+sbatch \
+  --job-name=latin-end-full-eval \
+  --output=slurm-%x-%j.out \
+  --gpus=a100-40 \
+  --mem=48G \
+  --cpus-per-task=4 \
+  --time=01:00:00 \
+  --wrap='./run_sentence_id_end_evaluation.sh "$RUN_ID"'
+```
 
 Build the splits:
 

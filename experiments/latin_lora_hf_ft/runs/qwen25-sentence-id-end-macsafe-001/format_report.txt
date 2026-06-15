@@ -1,0 +1,7 @@
+runs/qwen25-sentence-id-end-macsafe-001/pred.conllu
+  sentence_blocks: 58
+  with_sent_id: 58
+  with_text: 58
+  fully_valid_shape: 58
+  token_rows: 609
+  rows_with_10_columns: 609

@@ -1,0 +1,38 @@
+# CoNLL-U Evaluation Summary
+
+| System | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| lora_qwen25_sentence_id_head_deprel_end_macsafe_on_full | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR |
+
+## Render Error
+
+```text
+Traceback (most recent call last):
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/scripts/render_sentence_id_head_deprel_end_to_conllu.py", line 145, in <module>
+    main()
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/scripts/render_sentence_id_head_deprel_end_to_conllu.py", line 124, in main
+    raise ValueError(json.dumps({"errors": errors[:20], "error_count": len(errors)}, ensure_ascii=False, indent=2))
+ValueError: {
+  "errors": [
+    {
+      "index": 24,
+      "sent_id": "SenHerFu-P-15-267",
+      "error": "Predicted token IDs do not match input order: expected ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'], got ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21']",
+      "prediction": "1\t10\tnmod\n2\t10\tcc\n3\t10\tamod\n4\t10\tnsubj:pass\n5\t6\tcc\n6\t4\tconj\n7\t6\tnsubj\n8\t7\tamod\n9\t7\txcomp\n10\t0\troot\n11\t12\tcc\n12\t10\tconj\n13\t10\tconj\n14\t13\tnsubj\n15\t13\tadvcl:pred\n16\t13\tobl:lmod\n17\t18\tdet\n18\t16\tnsubj\n19\t16\tadvcl:pred\n20\t21\tdet\n21\t10\tconj\nEND"
+    },
+    {
+      "index": 31,
+      "sent_id": "TacGerma-Q-01-43",
+      "error": "Predicted token IDs do not match input order: expected ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'], got ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22']",
+      "prediction": "1\t10\tdet\n2\t10\tobl:arg\n3\t10\tamod\n4\t10\tnsubj\n5\t10\tnsubj\n6\t10\tamod\n7\t10\tobj\n8\t9\tcase\n9\t7\tobl:tmod\n10\t0\troot\n11\t12\tobj\n12\t10\tconj\n13\t14\tadvcl:pred\n14\t13\tccomp\n15\t13\tconj\n16\t14\txcomp\n17\t18\tcc\n18\t16\tconj\n19\t16\tobj\n20\t16\txcomp\n21\t20\tobj\n22\t23\tcc\nEND"
+    },
+    {
+      "index": 73,
+      "sent_id": "SenHerFu-P-15-260",
+      "error": "Predicted token IDs do not match input order: expected ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28'], got ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']",
+      "prediction": "1\t2\tcc\n2\t7\txcomp\n3\t2\tnsubj\n4\t3\tcop\n5\t3\tobj\n6\t2\tconj\n7\t0\troot\n8\t11\tmark\n9\t11\tadvmod\n10\t11\tobj\n11\t6\tconj\n12\t11\tamod\n13\t14\tacl:relcl\n14\t13\tadvcl:pred\n15\t13\tadvcl:pred\n16\t13\tnsubj\n17\t14\tacl\n18\t17\tcc\n19\t17\tamod\n20\t17\tnsubj\nEND"
+    }
+  ],
+  "error_count": 3
+}
+```

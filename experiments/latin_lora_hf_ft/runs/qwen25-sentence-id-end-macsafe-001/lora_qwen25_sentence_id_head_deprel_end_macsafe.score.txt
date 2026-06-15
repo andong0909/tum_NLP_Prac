@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py", line 532, in <module>
+    main()
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py", line 500, in main
+    evaluation = evaluate_wrapper(args)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py", line 483, in evaluate_wrapper
+    system_ud = load_conllu_file(args.system_file)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py", line 478, in load_conllu_file
+    return load_conllu(_file)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py", line 209, in load_conllu
+    process_word(word)
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py", line 205, in process_word
+    process_word(parent)
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py", line 205, in process_word
+    process_word(parent)
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py", line 205, in process_word
+    process_word(parent)
+  File "/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py", line 197, in process_word
+    raise UDError("There is a cycle in a sentence")
+UDError: There is a cycle in a sentence

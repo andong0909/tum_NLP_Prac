@@ -1,0 +1,841 @@
+# sent_id = SenHerFu-P-15-325
+# text = iam nullus superest timor nil ultra iacet inferos
+# token_count = 8
+1	iam	iam	ADV	M	Degree=Pos	3	advmod:tmod	_	LiLaflcat=i
+2	nullus	nullus	DET	L	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Neg	4	det	_	LiLaflcat=p
+3	superest	supersum	VERB	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LASLAVariant=1|LiLaflcat=v6
+4	timor	timor	NOUN	A3	Case=Nom|Gender=Masc|InflClass=IndEurX|Number=Sing	3	nsubj	_	LiLaflcat=n3
+5	nil	nihil	PRON	L	InflClass=Ind|PronType=Neg	7	nsubj	_	LiLaflcat=n
+6	ultra	ultra	ADP	R	AdpType=Prep	8	case	_	LASLAVariant=2|LiLaflcat=i
+7	iacet	iaceo	VERB	B2	Aspect=Imp|InflClass=LatE|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	3	conj	_	LiLaflcat=v2
+8	inferos	inferi	NOUN	A2	Case=Acc|Gender=Masc|InflClass=IndEurO|Number=Plur	7	obl:lmod	_	LiLaflcat=n2
+
+# sent_id = TacGerma-Q-01-72
+# text = diuersitas supplicii illuc respicit tamquam scelera ostendi oporteat dum puniuntur flagitia abscondi
+# token_count = 12
+1	diuersitas	diuersitas	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	4	nsubj	_	LiLaflcat=n3
+2	supplicii	supplicium	NOUN	A2	Case=Gen|Gender=Neut|InflClass=IndEurO|Number=Sing	1	nmod	_	LiLaflcat=n2
+3	illuc	illuc	ADV	M	AdvType=Loc|PronType=Dem	4	advmod:lmod	_	LiLaflcat=i
+4	respicit	respicio	VERB	B5	Aspect=Imp|InflClass=LatI2|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v5|TraditionalMood=Indicativus|TraditionalTense=Praesens
+5	tamquam	tamquam	SCONJ	T	Compound=Yes|PronType=Rel	8	mark	_	LASLAVariant=2|LiLaflcat=i
+6	scelera	scelus	NOUN	A3	Case=Acc|Gender=Neut|InflClass=IndEurX|Number=Plur	7	nsubj:pass	_	LiLaflcat=n3
+7	ostendi	ostendo	VERB	B3	Aspect=Imp|InflClass=LatX|VerbForm=Inf|Voice=Pass	8	csubj	_	LiLaflcat=v3|TraditionalMood=Infinitivus|TraditionalTense=Praesens
+8	oporteat	oportet	VERB	B2	Aspect=Imp|InflClass=LatE|Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	4	advcl:cmp	_	LiLaflcat=v2|TraditionalMood=Subiunctivus|TraditionalTense=Praesens
+9	dum	dum	SCONJ	T	_	10	mark	_	LASLAVariant=2|LiLaflcat=i
+10	puniuntur	punio	VERB	B4	Aspect=Imp|InflClass=LatI|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	7	advcl	_	LiLaflcat=v4|TraditionalMood=Indicativus|TraditionalTense=Praesens
+11	flagitia	flagitium	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Plur	12	nsubj:pass	_	LiLaflcat=n2
+12	abscondi	abscondo	VERB	B3	Aspect=Imp|InflClass=LatX|VerbForm=Inf|Voice=Pass	7	conj	_	LiLaflcat=v3|TraditionalMood=Infinitivus|TraditionalTense=Praesens
+
+# sent_id = SenHerFu-P-15-365
+# text = profugit umbras Tityos ac lacerum gerens et inane pectus quam prope a caelo stetit
+# token_count = 14
+1	profugit	profugio	VERB	B5	Aspect=Perf|InflClass=LatI2|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v5
+2	umbras	umbra	NOUN	A1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Plur	1	obj	_	LiLaflcat=n1
+3	Tityos	tityus	PROPN	A7	Case=Nom|Gender=Masc|InflClass=IndEurO|NameType=Rel|Number=Sing|Variant=Greek	1	nsubj	_	LASLAVariant=N|LiLaflcat=n2
+4	ac	ac	CCONJ	S	_	14	cc	_	LASLAVariant=1|LiLaflcat=i
+5	lacerum	lacer	ADJ	C1	Case=Acc|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Sing	9	amod	_	LiLaflcat=n6
+6	gerens	gero	VERB	B3	Aspect=Imp|Case=Nom|Degree=Pos|Gender=Masc|InflClass=LatX|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	14	advcl:pred	_	LiLaflcat=v3
+7	et	et	CCONJ	S	_	8	cc	_	LASLAVariant=2|LiLaflcat=i
+8	inane	inanis	ADJ	C4	Case=Acc|Degree=Pos|Gender=Neut|InflClass=IndEurI|Number=Sing	5	conj	_	LiLaflcat=n7
+9	pectus	pectus	NOUN	A3	Case=Acc|Gender=Neut|InflClass=IndEurX|Number=Sing	6	obj	_	LiLaflcat=n3
+10	quam	quam	ADV	O	PronType=Rel	11	advmod	_	LASLAVariant=2|LiLaflcat=i
+11	prope	prope	ADV	M	Degree=Pos	14	advmod:lmod	_	LASLAVariant=1|LiLaflcat=i
+12	a	ab	ADP	R	AdpType=Prep	13	case	_	LiLaflcat=i
+13	caelo	caelum	NOUN	A2	Case=Abl|Gender=Neut|InflClass=IndEurO|Number=Sing	11	obl:lmod	_	LASLAVariant=1|LiLaflcat=n2
+14	stetit	sto	VERB	B1	Aspect=Perf|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	1	conj	_	LiLaflcat=v1
+
+# sent_id = SenHerFu-P-15-401
+# text = bene habet pudendi regis excisa est domus
+# token_count = 7
+1	bene	bene	ADV	M	Degree=Pos	2	advmod	_	LiLaflcat=i
+2	habet	habeo	VERB	B2	Aspect=Imp|InflClass=LatE|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v2
+3	pudendi	pudendus	ADJ	C1	Case=Gen|Degree=Pos|Gender=Masc|InflClass=IndEurO|Number=Sing	4	amod	_	LiLaflcat=n6
+4	regis	rex	NOUN	A3	Case=Gen|Gender=Masc|InflClass=IndEurX|Number=Sing	7	nmod	_	LiLaflcat=n3
+5	excisa	excido	VERB	Y3	Aspect=Perf|Case=Nom|Degree=Pos|Gender=Fem|InflClass=LatX|InflClass[nominal]=IndEurA|Number=Sing|VerbForm=Part|Voice=Pass	2	conj	_	LASLAVariant=2|LiLaflcat=v3
+6	est	sum	AUX	Z3	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	aux:pass	_	LASLAVariant=2|LiLaflcat=v6
+7	domus	domus	NOUN	A6	Case=Nom|Gender=Fem|InflClass=IndEurU|Number=Sing	5	nsubj:pass	_	LiLaflcat=n4
+
+# sent_id = SenHerFu-P-15-527
+# text = ecce quam miserum metu cor palpitat pectusque sollicitum ferit
+# token_count = 10
+1	ecce	ecce	INTJ	U	_	6	discourse	_	LiLaflcat=i
+2	quam	quam	ADV	O	PronType=Rel	3	advmod	_	LASLAVariant=2|LiLaflcat=i
+3	miserum	miser	ADJ	C1	Case=Nom|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Sing	6	advcl:pred	_	LiLaflcat=n6
+4	metu	metus	NOUN	A4	Case=Abl|Gender=Masc|InflClass=IndEurU|Number=Sing	6	obl	_	LiLaflcat=n4
+5	cor	cor	NOUN	A3	Case=Nom|Gender=Neut|InflClass=IndEurI|Number=Sing	6	nsubj	_	LiLaflcat=n3
+6	palpitat	palpito	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1
+7-8	pectusque	_	_	_	_	_	_	_	_
+7	pectus	pectus	NOUN	A3	Case=Acc|Gender=Neut|InflClass=IndEurX|Number=Sing	10	obj	_	LiLaflcat=n3
+8	que	que	CCONJ	S	_	10	cc	_	LiLaflcat=i
+9	sollicitum	sollicitus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Sing	7	amod	_	LiLaflcat=n6
+10	ferit	ferio	VERB	B4	Aspect=Imp|InflClass=LatI|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	6	conj	_	LiLaflcat=v4
+
+# sent_id = TacGerma-Q-01-271
+# text = illuc usque et fama uera tantum natura
+# token_count = 7
+1	illuc	illuc	ADV	M	AdvType=Loc|PronType=Dem	0	root	_	LiLaflcat=i
+2	usque	usque	ADP	M	_	1	case	_	LiLaflcat=i
+3	et	et	CCONJ	S	_	5	cc	_	LASLAVariant=2|LiLaflcat=i
+4	fama	fama	NOUN	A1	Case=Nom|Gender=Fem|InflClass=IndEurA|Number=Sing	5	nsubj	_	LiLaflcat=n1
+5	uera	uerus	ADJ	C1	Case=Nom|Gender=Fem|InflClass=IndEurA|Number=Sing	1	conj	_	LiLaflcat=n6
+6	tantum	tantum	ADV	M	NumType=Card|PronType=Dem	1	advmod	_	LASLAVariant=2|LiLaflcat=i
+7	natura	natura	NOUN	A1	Case=Nom|Gender=Fem|InflClass=IndEurA|Number=Sing	1	nsubj	_	LiLaflcat=n1
+
+# sent_id = SenHerFu-P-15-388
+# text = gnatus hic uultus tuos habitusque reddit cernis ut tendat manus
+# token_count = 11
+1	gnatus	natus	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Sing	7	nsubj	_	LASLAVariant=1|LiLaflcat=n2
+2	hic	hic	DET	I	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Dem	1	det	_	LASLAVariant=1|LiLaflcat=p
+3	uultus	uultus	NOUN	A4	Case=Acc|Gender=Masc|InflClass=IndEurU|Number=Plur	7	obj	_	LiLaflcat=n4
+4	tuos	tuus	DET	F	Case=Acc|Gender=Masc|InflClass=IndEurO|Number=Plur|Number[psor]=Sing|Person[psor]=2|Poss=Yes|PronType=Prs	3	det	_	LiLaflcat=n6
+5-6	habitusque	_	_	_	_	_	_	_	_
+5	habitus	habitus	NOUN	A4	Case=Acc|Gender=Masc|InflClass=IndEurU|Number=Plur	3	conj	_	LASLAVariant=1|LiLaflcat=n4
+6	que	que	CCONJ	S	_	5	cc	_	LiLaflcat=i
+7	reddit	reddo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v3
+8	cernis	cerno	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act	7	conj	_	LiLaflcat=v3
+9	ut	ut	ADV	O	PronType=Int	10	advmod	_	LASLAVariant=2|LiLaflcat=i
+10	tendat	tendo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	8	advcl	_	LiLaflcat=v3
+11	manus	manus	NOUN	A4	Case=Acc|Gender=Fem|InflClass=IndEurU|Number=Plur	10	obj	_	LASLAVariant=1|LiLaflcat=n4
+
+# sent_id = TacGerma-Q-01-212
+# text = ita qui olim boni aequique Cherusci nunc inertes ac stulti uocantur Chattis uictoribus fortuna in sapientiam cessit
+# token_count = 18
+1	ita	ita	ADV	M	PronType=Dem	12	advmod	_	LiLaflcat=i
+2	qui	qui	PRON	J	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Plur|PronType=Rel	7	acl:relcl	_	LASLAVariant=1|LiLaflcat=p
+3	olim	olim	ADV	M	AdvType=Tim	2	orphan	_	LiLaflcat=i
+4	boni	bonus	ADJ	C1	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Plur	2	orphan	_	LiLaflcat=n6
+5-6	aequique	_	_	_	_	_	_	_	_
+5	aequi	aequus	ADJ	C1	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Plur	4	conj	_	LiLaflcat=n6
+6	que	que	CCONJ	S	_	5	cc	_	LiLaflcat=i
+7	Cherusci	cherusci	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|NameType=Nat|Number=Plur	12	nsubj:pass	_	LASLAVariant=N|LiLaflcat=n2
+8	nunc	nunc	ADV	M	AdvType=Tim	12	advmod:tmod	_	LiLaflcat=i
+9	inertes	iners	ADJ	C5	Case=Nom|Gender=Masc|InflClass=IndEurI|Number=Plur	12	xcomp	_	LiLaflcat=n7
+10	ac	atque	CCONJ	S	Form=Emp	11	cc	_	LASLAVariant=1|LiLaflcat=i
+11	stulti	stultus	ADJ	C1	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Plur	9	conj	_	LiLaflcat=n6
+12	uocantur	uoco	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	0	root	_	LiLaflcat=v1|TraditionalMood=Indicativus|TraditionalTense=Praesens
+13	Chattis	chatti	NOUN	A2	Case=Dat|Gender=Masc|InflClass=IndEurO|NameType=Nat|Number=Plur	18	obl:arg	_	LASLAVariant=N|LiLaflcat=n2
+14	uictoribus	uictor	NOUN	A3	Case=Dat|Gender=Masc|InflClass=IndEurX|Number=Plur	13	appos	_	LiLaflcat=n3
+15	fortuna	fortuna	NOUN	A1	Case=Nom|Gender=Fem|InflClass=IndEurA|Number=Sing	18	nsubj	_	LiLaflcat=n1
+16	in	in	ADP	R	_	17	case	_	LiLaflcat=i
+17	sapientiam	sapientia	PROPN	person	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Sing	18	obl	_	LiLaflcat=n1
+18	cessit	cedo	VERB	B3	Aspect=Perf|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	12	conj	_	LASLAVariant=1|LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Perfectum
+
+# sent_id = SenHerFu-P-15-65
+# text = nulla lux umquam mihi secura fulsit finis alterius mali gradus est futuri
+# token_count = 12
+1	nulla	nullus	DET	L	Case=Nom|Gender=Fem|InflClass=LatPron|Number=Sing|PronType=Neg	2	det	_	LiLaflcat=p
+2	lux	lux	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	6	nsubj	_	LiLaflcat=n3
+3	umquam	umquam	ADV	M	Degree=Pos	6	advmod:tmod	_	LiLaflcat=i
+4	mihi	ego	PRON	E	Case=Dat|InflClass=LatAnom|Number=Sing|Person=1|PronType=Prs	6	obl:arg	_	LiLaflcat=p
+5	secura	securus	ADJ	C1	Case=Nom|Degree=Pos|Gender=Fem|InflClass=IndEurA|Number=Sing	6	advcl:pred	_	LiLaflcat=n6
+6	fulsit	fulgeo	VERB	B2	Aspect=Perf|InflClass=LatE|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v2
+7	finis	finis	NOUN	A3	Case=Nom|Gender=Fem,Masc|InflClass=IndEurI|Number=Sing	10	nsubj	_	LiLaflcat=n3
+8	alterius	alter	DET	L	Case=Gen|Gender=Fem,Masc,Neut|InflClass=LatPron|Number=Sing|PronType=Ind	9	det	_	LiLaflcat=p
+9	mali	malum	NOUN	A2	Case=Gen|Gender=Neut|InflClass=IndEurO|Number=Sing	7	nmod	_	LASLAVariant=1|LiLaflcat=n2
+10	gradus	gradus	NOUN	A4	Case=Nom|Gender=Masc|InflClass=IndEurU|Number=Sing	6	conj	_	LiLaflcat=n4
+11	est	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	10	cop	_	LASLAVariant=1|LiLaflcat=v6
+12	futuri	futurus	ADJ	C1	Case=Gen|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Sing	10	nmod	_	LiLaflcat=n6
+
+# sent_id = SenHerFu-P-15-81
+# text = ferax deorum terra quem dominum tremis
+# token_count = 6
+1	ferax	ferax	ADJ	C5	Case=Voc|Degree=Pos|Gender=Fem|InflClass=IndEurI|Number=Sing	3	amod	_	LiLaflcat=n7
+2	deorum	deus	NOUN	A2	Case=Gen|Gender=Masc|InflClass=IndEurO|Number=Plur	1	obl	_	LiLaflcat=n2
+3	terra	terra	NOUN	A1	Case=Voc|Gender=Fem|InflClass=IndEurA|Number=Sing	6	vocative	_	LiLaflcat=n1
+4	quem	quis	PRON	K	Case=Acc|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Int	5	det	_	LASLAVariant=1|LiLaflcat=p
+5	dominum	dominus	NOUN	A2	Case=Acc|Gender=Masc|InflClass=IndEurO|Number=Sing	6	obj	_	LiLaflcat=n2
+6	tremis	tremo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v3
+
+# sent_id = TacGerma-Q-01-164
+# text = lamenta ac lacrimas cito dolorem et tristitiam tarde ponunt
+# token_count = 9
+1	lamenta	lamenta	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Plur	0	root	_	LiLaflcat=n2
+2	ac	atque	CCONJ	S	Form=Emp	3	cc	_	LASLAVariant=1|LiLaflcat=i
+3	lacrimas	lacrima	NOUN	A1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Plur	1	conj	_	LiLaflcat=n1
+4	cito	cito	ADV	M	AdvType=Tim	1	orphan	_	LASLAVariant=2|LiLaflcat=i
+5	dolorem	dolor	NOUN	A3	Case=Acc|Gender=Masc|InflClass=IndEurX|Number=Sing	9	obj	_	LiLaflcat=n3
+6	et	et	CCONJ	S	_	7	cc	_	LASLAVariant=2|LiLaflcat=i
+7	tristitiam	tristitia	NOUN	A1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Sing	5	conj	_	LiLaflcat=n1
+8	tarde	tarde	ADV	M	AdvType=Tim	9	advmod:tmod	_	LiLaflcat=i
+9	ponunt	pono	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Praesens
+
+# sent_id = SenHerFu-P-15-352
+# text = perdomita tellus tumida cesserunt freta inferna nostros regna sensere impetus immune caelum est dignus Alcide labor
+# token_count = 16
+1	perdomita	perdomo	VERB	Y1	Aspect=Perf|Case=Nom|Degree=Pos|Gender=Fem|InflClass=LatA|InflClass[nominal]=IndEurA|Number=Sing|VerbForm=Part|Voice=Pass	0	root	_	LiLaflcat=v1|Tac=est
+2	tellus	tellus	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	1	nsubj	_	LiLaflcat=n3
+3	tumida	tumidus	ADJ	C1	Case=Nom|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Plur	5	amod	_	LiLaflcat=n6
+4	cesserunt	cedo	VERB	B3	Aspect=Perf|InflClass=LatX|Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	1	conj	_	LASLAVariant=1|LiLaflcat=v3
+5	freta	fretum	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur	4	nsubj	_	LiLaflcat=n2
+6	inferna	infernus	ADJ	C1	Case=Nom|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Plur	8	amod	_	LiLaflcat=n6
+7	nostros	noster	DET	F	Case=Acc|Gender=Masc|InflClass=IndEurO|Number=Plur|Number[psor]=Plur|Person[psor]=1|Poss=Yes|PronType=Prs	10	det	_	LiLaflcat=n6
+8	regna	regnum	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur	9	nsubj	_	LiLaflcat=n2
+9	sensere	sentio	VERB	B4	Aspect=Perf|InflClass=LatI|Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	1	conj	_	LiLaflcat=v4
+10	impetus	impetus	NOUN	A4	Case=Acc|Gender=Masc|InflClass=IndEurU|Number=Plur	9	obj	_	LiLaflcat=n4
+11	immune	immunis	ADJ	C4	Case=Nom|Degree=Pos|Gender=Neut|InflClass=IndEurI|Number=Sing	1	conj	_	LiLaflcat=n7
+12	caelum	caelum	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Sing	11	nsubj	_	LASLAVariant=1|LiLaflcat=n2
+13	est	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	cop	_	LASLAVariant=1|LiLaflcat=v6
+14	dignus	dignus	ADJ	C1	Case=Nom|Degree=Pos|Gender=Masc|InflClass=IndEurO|Number=Sing	16	amod	_	LiLaflcat=n6
+15	Alcide	alcides	PROPN	A3	Case=Abl|Gender=Masc|InflClass=IndEurX|NameType=Giv|Number=Sing	14	obl:arg	_	LASLAVariant=N|LiLaflcat=n3
+16	labor	labor	NOUN	A3	Case=Nom|Gender=Masc|InflClass=IndEurX|Number=Sing	11	conj:expl	_	LASLAVariant=1|LiLaflcat=n3
+
+# sent_id = SenHerFu-P-15-514
+# text = sunt quidem patriae preces satis efficaces sed tamen nostro quoque mouere fletu
+# token_count = 12
+1	sunt	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	6	cop	_	LASLAVariant=1|LiLaflcat=v6
+2	quidem	quidem	PART	M	Degree=Pos	6	discourse	_	LiLaflcat=i
+3	patriae	patrius	ADJ	C1	Case=Nom|Degree=Pos|Gender=Fem|InflClass=IndEurA|Number=Plur	4	amod	_	LiLaflcat=n6
+4	preces	prex	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Plur	6	nsubj	_	LiLaflcat=n3
+5	satis	satis	ADV	M	Degree=Pos	6	advmod	_	LASLAVariant=2|LiLaflcat=i
+6	efficaces	efficax	ADJ	C5	Case=Nom|Degree=Pos|Gender=Fem|InflClass=IndEurI|Number=Plur	0	root	_	LiLaflcat=n7
+7	sed	sed	CCONJ	S	_	11	cc	_	LiLaflcat=i
+8	tamen	tamen	ADV	M	Degree=Pos	11	advmod	_	LiLaflcat=i
+9	nostro	noster	DET	F	Case=Abl|Gender=Masc|InflClass=IndEurO|Number=Sing|Number[psor]=Plur|Person[psor]=1|Poss=Yes|PronType=Prs	12	det	_	LiLaflcat=n6
+10	quoque	quoque	ADV	M	Degree=Pos	11	advmod:emph	_	LiLaflcat=i
+11	mouere	moueo	VERB	B2	Aspect=Imp|InflClass=LatE|Mood=Imp|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Pass	6	conj	_	LiLaflcat=v2
+12	fletu	fletus	NOUN	A4	Case=Abl|Gender=Masc|InflClass=IndEurU|Number=Sing	11	obl:agent	_	LiLaflcat=n4
+
+# sent_id = SenHerFu-P-15-507
+# text = facere ne possim occidam
+# token_count = 4
+1	facere	facio	VERB	B5	Aspect=Imp|InflClass=LatI2|InflClass[nominal]=Ind|VerbForm=Inf|Voice=Act	3	xcomp	_	LiLaflcat=v5
+2	ne	ne	SCONJ	T	Polarity=Neg	3	mark	_	LASLAVariant=4|LiLaflcat=i
+3	possim	possum	VERB	B6	Aspect=Imp|InflClass=LatAnom|Mood=Sub|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin|Voice=Act	4	advcl	_	LASLAVariant=1|LiLaflcat=v6
+4	occidam	occido	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=1|Tense=Fut|VerbForm=Fin|Voice=Act	0	root	_	LASLAVariant=1|LiLaflcat=v3
+
+# sent_id = TacGerma-Q-01-101
+# text = quamquam seuera illic matrimonia nec ullam morum partem magis laudaueris
+# token_count = 10
+1	quamquam	quamquam	SCONJ	N	PronType=Rel	2	mark	_	LASLAVariant=1|LiLaflcat=i
+2	seuera	seuerus	ADJ	C1	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur	0	root	_	LiLaflcat=n6
+3	illic	illic	ADV	M	AdvType=Loc|PronType=Dem	2	advmod:lmod	_	LASLAVariant=2|LiLaflcat=i
+4	matrimonia	matrimonium	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur	2	nsubj	_	LiLaflcat=n2
+5	nec	neque	CCONJ	S	Polarity=Neg	10	cc	_	LASLAVariant=2|LiLaflcat=i
+6	ullam	ullus	DET	L	Case=Acc|Gender=Fem|InflClass=LatPron|Number=Sing|PronType=Ind	8	det	_	LiLaflcat=p
+7	morum	mos	NOUN	A3	Case=Gen|Gender=Masc|InflClass=IndEurX|Number=Plur	8	nmod	_	LiLaflcat=n3
+8	partem	pars	NOUN	A3	Case=Acc|Gender=Fem|InflClass=IndEurI|Number=Sing	10	obj	_	LiLaflcat=n3
+9	magis	magis	ADV	M	Degree=Cmp	10	advmod	_	LASLAVariant=2|LiLaflcat=i
+10	laudaueris	laudo	VERB	B1	Aspect=Perf|InflClass=LatA|Mood=Sub|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act	2	conj	_	LiLaflcat=v1|TraditionalMood=Subiunctivus|TraditionalTense=Perfectum
+
+# sent_id = SenHerFu-P-15-535
+# text = tam tarde patri uitam dat aliquis
+# token_count = 6
+1	tam	tam	ADV	M	Degree=Pos	2	advmod	_	LiLaflcat=i
+2	tarde	tarde	ADV	M	Degree=Pos	5	advmod:tmod	_	LiLaflcat=i
+3	patri	pater	NOUN	A3	Case=Dat|Gender=Masc|InflClass=IndEurX|Number=Sing	5	obl:arg	_	LiLaflcat=n3
+4	uitam	uita	NOUN	A1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Sing	5	obj	_	LiLaflcat=n1
+5	dat	do	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1
+6	aliquis	aliquis	PRON	L	Case=Nom|Gender=Fem,Masc|InflClass=LatPron|Number=Sing|PronType=Ind	5	nsubj	_	LiLaflcat=p
+
+# sent_id = TacGerma-Q-01-231
+# text = eoque omnis superstitio respicit tamquam inde initia gentis ibi regnator omnium deus cetera subiecta atque parentia
+# token_count = 17
+1-2	eoque	_	_	_	_	_	_	_	_
+1	eo	eo	ADV	M	_	5	advmod	_	LASLAVariant=3|LiLaflcat=i
+2	que	que	CCONJ	S	_	5	cc	_	LiLaflcat=i
+3	omnis	omnis	DET	L	Case=Nom|Gender=Fem|InflClass=IndEurI|Number=Sing|PronType=Tot	4	det	_	LiLaflcat=n7
+4	superstitio	superstitio	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	5	nsubj	_	LiLaflcat=n3
+5	respicit	respicio	VERB	B5	Aspect=Imp|InflClass=LatI2|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v5|TraditionalMood=Indicativus|TraditionalTense=Praesens
+6	tamquam	tamquam	SCONJ	T	Compound=Yes|PronType=Rel	7	mark	_	LASLAVariant=2|LiLaflcat=i
+7	inde	inde	ADV	M	AdvType=Loc|PronType=Dem	5	advcl:cmp	_	LiLaflcat=i
+8	initia	initium	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur	7	nsubj	_	LiLaflcat=n2
+9	gentis	gens	NOUN	A3	Case=Gen|Gender=Fem|InflClass=IndEurI|Number=Sing	8	nmod	_	LiLaflcat=n3
+10	ibi	ibi	ADV	M	AdvType=Loc|PronType=Dem	7	conj	_	LiLaflcat=i
+11	regnator	regnator	NOUN	A3	Case=Nom|Gender=Masc|InflClass=IndEurX|Number=Sing	10	nsubj	_	LiLaflcat=n3
+12	omnium	omnis	DET	L	Case=Gen|Gender=Neut|InflClass=IndEurI|Number=Plur|PronType=Tot	11	nmod	_	LiLaflcat=n7
+13	deus	deus	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Sing	11	conj:expl	_	LiLaflcat=n2
+14	cetera	ceterus	DET	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur|PronType=Con	15	nsubj:pass	_	LASLAVariant=1|LiLaflcat=n2
+15	subiecta	subiectus	ADJ	C1	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur	7	conj	_	LASLAVariant=3|LiLaflcat=n6
+16	atque	atque	CCONJ	S	Form=Emp	17	cc	_	LASLAVariant=1|LiLaflcat=i
+17	parentia	pareo	VERB	B2	Aspect=Imp|Case=Nom|Gender=Neut|InflClass=LatE|InflClass[nominal]=IndEurI|Number=Plur|VerbForm=Part|Voice=Act	15	conj	_	LiLaflcat=v2|TraditionalMood=Participium|TraditionalTense=Praesens
+
+# sent_id = SenHerFu-P-15-379
+# text = en blandas manus ad genua tendens uoce miseranda rogat scelus nefandum triste et aspectu horridum
+# token_count = 15
+1	en	en	INTJ	U	_	9	discourse	_	LiLaflcat=i
+2	blandas	blandus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Fem|InflClass=IndEurA|Number=Plur	3	amod	_	LiLaflcat=n6
+3	manus	manus	NOUN	A4	Case=Acc|Gender=Fem|InflClass=IndEurU|Number=Plur	6	obj	_	LASLAVariant=1|LiLaflcat=n4
+4	ad	ad	ADP	R	AdpType=Prep	5	case	_	LASLAVariant=2|LiLaflcat=i
+5	genua	genu	NOUN	A4	Case=Acc|Gender=Neut|InflClass=IndEurU|Number=Plur	6	obl:lmod	_	LiLaflcat=n4
+6	tendens	tendo	VERB	B3	Aspect=Imp|Case=Nom|Degree=Pos|Gender=Masc|InflClass=LatX|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	9	advcl:pred	_	LiLaflcat=v3
+7	uoce	uox	NOUN	A3	Case=Abl|Gender=Fem|InflClass=IndEurX|Number=Sing	9	obl	_	LiLaflcat=n3
+8	miseranda	miserandus	ADJ	C1	Case=Abl|Degree=Pos|Gender=Fem|InflClass=IndEurA|Number=Sing	7	amod	_	LiLaflcat=n6
+9	rogat	rogo	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1
+10	scelus	scelus	NOUN	A3	Case=Nom|Gender=Neut|InflClass=IndEurX|Number=Sing	9	parataxis	_	LiLaflcat=n3
+11	nefandum	nefandus	ADJ	C1	Case=Nom|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Sing	10	amod	_	LiLaflcat=n6
+12	triste	tristis	ADJ	C4	Case=Nom|Degree=Pos|Gender=Neut|InflClass=IndEurI|Number=Sing	11	conj	_	LiLaflcat=n7
+13	et	et	CCONJ	S	_	15	cc	_	LASLAVariant=2|LiLaflcat=i
+14	aspectu	aspectus	NOUN	A4	Case=Abl|Gender=Masc|InflClass=IndEurU|Number=Sing	15	obl	_	LiLaflcat=n4
+15	horridum	horridus	ADJ	C1	Case=Nom|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Sing	12	conj	_	LiLaflcat=n6
+
+# sent_id = TacGerma-Q-01-45
+# text = inesse quin etiam sanctum aliquid et prouidum putant nec aut consilia earum aspernantur aut responsa neglegunt
+# token_count = 16
+1	inesse	insum	VERB	B6	Aspect=Imp|InflClass=LatAnom|VerbForm=Inf|Voice=Act	8	ccomp	_	LASLAVariant=1|LiLaflcat=v6|TraditionalMood=Infinitivus|TraditionalTense=Praesens
+2	quin	quin	PART	M	Polarity=Neg|PronType=Rel	8	discourse	_	LASLAVariant=1|LiLaflcat=i
+3	etiam	etiam	ADV	M	Compound=Yes	8	advmod:emph	_	LiLaflcat=i
+4	sanctum	sanctus	ADJ	C1	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Sing	5	amod	_	LiLaflcat=n6
+5	aliquid	aliquis	PRON	L	Case=Acc|Gender=Neut|InflClass=LatPron|Number=Sing|PronType=Ind	1	nsubj	_	LiLaflcat=p
+6	et	et	CCONJ	S	_	7	cc	_	LASLAVariant=2|LiLaflcat=i
+7	prouidum	prouidus	ADJ	C1	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Sing	4	conj	_	LiLaflcat=n6
+8	putant	puto	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1|TraditionalMood=Indicativus|TraditionalTense=Praesens
+9	nec	neque	CCONJ	S	Polarity=Neg	13	cc	_	LASLAVariant=2|LiLaflcat=i
+10	aut	aut	CCONJ	S	_	13	cc	_	LiLaflcat=i
+11	consilia	consilium	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Plur	13	obj	_	LiLaflcat=n2
+12	earum	is	PRON	I	Case=Gen|Gender=Fem|InflClass=LatPron|Number=Plur|Person=3|PronType=Prs	11	nmod	_	LiLaflcat=p
+13	aspernantur	aspernor	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	8	conj	_	LiLaflcat=v1|TraditionalMood=Indicativus|TraditionalTense=Praesens
+14	aut	aut	CCONJ	S	_	16	cc	_	LiLaflcat=i
+15	responsa	responsum	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Plur	16	obj	_	LiLaflcat=n2
+16	neglegunt	negligo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	13	conj	_	LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Praesens
+
+# sent_id = TacGerma-Q-01-70
+# text = licet apud concilium accusare quoque et discrimen capitis intendere
+# token_count = 9
+1	licet	licet	VERB	B2	Aspect=Imp|InflClass=LatE|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LASLAVariant=1|LiLaflcat=v2|TraditionalMood=Indicativus|TraditionalTense=Praesens
+2	apud	apud	ADP	R	_	3	case	_	LiLaflcat=i
+3	concilium	concilium	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Sing	1	obl	_	LiLaflcat=n2
+4	accusare	accuso	VERB	B1	Aspect=Imp|InflClass=LatA|VerbForm=Inf|Voice=Act	1	csubj	_	LiLaflcat=v1|TraditionalMood=Infinitivus|TraditionalTense=Praesens
+5	quoque	quoque	PART	M	Form=Emp	4	discourse	_	LiLaflcat=i
+6	et	et	CCONJ	S	_	9	cc	_	LASLAVariant=2|LiLaflcat=i
+7	discrimen	discrimen	NOUN	A3	Case=Acc|Gender=Neut|InflClass=IndEurX|Number=Sing	9	obj	_	LiLaflcat=n3
+8	capitis	caput	NOUN	A3	Case=Gen|Gender=Neut|InflClass=IndEurX|Number=Sing	7	nmod	_	LiLaflcat=n3
+9	intendere	intendo	VERB	B3	Aspect=Imp|InflClass=LatX|VerbForm=Inf|Voice=Act	4	conj	_	LiLaflcat=v3|TraditionalMood=Infinitivus|TraditionalTense=Praesens
+
+# sent_id = SenHerFu-P-15-423
+# text = quis hic locus quae regio quae mundi plaga
+# token_count = 8
+1	quis	quis	PRON	K	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Int	3	det	_	LASLAVariant=1|LiLaflcat=p
+2	hic	hic	DET	I	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Dem	3	det	_	LASLAVariant=1|LiLaflcat=p
+3	locus	locus	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Sing	0	root	_	LiLaflcat=n2
+4	quae	quis	PRON	K	Case=Nom|Gender=Fem|InflClass=LatPron|Number=Sing|PronType=Int	5	det	_	LASLAVariant=1|LiLaflcat=p
+5	regio	regio	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	3	conj	_	LiLaflcat=n3
+6	quae	quis	PRON	K	Case=Nom|Gender=Fem|InflClass=LatPron|Number=Sing|PronType=Int	8	det	_	LASLAVariant=1|LiLaflcat=p
+7	mundi	mundus	NOUN	A2	Case=Gen|Gender=Masc|InflClass=IndEurO|Number=Sing	8	nmod	_	LASLAVariant=1|LiLaflcat=n2
+8	plaga	plaga	NOUN	A1	Case=Nom|Gender=Fem|InflClass=IndEurA|Number=Sing	3	conj	_	LASLAVariant=2|LiLaflcat=n1
+
+# sent_id = TacGerma-Q-01-194
+# text = sic instituere maiores posteri imitantur
+# token_count = 5
+1	sic	sic	ADV	M	PronType=Dem	2	advmod	_	LiLaflcat=i
+2	instituere	instituo	VERB	B3	Aspect=Perf|InflClass=LatX|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Perfectum
+3	maiores	magnus	ADJ	C1	Case=Nom|Degree=Cmp|Gender=Masc|InflClass=IndEurX|Number=Plur	2	nsubj	_	LiLaflcat=n7
+4	posteri	posteri	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Plur	5	nsubj	_	LiLaflcat=n2
+5	imitantur	imitor	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	2	conj	_	LiLaflcat=v1|TraditionalMood=Indicativus|TraditionalTense=Praesens
+
+# sent_id = SenHerFu-P-15-293
+# text = non passus ullas natus Alcmena moras ipso coactum nauitam conto domat scanditque puppem
+# token_count = 14
+1	non	non	PART	P	PartType=Neg|Polarity=Neg	2	advmod:neg	_	LiLaflcat=i
+2	passus	patior	VERB	B5	Aspect=Perf|Case=Nom|Degree=Pos|Gender=Masc|InflClass=LatI2|InflClass[nominal]=IndEurO|Number=Sing|VerbForm=Part|Voice=Pass	11	advcl:pred	_	LiLaflcat=v5
+3	ullas	ullus	DET	L	Case=Acc|Gender=Fem|InflClass=LatPron|Number=Plur|PronType=Ind	6	det	_	LiLaflcat=p
+4	natus	nascor	VERB	B3	Aspect=Perf|Case=Nom|Degree=Pos|Gender=Masc|InflClass=LatX|InflClass[nominal]=IndEurO|Number=Sing|VerbForm=Part|Voice=Pass	11	nsubj	_	LiLaflcat=v3
+5	Alcmena	alcmena	PROPN	A1	Case=Abl|Gender=Fem|InflClass=IndEurA|NameType=Giv|Number=Sing	4	obl:agent	_	LASLAVariant=N|LiLaflcat=n1
+6	moras	mora	NOUN	A1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Plur	2	obj	_	LiLaflcat=n1
+7	ipso	ipse	DET	I	Case=Abl|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Emp	10	det	_	LiLaflcat=p
+8	coactum	cogo	VERB	B3	Aspect=Perf|Case=Acc|Degree=Pos|Gender=Masc|InflClass=LatX|InflClass[nominal]=IndEurO|Number=Sing|VerbForm=Part|Voice=Pass	9	acl	_	LiLaflcat=v3
+9	nauitam	nauta	NOUN	A1	Case=Acc|Gender=Masc|InflClass=IndEurA|Number=Sing	11	obj	_	LiLaflcat=n1
+10	conto	contus	NOUN	A2	Case=Abl|Gender=Masc|InflClass=IndEurO|Number=Sing	8	obl:agent	_	LiLaflcat=n2
+11	domat	domo	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1
+12-13	scanditque	_	_	_	_	_	_	_	_
+12	scandit	scando	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	11	conj	_	LiLaflcat=v3
+13	que	que	CCONJ	S	_	12	cc	_	LiLaflcat=i
+14	puppem	puppis	NOUN	A3	Case=Acc|Gender=Fem,Masc|InflClass=IndEurI|Number=Sing	12	obj	_	LiLaflcat=n3
+
+# sent_id = SenHerFu-P-15-335
+# text = finiat genitor tuos opta labores detur aliquando otium quiesque fessis
+# token_count = 11
+1	finiat	finio	VERB	B4	Aspect=Imp|InflClass=LatI|Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	4	ccomp	_	LiLaflcat=v4
+2	genitor	genitor	NOUN	A3	Case=Nom|Gender=Masc|InflClass=IndEurX|Number=Sing	1	nsubj	_	LiLaflcat=n3
+3	tuos	tuus	DET	F	Case=Acc|Gender=Masc|InflClass=IndEurO|Number=Plur|Number[psor]=Sing|Person[psor]=2|Poss=Yes|PronType=Prs	5	det	_	LiLaflcat=n6
+4	opta	opto	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Imp|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1
+5	labores	labor	NOUN	A3	Case=Acc|Gender=Masc|InflClass=IndEurX|Number=Plur	1	obj	_	LASLAVariant=1|LiLaflcat=n3
+6	detur	do	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	1	conj	_	LiLaflcat=v1
+7	aliquando	aliquando	ADV	M	Degree=Pos	6	advmod:tmod	_	LiLaflcat=i
+8	otium	otium	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Sing	6	nsubj:pass	_	LiLaflcat=n2
+9-10	quiesque	_	_	_	_	_	_	_	_
+9	quies	quies	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurI|Number=Sing	8	conj	_	LiLaflcat=n3
+10	que	que	CCONJ	S	_	9	cc	_	LiLaflcat=i
+11	fessis	fessus	ADJ	C1	Case=Dat|Degree=Pos|Gender=Fem,Masc,Neut|InflClass=IndEurA,IndEurO|Number=Plur	6	obl:arg	_	LiLaflcat=n6
+
+# sent_id = SenHerFu-P-15-345
+# text = quis diem retro fugat agitque in ortus
+# token_count = 8
+1	quis	quis	PRON	K	Case=Nom|Gender=Fem,Masc|InflClass=LatPron|Number=Sing|PronType=Int	4	nsubj	_	LASLAVariant=1|LiLaflcat=p
+2	diem	dies	NOUN	A5	Case=Acc|Gender=Fem,Masc|InflClass=IndEurE|Number=Sing	4	obj	_	LiLaflcat=n5
+3	retro	retro	ADV	M	Degree=Pos	4	advmod:lmod	_	LASLAVariant=1|LiLaflcat=i
+4	fugat	fugo	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1
+5-6	agitque	_	_	_	_	_	_	_	_
+5	agit	ago	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	4	conj	_	LiLaflcat=v3
+6	que	que	CCONJ	S	_	5	cc	_	LiLaflcat=i
+7	in	in	ADP	R	AdpType=Prep	8	case	_	LiLaflcat=i
+8	ortus	ortus	NOUN	A4	Case=Acc|Gender=Masc|InflClass=IndEurU|Number=Plur	5	obl	_	LiLaflcat=n4
+
+# sent_id = SenHerFu-P-15-172
+# text = pastor Pheraeos Delius pauit greges
+# token_count = 5
+1	pastor	pastor	NOUN	A3	Case=Nom|Gender=Masc|InflClass=IndEurX|Number=Sing	4	nsubj	_	LiLaflcat=n3
+2	Pheraeos	pheraeus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Masc|InflClass=IndEurO|NameType=Geo|Number=Plur	5	amod	_	LASLAVariant=A|LiLaflcat=n6
+3	Delius	delius	ADJ	C1	Case=Nom|Degree=Pos|Gender=Masc|InflClass=IndEurO|NameType=Geo|Number=Sing	1	amod	_	LASLAVariant=A|LiLaflcat=n6
+4	pauit	pasco	VERB	B3	Aspect=Perf|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v3
+5	greges	grex	NOUN	A3	Case=Acc|Gender=Masc|InflClass=IndEurX|Number=Plur	4	obj	_	LiLaflcat=n3
+
+# sent_id = TacGerma-Q-01-268
+# text = est apud illos et opibus honos eoque unus imperitat nullis iam exceptionibus non precario iure parendi
+# token_count = 17
+1	est	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	_	LASLAVariant=1|LiLaflcat=v6|TraditionalMood=Indicativus|TraditionalTense=Praesens
+2	apud	apud	ADP	R	_	3	case	_	LiLaflcat=i
+3	illos	ille	DET	I	Case=Acc|Gender=Masc|InflClass=LatPron|Number=Plur|PronType=Dem	5	obl	_	LiLaflcat=p
+4	et	et	CCONJ	M	_	5	advmod:emph	_	LASLAVariant=1|LiLaflcat=i
+5	opibus	ops	NOUN	A3	Case=Dat|Gender=Fem|InflClass=IndEurX|Number=Plur	0	root	_	LiLaflcat=n3
+6	honos	honor	NOUN	A3	Case=Nom|Gender=Masc|InflClass=IndEurX|Number=Sing	5	nsubj	_	LiLaflcat=n3
+7-8	eoque	_	_	_	_	_	_	_	_
+7	eo	eo	ADV	M	_	10	advmod	_	LASLAVariant=3|LiLaflcat=i
+8	que	que	CCONJ	S	_	10	cc	_	LiLaflcat=i
+9	unus	unus	DET	D1	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|NumForm=Word|NumType=Card|NumValue=1|PronType=Ind	10	nsubj	_	LiLaflcat=n6
+10	imperitat	imperito	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	5	conj	_	LiLaflcat=v1|TraditionalMood=Indicativus|TraditionalTense=Praesens
+11	nullis	nullus	DET	L	Case=Abl|Gender=Fem|InflClass=LatPron|Number=Plur|Polarity=Neg|PronType=Ind	10	advcl:abs	_	LiLaflcat=p
+12	iam	iam	ADV	M	AdvType=Tim	11	advmod:tmod	_	LiLaflcat=i
+13	exceptionibus	exceptio	NOUN	A3	Case=Abl|Gender=Fem|InflClass=IndEurX|Number=Plur	11	nsubj	_	LiLaflcat=n3
+14	non	non	PART	P	Polarity=Neg	15	advmod:neg	_	LiLaflcat=i
+15	precario	precarius	ADJ	C1	Case=Abl|Gender=Neut|InflClass=IndEurO|Number=Sing	16	amod	_	LiLaflcat=n6
+16	iure	ius	NOUN	A3	Case=Abl|Gender=Neut|InflClass=IndEurI|Number=Sing	10	obl	_	LASLAVariant=1|LiLaflcat=n3
+17	parendi	pareo	VERB	B2	Aspect=Prosp|Case=Gen|Gender=Neut|InflClass=LatE|InflClass[nominal]=IndEurO|Number=Sing|VerbForm=Part|Voice=Pass	16	acl	_	LiLaflcat=v2|TraditionalMood=Gerundium
+
+# sent_id = SenHerFu-P-15-320
+# text = sis licet segnis properamus ipsi prima quae uitam dedit hora carpit
+# token_count = 11
+1	sis	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Sub|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	cop	_	LASLAVariant=1|LiLaflcat=v6
+2	licet	licet	VERB	B2	Aspect=Imp|InflClass=LatE|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LASLAVariant=1|LiLaflcat=v2
+3	segnis	segnis	ADJ	C4	Case=Nom|Degree=Pos|Gender=Fem,Masc|InflClass=IndEurI|Number=Sing	2	csubj	_	LiLaflcat=n7
+4	properamus	propero	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin|Voice=Act	2	conj	_	LiLaflcat=v1
+5	ipsi	ipse	DET	I	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Plur|PronType=Emp	4	nsubj	_	LiLaflcat=p
+6	prima	primus	ADJ	D2	Case=Nom|Degree=Abs|Gender=Fem|InflClass=IndEurA|Number=Sing|NumType=Ord	9	advcl:pred	_	LiLaflcat=n6
+7	quae	qui	PRON	J	Case=Nom|Gender=Fem|InflClass=LatPron|Number=Sing|PronType=Rel	9	nsubj	_	LASLAVariant=1|LiLaflcat=p
+8	uitam	uita	NOUN	A1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Sing	9	obj	_	LiLaflcat=n1
+9	dedit	do	VERB	B1	Aspect=Perf|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	10	acl:relcl	_	LiLaflcat=v1
+10	hora	hora	NOUN	A1	Case=Nom|Gender=Fem|InflClass=IndEurA|Number=Sing	11	nsubj	_	LiLaflcat=n1
+11	carpit	carpo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	2	conj	_	LiLaflcat=v3
+
+# sent_id = TacGerma-Q-01-97
+# text = locupletissimi ueste distinguuntur non fluitante sicut Sarmatae ac Parthi sed stricta et singulos artus exprimente
+# token_count = 15
+1	locupletissimi	locuples	ADJ	C5	Case=Nom|Degree=Abs|Gender=Masc|InflClass=IndEurO|Number=Plur	3	nsubj:pass	_	LiLaflcat=n6
+2	ueste	uestis	NOUN	A3	Case=Abl|Gender=Fem|InflClass=IndEurI|Number=Sing	3	obl	_	LiLaflcat=n3
+3	distinguuntur	distinguo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	0	root	_	LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Praesens
+4	non	non	PART	P	Polarity=Neg	5	advmod:neg	_	LiLaflcat=i
+5	fluitante	fluito	VERB	B1	Aspect=Imp|Case=Abl|Gender=Fem|InflClass=LatA|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	2	acl	_	LiLaflcat=v1|TraditionalMood=Participium|TraditionalTense=Praesens
+6	sicut	sicut	SCONJ	N	Compound=Yes|PronType=Rel	7	mark	_	LASLAVariant=1|LiLaflcat=i
+7	Sarmatae	sarmatae	NOUN	A1	Case=Nom|Gender=Masc|InflClass=IndEurA|NameType=Nat|Number=Plur	5	advcl:cmp	_	LASLAVariant=N|LiLaflcat=n1
+8	ac	atque	CCONJ	S	Form=Emp	9	cc	_	LASLAVariant=1|LiLaflcat=i
+9	Parthi	parthus	ADJ	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|NameType=Nat|Number=Plur	7	conj	_	LASLAVariant=N|LiLaflcat=n2
+10	sed	sed	CCONJ	S	_	11	cc	_	LiLaflcat=i
+11	stricta	strictus	ADJ	C1	Case=Abl|Gender=Fem|InflClass=IndEurA|Number=Sing	5	conj	_	LiLaflcat=n6
+12	et	et	CCONJ	S	_	15	cc	_	LASLAVariant=2|LiLaflcat=i
+13	singulos	singulus	ADJ	D3	Case=Acc|Gender=Masc|InflClass=IndEurO|Number=Plur|NumForm=Word|NumType=Dist	14	amod	_	LiLaflcat=n6
+14	artus	artus	NOUN	A4	Case=Acc|Gender=Masc|InflClass=IndEurU|Number=Plur	15	obj	_	LASLAVariant=1|LiLaflcat=n4
+15	exprimente	exprimo	VERB	B3	Aspect=Imp|Case=Abl|Gender=Fem|InflClass=LatX|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	11	conj	_	LiLaflcat=v3|TraditionalMood=Participium|TraditionalTense=Praesens
+
+# sent_id = SenHerFu-P-15-91
+# text = indigna te sunt spolia si tantum refers quantum imperatum est
+# token_count = 10
+1	indigna	indignus	ADJ	C1	Case=Nom|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Plur	0	root	_	LiLaflcat=n6
+2	te	tu	PRON	E	Case=Abl|InflClass=LatAnom|Number=Sing|Person=2|PronType=Prs	1	obl:arg	_	LiLaflcat=p
+3	sunt	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	1	cop	_	LASLAVariant=1|LiLaflcat=v6
+4	spolia	spolium	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur	1	nsubj	_	LiLaflcat=n2
+5	si	si	SCONJ	T	_	7	mark	_	LASLAVariant=2|LiLaflcat=i
+6	tantum	tantum	PRON	I	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Sing|PronType=Dem	7	obj	_	LASLAVariant=1|LiLaflcat=n6
+7	refers	refero	VERB	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act	1	advcl	_	LiLaflcat=v6
+8	quantum	quantum	PRON	J	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Sing|NumType=Card|PronType=Rel	9	det	_	LASLAVariant=1|LiLaflcat=n6
+9	imperatum	impero	VERB	Y1	Aspect=Perf|Case=Nom|Degree=Pos|Gender=Neut|InflClass=LatA|InflClass[nominal]=IndEurO|Number=Sing|VerbForm=Part|Voice=Pass	7	advcl:cmp	_	LiLaflcat=v1
+10	est	sum	AUX	Z1	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	cop	_	LASLAVariant=2|LiLaflcat=v6
+
+# sent_id = TacGerma-Q-01-218
+# text = medio tam longi aeui spatio multa in uicem damna
+# token_count = 9
+1	medio	medius	ADJ	C1	Case=Abl|Gender=Neut|InflClass=IndEurO|Number=Sing	5	amod	_	LiLaflcat=n6
+2	tam	tam	ADV	M	PronType=Dem	3	advmod	_	LiLaflcat=i
+3	longi	longus	ADJ	C1	Case=Gen|Gender=Neut|InflClass=IndEurO|Number=Sing	4	amod	_	LiLaflcat=n6
+4	aeui	aeuum	NOUN	A2	Case=Gen|Gender=Neut|InflClass=IndEurO|Number=Sing	5	nmod	_	LiLaflcat=n2
+5	spatio	spatium	NOUN	A2	Case=Abl|Gender=Neut|InflClass=IndEurO|Number=Sing	6	obl:tmod	_	LiLaflcat=n2
+6	multa	multus	DET	C1	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur|NumType=Card|PronType=Ind	0	root	_	LiLaflcat=n6
+7	in	in	ADP	R	_	8	case	_	LiLaflcat=i
+8	uicem	uicis	NOUN	A3	Case=Acc|Gender=Fem|InflClass=IndEurI|Number=Sing	9	nmod	_	LiLaflcat=n3
+9	damna	damnum	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur	6	nsubj	_	LiLaflcat=n2
+
+# sent_id = SenHerFu-P-15-50
+# text = carbasa uentis credit dubius nauita uitae laxos aura complente sinus
+# token_count = 10
+1	carbasa	carbasa	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Plur	3	obj	_	LiLaflcat=n2
+2	uentis	uentus	NOUN	A2	Case=Dat|Gender=Masc|InflClass=IndEurO|Number=Plur	3	obl:arg	_	LiLaflcat=n2
+3	credit	credo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v3
+4	dubius	dubius	ADJ	C1	Case=Nom|Degree=Pos|Gender=Masc|InflClass=IndEurO|Number=Sing	5	amod	_	LiLaflcat=n6
+5	nauita	nauta	NOUN	A1	Case=Nom|Gender=Masc|InflClass=IndEurA|Number=Sing	3	nsubj	_	LiLaflcat=n1
+6	uitae	uita	NOUN	A1	Case=Dat|Gender=Fem|InflClass=IndEurA|Number=Sing	4	nmod	_	LiLaflcat=n1
+7	laxos	laxus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Masc|InflClass=IndEurO|Number=Plur	10	amod	_	LiLaflcat=n6
+8	aura	aura	NOUN	A1	Case=Abl|Gender=Fem|InflClass=IndEurA|Number=Sing	9	nsubj	_	LiLaflcat=n1
+9	complente	compleo	VERB	B2	Aspect=Imp|Case=Abl|Degree=Pos|Gender=Masc|InflClass=LatE|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	3	advcl:abs	_	LiLaflcat=v2
+10	sinus	sinus	NOUN	A4	Case=Acc|Gender=Masc|InflClass=IndEurU|Number=Plur	9	obj	_	LiLaflcat=n4
+
+# sent_id = SenHerFu-P-15-540
+# text = eat ad labores hic quoque Herculeos labor uiuamus
+# token_count = 8
+1	eat	eo	VERB	B6	Aspect=Imp|InflClass=LatAnom|Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LASLAVariant=1|LiLaflcat=v6
+2	ad	ad	ADP	R	AdpType=Prep	3	case	_	LASLAVariant=2|LiLaflcat=i
+3	labores	labor	NOUN	A3	Case=Acc|Gender=Masc|InflClass=IndEurX|Number=Plur	1	obl	_	LASLAVariant=1|LiLaflcat=n3
+4	hic	hic	DET	I	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Dem	7	det	_	LASLAVariant=1|LiLaflcat=p
+5	quoque	quoque	ADV	M	Degree=Pos	7	advmod:emph	_	LiLaflcat=i
+6	Herculeos	herculeus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Masc|InflClass=IndEurO|NameType=Giv|Number=Plur	3	amod	_	LASLAVariant=A|LiLaflcat=n6
+7	labor	labor	NOUN	A3	Case=Nom|Gender=Masc|InflClass=IndEurX|Number=Sing	1	nsubj	_	LASLAVariant=1|LiLaflcat=n3
+8	uiuamus	uiuo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Sub|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	LiLaflcat=v3
+
+# sent_id = SenHerFu-P-15-416
+# text = pelle insanos fluctus animi redeat pietas uirtusque uiro
+# token_count = 9
+1	pelle	pello	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Imp|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v3
+2	insanos	insanus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Masc|InflClass=IndEurO|Number=Plur	3	amod	_	LiLaflcat=n6
+3	fluctus	fluctus	NOUN	A4	Case=Acc|Gender=Masc|InflClass=IndEurU|Number=Plur	1	obj	_	LiLaflcat=n4
+4	animi	animus	NOUN	A2	Case=Gen|Gender=Masc|InflClass=IndEurO|Number=Sing	6	nmod	_	LiLaflcat=n2
+5	redeat	redeo	VERB	B6	Aspect=Imp|InflClass=LatAnom|Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	LASLAVariant=1|LiLaflcat=v6
+6	pietas	pietas	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	5	nsubj	_	LiLaflcat=n3
+7-8	uirtusque	_	_	_	_	_	_	_	_
+7	uirtus	uirtus	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	6	conj	_	LiLaflcat=n3
+8	que	que	CCONJ	S	_	7	cc	_	LiLaflcat=i
+9	uiro	uir	NOUN	A2	Case=Dat|Gender=Masc|InflClass=IndEurO|Number=Sing	5	obl:arg	_	LiLaflcat=n2
+
+# sent_id = TacGerma-Q-01-161
+# text = funerum nulla ambitio id solum obseruatur ut corpora clarorum uirorum certis lignis crementur
+# token_count = 13
+1	funerum	funus	NOUN	A3	Case=Gen|Gender=Neut|InflClass=IndEurX|Number=Plur	3	nmod	_	LiLaflcat=n3
+2	nulla	nullus	DET	L	Case=Nom|Gender=Fem|InflClass=LatPron|Number=Sing|Polarity=Neg|PronType=Ind	3	det	_	LiLaflcat=p
+3	ambitio	ambitio	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	0	root	_	LiLaflcat=n3
+4	id	is	PRON	I	Case=Nom|Gender=Neut|InflClass=LatPron|Number=Sing|Person=3|PronType=Prs	6	obj	_	LiLaflcat=p
+5	solum	solus	DET	L	Case=Nom|Gender=Neut|InflClass=LatPron|Number=Sing|PronType=Con	4	det	_	LiLaflcat=p
+6	obseruatur	obseruo	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	3	conj	_	LiLaflcat=v1|TraditionalMood=Indicativus|TraditionalTense=Praesens
+7	ut	ut	SCONJ	T	PronType=Rel	13	mark	_	LASLAVariant=4|LiLaflcat=i
+8	corpora	corpus	NOUN	A3	Case=Nom|Gender=Neut|InflClass=IndEurX|Number=Plur	13	nsubj:pass	_	LiLaflcat=n3
+9	clarorum	clarus	ADJ	C1	Case=Gen|Gender=Masc|InflClass=IndEurO|Number=Plur	10	amod	_	LiLaflcat=n6
+10	uirorum	uir	NOUN	A2	Case=Gen|Gender=Masc|InflClass=IndEurO|Number=Plur	8	nmod	_	LiLaflcat=n2
+11	certis	certus	ADJ	C1	Case=Abl|Gender=Masc|InflClass=IndEurO|Number=Plur	12	amod	_	LiLaflcat=n6
+12	lignis	lignum	NOUN	A2	Case=Abl|Gender=Neut|InflClass=IndEurO|Number=Plur	13	obl	_	LiLaflcat=n2
+13	crementur	cremo	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Sub|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	6	dislocated:csubj	_	LiLaflcat=v1|TraditionalMood=Subiunctivus|TraditionalTense=Praesens
+
+# sent_id = SenHerFu-P-15-479
+# text = tacuere
+# token_count = 1
+1	tacuere	taceo	VERB	B2	Aspect=Perf|InflClass=LatE|Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v2
+
+# sent_id = SenHerFu-P-15-305
+# text = extimuit sedens uterque solio dominus et duci iubet me quoque petenti munus Alcidae dedit
+# token_count = 14
+1	extimuit	extimesco	VERB	B3	Aspect=Perf|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v3
+2	sedens	sedeo	VERB	B2	Aspect=Imp|Case=Nom|Degree=Pos|Gender=Masc|InflClass=LatE|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	5	acl	_	LiLaflcat=v2
+3	uterque	uterque	DET	L	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Ind	5	det	_	LiLaflcat=p
+4	solio	solium	NOUN	A2	Case=Abl|Gender=Neut|InflClass=IndEurO|Number=Sing	2	obl:lmod	_	LiLaflcat=n2
+5	dominus	dominus	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Sing	1	nsubj	_	LiLaflcat=n2
+6	et	et	CCONJ	S	_	8	cc	_	LASLAVariant=2|LiLaflcat=i
+7	duci	duco	VERB	B3	Aspect=Imp|InflClass=LatX|InflClass[nominal]=Ind|VerbForm=Inf|Voice=Pass	8	xcomp	_	LiLaflcat=v3
+8	iubet	iubeo	VERB	B2	Aspect=Imp|InflClass=LatE|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	LiLaflcat=v2
+9	me	ego	PRON	E	Case=Acc|InflClass=LatAnom|Number=Sing|Person=1|PronType=Prs	14	obj	_	LiLaflcat=p
+10	quoque	quoque	ADV	M	Degree=Pos	9	advmod:emph	_	LiLaflcat=i
+11	petenti	peto	VERB	B3	Aspect=Imp|Case=Dat|Degree=Pos|Gender=Fem,Masc,Neut|InflClass=LatX|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	13	acl	_	LiLaflcat=v3
+12	munus	munus	NOUN	A3	Case=Acc|Gender=Neut|InflClass=IndEurX|Number=Sing	14	advcl:pred	_	LiLaflcat=n3
+13	Alcidae	alcides	PROPN	A1	Case=Dat|InflClass=IndEurA|NameType=Giv|Number=Sing	14	obl:arg	_	LASLAVariant=N|LiLaflcat=n1
+14	dedit	do	VERB	B1	Aspect=Perf|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	1	conj	_	LiLaflcat=v1
+
+# sent_id = SenHerFu-P-15-161
+# text = uirtutis est domare quae cuncti pauent
+# token_count = 6
+1	uirtutis	uirtus	NOUN	A3	Case=Gen|Gender=Fem|InflClass=IndEurX|Number=Sing	0	root	_	LiLaflcat=n3
+2	est	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	cop	_	LASLAVariant=1|LiLaflcat=v6
+3	domare	domo	VERB	B1	Aspect=Imp|InflClass=LatA|InflClass[nominal]=Ind|VerbForm=Inf|Voice=Act	1	csubj	_	LiLaflcat=v1
+4	quae	qui	PRON	J	Case=Acc|Gender=Neut|InflClass=LatPron|Number=Plur|PronType=Rel	6	obj	_	LASLAVariant=1|LiLaflcat=p
+5	cuncti	cunctus	DET	C1	Case=Nom|Degree=Pos|Gender=Masc|InflClass=IndEurO|Number=Plur|PronType=Tot	6	nsubj	_	LiLaflcat=n6
+6	pauent	paueo	VERB	B2	Aspect=Imp|InflClass=LatE|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	3	acl:relcl	_	LiLaflcat=v2
+
+# sent_id = SenHerFu-P-15-131
+# text = quin ipse toruum subrigens crista caput Illyrica Cadmus regna permensus fuga longas reliquit corporis tracti notas
+# token_count = 16
+1	quin	quin	ADV	M	Degree=Pos	13	advmod:emph	_	LASLAVariant=1|LiLaflcat=i
+2	ipse	ipse	DET	I	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Emp	8	det	_	LiLaflcat=p
+3	toruum	toruus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Sing	6	amod	_	LiLaflcat=n6
+4	subrigens	subrigo	VERB	B3	Aspect=Imp|Case=Nom|Degree=Pos|Gender=Masc|InflClass=LatX|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	8	advcl	_	LiLaflcat=v3
+5	crista	crista	NOUN	A1	Case=Abl|Gender=Fem|InflClass=IndEurA|Number=Sing	4	obl	_	LiLaflcat=n1
+6	caput	caput	NOUN	A3	Case=Acc|Gender=Neut|InflClass=IndEurX|Number=Sing	4	obj	_	LiLaflcat=n3
+7	Illyrica	illyricus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Neut|InflClass=IndEurO|NameType=Geo|Number=Plur	9	amod	_	LASLAVariant=A|LiLaflcat=n6
+8	Cadmus	cadmus	PROPN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|NameType=Giv|Number=Sing	13	nsubj	_	LASLAVariant=N|LiLaflcat=n2
+9	regna	regnum	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Plur	10	obj	_	LiLaflcat=n2
+10	permensus	permetior	VERB	B4	Aspect=Perf|Case=Nom|Degree=Pos|Gender=Masc|InflClass=LatI|InflClass[nominal]=IndEurO|Number=Sing|VerbForm=Part|Voice=Pass	8	advcl	_	LiLaflcat=v4
+11	fuga	fuga	NOUN	A1	Case=Abl|Gender=Fem|InflClass=IndEurA|Number=Sing	13	obl	_	LiLaflcat=n1
+12	longas	longus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Fem|InflClass=IndEurA|Number=Plur	16	amod	_	LiLaflcat=n6
+13	reliquit	relinquo	VERB	B3	Aspect=Perf|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v3
+14	corporis	corpus	NOUN	A3	Case=Gen|Gender=Neut|InflClass=IndEurX|Number=Sing	16	nmod	_	LiLaflcat=n3
+15	tracti	traho	VERB	B3	Aspect=Perf|Case=Gen|Degree=Pos|Gender=Neut|InflClass=LatX|InflClass[nominal]=IndEurO|Number=Sing|VerbForm=Part|Voice=Pass	14	acl	_	LiLaflcat=v3
+16	notas	nota	NOUN	A1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Plur	13	obj	_	LiLaflcat=n1
+
+# sent_id = SenHerFu-P-15-543
+# text = hanc manum amplector libens hac nisus ibo pectori hanc aegro admouens pellam dolores
+# token_count = 13
+1	hanc	hic	DET	I	Case=Acc|Gender=Fem|InflClass=LatPron|Number=Sing|PronType=Dem	2	det	_	LASLAVariant=1|LiLaflcat=p
+2	manum	manus	NOUN	A4	Case=Acc|Gender=Fem|InflClass=IndEurU|Number=Sing	3	obj	_	LASLAVariant=1|LiLaflcat=n4
+3	amplector	amplector	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin|Voice=Pass	0	root	_	LiLaflcat=v3
+4	libens	libens	ADJ	C5	Case=Nom|Degree=Pos|Gender=Masc|InflClass=IndEurI|Number=Sing	3	amod	_	LiLaflcat=n7
+5	hac	hic	DET	I	Case=Abl|Gender=Fem|InflClass=LatPron|Number=Sing|PronType=Dem	6	obl	_	LASLAVariant=1|LiLaflcat=p
+6	nisus	nitor	VERB	B3	Aspect=Perf|Case=Nom|Degree=Pos|Gender=Masc|InflClass=LatX|InflClass[nominal]=IndEurO|Number=Sing|VerbForm=Part|Voice=Pass	7	advcl:pred	_	LASLAVariant=2|LiLaflcat=v3
+7	ibo	eo	VERB	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=1|Tense=Fut|VerbForm=Fin|Voice=Act	3	conj	_	LASLAVariant=1|LiLaflcat=v6
+8	pectori	pectus	NOUN	A3	Case=Dat|Gender=Neut|InflClass=IndEurX|Number=Sing	11	obl	_	LiLaflcat=n3
+9	hanc	hic	DET	I	Case=Acc|Gender=Fem|InflClass=LatPron|Number=Sing|PronType=Dem	11	obj	_	LASLAVariant=1|LiLaflcat=p
+10	aegro	aeger	ADJ	C1	Case=Dat|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Sing	8	amod	_	LASLAVariant=2|LiLaflcat=n6
+11	admouens	admoueo	VERB	B2	Aspect=Imp|Case=Nom|Degree=Pos|Gender=Masc|InflClass=LatE|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	12	advcl:pred	_	LiLaflcat=v2
+12	pellam	pello	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=1|Tense=Fut|VerbForm=Fin|Voice=Act	3	conj	_	LiLaflcat=v3
+13	dolores	dolor	NOUN	A3	Case=Acc|Gender=Masc|InflClass=IndEurX|Number=Plur	12	obj	_	LiLaflcat=n3
+
+# sent_id = SenHerFu-P-15-420
+# text = pectora tantis obsessa malis non sunt ictu ferienda leui uno planctu tria regna sonent
+# token_count = 14
+1	pectora	pectus	NOUN	A3	Case=Nom|Gender=Neut|InflClass=IndEurX|Number=Plur	8	nsubj:pass	_	LiLaflcat=n3
+2	tantis	tantus	DET	I	Case=Abl|Gender=Neut|InflClass=IndEurO|Number=Plur|PronType=Dem	4	det	_	LiLaflcat=n6
+3	obsessa	obsideo	VERB	B2	Aspect=Perf|Case=Nom|Degree=Pos|Gender=Neut|InflClass=LatE|InflClass[nominal]=IndEurO|Number=Plur|VerbForm=Part|Voice=Pass	1	acl	_	LiLaflcat=v2
+4	malis	malum	NOUN	A2	Case=Abl|Gender=Neut|InflClass=IndEurO|Number=Plur	3	obl:agent	_	LASLAVariant=1|LiLaflcat=n2
+5	non	non	PART	P	PartType=Neg|Polarity=Neg	8	advmod:neg	_	LiLaflcat=i
+6	sunt	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	8	aux	_	LASLAVariant=1|LiLaflcat=v6
+7	ictu	ictus	NOUN	A4	Case=Abl|Gender=Masc|InflClass=IndEurU|Number=Sing	8	obl:agent	_	LiLaflcat=n4
+8	ferienda	ferio	VERB	B4	Aspect=Prosp|Case=Nom|Degree=Pos|Gender=Neut|InflClass=LatI|InflClass[nominal]=IndEurO|Number=Plur|VerbForm=Gdv|Voice=Pass	0	root	_	LiLaflcat=v4
+9	leui	leuis	ADJ	C4	Case=Abl|Degree=Pos|Gender=Masc|InflClass=IndEurI|Number=Sing	7	amod	_	LASLAVariant=1|LiLaflcat=n7
+10	uno	unus	NUM	D1	Case=Abl|Gender=Masc|InflClass=IndEurO|Number=Sing|NumType=Card	11	nummod	_	LiLaflcat=n6
+11	planctu	planctus	NOUN	A4	Case=Abl|Gender=Masc|InflClass=IndEurU|Number=Sing	14	obl	_	LiLaflcat=n4
+12	tria	tres	NUM	D1	Case=Nom|Gender=Neut|InflClass=IndEurI|Number=Plur|NumType=Card	13	nummod	_	LiLaflcat=n7
+13	regna	regnum	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Plur	14	nsubj	_	LiLaflcat=n2
+14	sonent	sono	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Sub|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	8	conj	_	LASLAVariant=1|LiLaflcat=v1
+
+# sent_id = SenHerFu-P-15-367
+# text = rapuit hic Pindi iuga hic rapuit Oeten saeuit horrendum Mimans
+# token_count = 10
+1	rapuit	rapio	VERB	B5	Aspect=Perf|InflClass=LatI2|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v5
+2	hic	hic	DET	I	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Dem	1	nsubj	_	LASLAVariant=1|LiLaflcat=p
+3	Pindi	pindus	PROPN	A2	Case=Gen|Gender=Masc|InflClass=IndEurO|NameType=Geo|Number=Sing	4	nmod	_	LASLAVariant=N|LiLaflcat=n2
+4	iuga	iugum	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Plur	1	obj	_	LiLaflcat=n2
+5	hic	hic	DET	I	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Dem	6	nsubj	_	LASLAVariant=1|LiLaflcat=p
+6	rapuit	rapio	VERB	B5	Aspect=Perf|InflClass=LatI2|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	1	conj	_	LiLaflcat=v5
+7	Oeten	oeta	PROPN	A7	Case=Acc|Gender=Fem|InflClass=IndEurA|NameType=Geo|Number=Sing|Variant=Greek	6	obj	_	LASLAVariant=N|LiLaflcat=n1
+8	saeuit	saeuio	VERB	B4	Aspect=Imp|InflClass=LatI|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	1	conj	_	LiLaflcat=v4
+9	horrendum	horrendum	ADV	M	Degree=Pos	8	advmod	_	LiLaflcat=i
+10	Mimans	mimas	PROPN	A3	Case=Nom|Gender=Masc|InflClass=IndEurX|NameType=Rel|Number=Sing	8	nsubj	_	LASLAVariant=N|LiLaflcat=n3
+
+# sent_id = SenHerFu-P-15-435
+# text = ubi illa natorum grege animosa coniunx
+# token_count = 6
+1	ubi	ubi	ADV	O	PronType=Int	0	root	_	LASLAVariant=2|LiLaflcat=i
+2	illa	ille	DET	I	Case=Nom|Gender=Fem|InflClass=LatPron|Number=Sing|PronType=Dem	6	det	_	LiLaflcat=p
+3	natorum	natus	NOUN	A2	Case=Gen|Gender=Masc|InflClass=IndEurO|Number=Plur	4	nmod	_	LASLAVariant=1|LiLaflcat=n2
+4	grege	grex	NOUN	A3	Case=Abl|Gender=Masc|InflClass=IndEurX|Number=Sing	5	obl	_	LiLaflcat=n3
+5	animosa	animosus	ADJ	C1	Case=Nom|Degree=Pos|Gender=Fem|InflClass=IndEurA|Number=Sing	6	amod	_	LiLaflcat=n6
+6	coniunx	coniux	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	1	nsubj	_	LiLaflcat=n3
+
+# sent_id = TacGerma-Q-01-201
+# text = maioribus minoribusque Frisiis uocabulum est ex modo uirium
+# token_count = 9
+1	maioribus	magnus	ADJ	C1	Case=Dat|Degree=Cmp|Gender=Masc|InflClass=IndEurX|Number=Plur	4	amod	_	LiLaflcat=n7
+2-3	minoribusque	_	_	_	_	_	_	_	_
+2	minoribus	paruus	ADJ	C1	Case=Dat|Degree=Cmp|Gender=Masc|InflClass=IndEurX|Number=Plur	1	conj	_	LASLAVariant=2|LiLaflcat=n7
+3	que	que	CCONJ	S	_	2	cc	_	LiLaflcat=i
+4	Frisiis	frisius	NOUN	A2	Case=Dat|Gender=Masc|InflClass=IndEurO|NameType=Nat|Number=Plur	8	obl:arg	_	LASLAVariant=N|LiLaflcat=n2
+5	uocabulum	uocabulum	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Sing	8	nsubj	_	LiLaflcat=n2
+6	est	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	cop	_	LASLAVariant=1|LiLaflcat=v6|TraditionalMood=Indicativus|TraditionalTense=Praesens
+7	ex	ex	ADP	R	_	8	case	_	LiLaflcat=i
+8	modo	modus	NOUN	A2	Case=Abl|Gender=Masc|InflClass=IndEurO|Number=Sing	0	root	_	LiLaflcat=n2
+9	uirium	uis	NOUN	A3	Case=Gen|Gender=Fem|InflClass=IndEurI|Number=Plur	8	nmod	_	LiLaflcat=n3
+
+# sent_id = SenHerFu-P-15-276
+# text = quis iste ueri rector atque aequi arbiter
+# token_count = 7
+1	quis	quis	PRON	K	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Int	4	det	_	LASLAVariant=1|LiLaflcat=p
+2	iste	iste	DET	I	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Dem	4	det	_	LiLaflcat=p
+3	ueri	uerum	NOUN	A2	Case=Gen|Gender=Neut|InflClass=IndEurO|Number=Sing	4	nmod	_	LASLAVariant=1|LiLaflcat=n2
+4	rector	rector	NOUN	A3	Case=Nom|Gender=Masc|InflClass=IndEurX|Number=Sing	0	root	_	LiLaflcat=n3
+5	atque	atque	CCONJ	S	_	7	cc	_	LASLAVariant=1|LiLaflcat=i
+6	aequi	aequum	NOUN	A2	Case=Gen|Gender=Neut|InflClass=IndEurO|Number=Sing	7	nmod	_	LiLaflcat=n2
+7	arbiter	arbiter	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Sing	4	conj	_	LiLaflcat=n2
+
+# sent_id = TacGerma-Q-01-26
+# text = ne ferrum quidem superest sicut ex genere telorum colligitur
+# token_count = 9
+1	ne	ne	PART	P	Polarity=Neg	4	advmod:neg	_	LASLAVariant=3|LiLaflcat=i
+2	ferrum	ferrum	NOUN	A2	Case=Nom|Gender=Neut|InflClass=IndEurO|Number=Sing	4	nsubj	_	LiLaflcat=n2
+3	quidem	quidem	PART	M	_	4	discourse	_	LiLaflcat=i
+4	superest	supersum	VERB	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LASLAVariant=1|LiLaflcat=v6|TraditionalMood=Indicativus|TraditionalTense=Praesens
+5	sicut	sicut	SCONJ	N	Compound=Yes|PronType=Rel	9	mark	_	LASLAVariant=1|LiLaflcat=i
+6	ex	ex	ADP	R	_	7	case	_	LiLaflcat=i
+7	genere	genus	NOUN	A3	Case=Abl|Gender=Neut|InflClass=IndEurX|Number=Sing	9	obl	_	LASLAVariant=1|LiLaflcat=n3
+8	telorum	telum	NOUN	A2	Case=Gen|Gender=Neut|InflClass=IndEurO|Number=Plur	7	nmod	_	LiLaflcat=n2
+9	colligitur	colligo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	4	advcl:cmp	_	LASLAVariant=3|LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Praesens
+
+# sent_id = TacGerma-Q-01-93
+# text = ne caementorum quidem apud illos aut tegularum usus materia ad omnia utuntur informi et citra speciem aut delectationem
+# token_count = 18
+1	ne	ne	PART	P	Polarity=Neg	8	advmod:neg	_	LASLAVariant=3|LiLaflcat=i
+2	caementorum	caementum	NOUN	A2	Case=Gen|Gender=Neut|InflClass=IndEurO|Number=Plur	8	nmod	_	LiLaflcat=n2
+3	quidem	quidem	PART	M	_	8	discourse	_	LiLaflcat=i
+4	apud	apud	ADP	R	_	5	case	_	LiLaflcat=i
+5	illos	ille	DET	I	Case=Acc|Gender=Masc|InflClass=LatPron|Number=Plur|PronType=Dem	8	obl	_	LiLaflcat=p
+6	aut	aut	CCONJ	S	_	7	cc	_	LiLaflcat=i
+7	tegularum	tegula	NOUN	A1	Case=Gen|Gender=Fem|InflClass=IndEurA|Number=Plur	2	conj	_	LiLaflcat=n1
+8	usus	usus	NOUN	A4	Case=Nom|Gender=Masc|InflClass=IndEurU|Number=Sing	0	root	_	LiLaflcat=n4
+9	materia	materia	NOUN	A1	Case=Abl|Gender=Fem|InflClass=IndEurA|Number=Sing	12	obl:arg	_	LiLaflcat=n1
+10	ad	ad	ADP	R	_	11	case	_	LASLAVariant=2|LiLaflcat=i
+11	omnia	omnis	DET	L	Case=Acc|Gender=Neut|InflClass=IndEurI|Number=Plur|PronType=Tot	12	obl	_	LiLaflcat=n7
+12	utuntur	utor	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	8	conj	_	LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Praesens
+13	informi	informis	ADJ	C4	Case=Abl|Gender=Fem|InflClass=IndEurI|Number=Sing	9	amod	_	LiLaflcat=n7
+14	et	et	CCONJ	S	_	16	cc	_	LASLAVariant=2|LiLaflcat=i
+15	citra	citra	ADP	R	_	16	case	_	LASLAVariant=2|LiLaflcat=i
+16	speciem	species	NOUN	A5	Case=Acc|Gender=Fem|InflClass=IndEurE|Number=Sing	13	conj	_	LiLaflcat=n5
+17	aut	aut	CCONJ	S	_	18	cc	_	LiLaflcat=i
+18	delectationem	delectatio	NOUN	A3	Case=Acc|Gender=Fem|InflClass=IndEurX|Number=Sing	16	conj	_	LiLaflcat=n3
+
+# sent_id = TacGerma-Q-01-29
+# text = nulla cultus iactatio scuta tantum lectissimis coloribus distinguunt
+# token_count = 8
+1	nulla	nullus	DET	L	Case=Nom|Gender=Fem|InflClass=LatPron|Number=Sing|Polarity=Neg|PronType=Ind	3	det	_	LiLaflcat=p
+2	cultus	cultus	NOUN	A4	Case=Gen|Gender=Masc|InflClass=IndEurU|Number=Sing	3	nmod	_	LASLAVariant=1|LiLaflcat=n4
+3	iactatio	iactatio	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Sing	0	root	_	LiLaflcat=n3
+4	scuta	scutum	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Plur	8	obj	_	LiLaflcat=n2
+5	tantum	tantum	ADV	M	NumType=Card|PronType=Dem	4	advmod	_	LASLAVariant=2|LiLaflcat=i
+6	lectissimis	lectus	ADJ	C1	Case=Abl|Degree=Abs|Gender=Masc|InflClass=IndEurO|Number=Plur	7	amod	_	LASLAVariant=3|LiLaflcat=n6
+7	coloribus	color	NOUN	A3	Case=Abl|Gender=Masc|InflClass=IndEurX|Number=Plur	8	obl	_	LiLaflcat=n3
+8	distinguunt	distinguo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	3	conj	_	LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Praesens
+
+# sent_id = TacGerma-Q-01-31
+# text = equi non forma non uelocitate conspicui
+# token_count = 6
+1	equi	equus	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Plur	6	nsubj	_	LiLaflcat=n2
+2	non	non	PART	P	Polarity=Neg	3	advmod:neg	_	LiLaflcat=i
+3	forma	forma	NOUN	A1	Case=Abl|Gender=Fem|InflClass=IndEurA|Number=Sing	6	obl	_	LiLaflcat=n1
+4	non	non	PART	P	Polarity=Neg	5	advmod:neg	_	LiLaflcat=i
+5	uelocitate	uelocitas	NOUN	A3	Case=Abl|Gender=Fem|InflClass=IndEurX|Number=Sing	3	conj	_	LiLaflcat=n3
+6	conspicui	conspicuus	ADJ	C1	Case=Nom|Gender=Masc|InflClass=IndEurO|Number=Plur	0	root	_	LiLaflcat=n6
+
+# sent_id = SenHerFu-P-15-460
+# text = quis fudit domum
+# token_count = 3
+1	quis	quis	PRON	K	Case=Nom|Gender=Fem,Masc|InflClass=LatPron|Number=Sing|PronType=Int	2	nsubj	_	LASLAVariant=1|LiLaflcat=p
+2	fudit	fundo	VERB	B3	Aspect=Perf|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	LASLAVariant=2|LiLaflcat=v3
+3	domum	domus	NOUN	A6	Case=Acc|Gender=Fem|InflClass=IndEurU|Number=Sing	2	obj	_	LiLaflcat=n4
+
+# sent_id = SenHerFu-P-15-394
+# text = in coniugem nunc claua libratur grauis perfregit ossa corpori trunco caput abest nec usquam est
+# token_count = 15
+1	in	in	ADP	R	AdpType=Prep	2	case	_	LiLaflcat=i
+2	coniugem	coniux	NOUN	A3	Case=Acc|Gender=Fem,Masc|InflClass=IndEurX|Number=Sing	5	obl:lmod	_	LiLaflcat=n3
+3	nunc	nunc	ADV	M	Degree=Pos	5	advmod:tmod	_	LiLaflcat=i
+4	claua	claua	NOUN	A1	Case=Nom|Gender=Fem|InflClass=IndEurA|Number=Sing	5	nsubj:pass	_	LiLaflcat=n1
+5	libratur	libro	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	0	root	_	LiLaflcat=v1
+6	grauis	grauis	ADJ	C4	Case=Nom|Degree=Pos|Gender=Fem|InflClass=IndEurI|Number=Sing	4	amod	_	LiLaflcat=n7
+7	perfregit	perfringo	VERB	B3	Aspect=Perf|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	5	conj	_	LiLaflcat=v3
+8	ossa	os	NOUN	A3	Case=Acc|Gender=Neut|InflClass=IndEurI|Number=Plur	7	obj	_	LASLAVariant=2|LiLaflcat=n3
+9	corpori	corpus	NOUN	A3	Case=Dat|Gender=Neut|InflClass=IndEurX|Number=Sing	12	obl:lmod	_	LiLaflcat=n3
+10	trunco	truncus	ADJ	C1	Case=Dat|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Sing	9	amod	_	LASLAVariant=2|LiLaflcat=n6
+11	caput	caput	NOUN	A3	Case=Nom|Gender=Neut|InflClass=IndEurX|Number=Sing	12	nsubj	_	LiLaflcat=n3
+12	abest	absum	VERB	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	5	conj	_	LASLAVariant=1|LiLaflcat=v6
+13	nec	nec	CCONJ	S	Polarity=Neg	14	cc	_	LASLAVariant=2|LiLaflcat=i
+14	usquam	usquam	ADV	M	Degree=Pos	12	conj	_	LiLaflcat=i
+15	est	sum	AUX	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	14	cop	_	LASLAVariant=1|LiLaflcat=v6
+
+# sent_id = SenHerFu-P-15-456
+# text = uterque tacitus ora pudibunda obtegit furtimque lacrimas fundit
+# token_count = 9
+1	uterque	uterque	DET	L	Case=Nom|Gender=Masc|InflClass=LatPron|Number=Sing|PronType=Ind	5	nsubj	_	LiLaflcat=p
+2	tacitus	tacitus	ADJ	C1	Case=Nom|Degree=Pos|Gender=Masc|InflClass=IndEurO|Number=Sing	5	advcl:pred	_	LiLaflcat=n6
+3	ora	os	NOUN	A3	Case=Acc|Gender=Neut|InflClass=IndEurI|Number=Plur	5	obj	_	LASLAVariant=1|LiLaflcat=n3
+4	pudibunda	pudibundus	ADJ	C1	Case=Acc|Degree=Pos|Gender=Neut|InflClass=IndEurO|Number=Plur	3	amod	_	LiLaflcat=n6
+5	obtegit	obtego	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v3
+6-7	furtimque	_	_	_	_	_	_	_	_
+6	furtim	furtim	ADV	M	Degree=Pos	9	advmod	_	LiLaflcat=i
+7	que	que	CCONJ	S	_	9	cc	_	LiLaflcat=i
+8	lacrimas	lacrima	NOUN	A1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Plur	9	obj	_	LiLaflcat=n1
+9	fundit	fundo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	5	conj	_	LASLAVariant=2|LiLaflcat=v3
+
+# sent_id = TacGerma-Q-01-248
+# text = nec Naristi Quadiue degenerant
+# token_count = 5
+1	nec	neque	CCONJ	S	Polarity=Neg	5	cc	_	LASLAVariant=2|LiLaflcat=i
+2	Naristi	naristi	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|NameType=Nat|Number=Plur	5	nsubj	_	LASLAVariant=N|LiLaflcat=n2
+3-4	Quadiue	_	_	_	_	_	_	_	_
+3	Quadi	quadi	NOUN	A2	Case=Nom|Gender=Masc|InflClass=IndEurO|NameType=Nat|Number=Plur	2	conj	_	LASLAVariant=N|LiLaflcat=n2
+4	ue	ue	CCONJ	S	_	3	cc	_	LiLaflcat=i
+5	degenerant	degenero	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1|TraditionalMood=Indicativus|TraditionalTense=Praesens
+
+# sent_id = TacGerma-Q-01-279
+# text = ipsis in nullo usu rude legitur informe perfertur pretiumque mirantes accipiunt
+# token_count = 12
+1	ipsis	ipse	DET	I	Case=Dat|Form=Emp|Gender=Masc|InflClass=LatPron|Number=Plur|PronType=Dem	6	obl:agent	_	LiLaflcat=p
+2	in	in	ADP	R	_	4	case	_	LiLaflcat=i
+3	nullo	nullus	DET	L	Case=Abl|Gender=Masc|InflClass=LatPron|Number=Sing|Polarity=Neg|PronType=Ind	4	det	_	LiLaflcat=p
+4	usu	usus	NOUN	A4	Case=Abl|Gender=Masc|InflClass=IndEurU|Number=Sing	6	obl	_	LiLaflcat=n4
+5	rude	rudis	ADJ	C4	Case=Nom|Gender=Neut|InflClass=IndEurI|Number=Sing	6	advcl:pred	_	LASLAVariant=2|LiLaflcat=n7
+6	legitur	lego	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	0	root	_	LASLAVariant=2|LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Praesens
+7	informe	informis	ADJ	C4	Case=Nom|Gender=Neut|InflClass=IndEurI|Number=Sing	8	advcl:pred	_	LiLaflcat=n7
+8	perfertur	perfero	VERB	B6	Aspect=Imp|InflClass=LatAnom|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	6	conj	_	LiLaflcat=v6|TraditionalMood=Indicativus|TraditionalTense=Praesens
+9-10	pretiumque	_	_	_	_	_	_	_	_
+9	pretium	pretium	NOUN	A2	Case=Acc|Gender=Neut|InflClass=IndEurO|Number=Sing	12	obj	_	LiLaflcat=n2
+10	que	que	CCONJ	S	_	12	cc	_	LiLaflcat=i
+11	mirantes	miror	VERB	B1	Aspect=Imp|Case=Nom|Gender=Masc|InflClass=LatA|InflClass[nominal]=IndEurI|Number=Plur|VerbForm=Part|Voice=Act	12	advcl:pred	_	LiLaflcat=v1|TraditionalMood=Participium|TraditionalTense=Praesens
+12	accipiunt	accipio	VERB	B5	Aspect=Imp|InflClass=LatI2|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	8	conj	_	LiLaflcat=v5|TraditionalMood=Indicativus|TraditionalTense=Praesens
+
+# sent_id = SenHerFu-P-15-461
+# text = cui praeda iacui
+# token_count = 3
+1	cui	quis	PRON	K	Case=Dat|Gender=Fem,Masc,Neut|InflClass=LatPron|Number=Sing|PronType=Int	3	obl:arg	_	LASLAVariant=1|LiLaflcat=p
+2	praeda	praeda	NOUN	A1	Case=Nom|Gender=Fem|InflClass=IndEurA|Number=Sing	3	nsubj	_	LiLaflcat=n1
+3	iacui	iaceo	VERB	B2	Aspect=Perf|InflClass=LatE|Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v2
+
+# sent_id = TacGerma-Q-01-24
+# text = pecuniam probant ueterem et diu notam serratos bigatosque
+# token_count = 9
+1	pecuniam	pecunia	NOUN	A1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Sing	2	obj	_	LiLaflcat=n1
+2	probant	probo	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1|TraditionalMood=Indicativus|TraditionalTense=Praesens
+3	ueterem	uetus	ADJ	C2	Case=Acc|Gender=Fem|InflClass=IndEurX|Number=Sing	1	amod	_	LiLaflcat=n7
+4	et	et	CCONJ	S	_	6	cc	_	LASLAVariant=2|LiLaflcat=i
+5	diu	diu	ADV	M	_	6	advmod:tmod	_	LiLaflcat=i
+6	notam	notus	ADJ	C1	Case=Acc|Gender=Fem|InflClass=IndEurA|Number=Sing|VerbForm=Part	3	conj	_	LASLAVariant=2|LiLaflcat=n6
+7	serratos	serratus	ADJ	C1	Case=Acc|Gender=Masc|InflClass=IndEurO|Number=Plur	1	conj:expl	_	LiLaflcat=n6
+8-9	bigatosque	_	_	_	_	_	_	_	_
+8	bigatos	bigatus	ADJ	C1	Case=Acc|Gender=Masc|InflClass=IndEurO|Number=Plur	7	conj	_	LiLaflcat=n6
+9	que	que	CCONJ	S	_	8	cc	_	LiLaflcat=i
+
+# sent_id = TacGerma-Q-01-112
+# text = melius quidem adhuc eae ciuitates in quibus tantum uirgines nubunt et cum spe uotoque uxoris semel transigitur
+# token_count = 18
+1	melius	bene	ADV	M	Degree=Cmp	5	orphan	_	LiLaflcat=i
+2	quidem	quidem	PART	M	_	5	discourse	_	LiLaflcat=i
+3	adhuc	adhuc	ADV	M	AdvType=Tim|Compound=Yes	1	advmod:emph	_	LiLaflcat=i
+4	eae	is	PRON	I	Case=Nom|Gender=Fem|InflClass=LatPron|Number=Plur|Person=3|PronType=Prs	5	det	_	LiLaflcat=p
+5	ciuitates	ciuitas	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Plur	0	root	_	LiLaflcat=n3
+6	in	in	ADP	R	_	7	case	_	LiLaflcat=i
+7	quibus	qui	PRON	J	Case=Abl|Gender=Fem|InflClass=LatPron|Number=Plur|PronType=Rel	10	obl:lmod	_	LASLAVariant=1|LiLaflcat=p
+8	tantum	tantum	ADV	M	NumType=Card|PronType=Dem	9	advmod	_	LASLAVariant=2|LiLaflcat=i
+9	uirgines	uirgo	NOUN	A3	Case=Nom|Gender=Fem|InflClass=IndEurX|Number=Plur	10	nsubj	_	LiLaflcat=n3
+10	nubunt	nubo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	5	acl:relcl	_	LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Praesens
+11	et	et	CCONJ	S	_	18	cc	_	LASLAVariant=2|LiLaflcat=i
+12	cum	cum	ADP	R	_	13	case	_	LASLAVariant=2|LiLaflcat=i
+13	spe	spes	NOUN	A5	Case=Abl|Gender=Fem|InflClass=IndEurE|Number=Sing	18	obl	_	LiLaflcat=n5
+14-15	uotoque	_	_	_	_	_	_	_	_
+14	uoto	uotum	NOUN	A2	Case=Abl|Gender=Neut|InflClass=IndEurO|Number=Sing	13	conj	_	LiLaflcat=n2
+15	que	que	CCONJ	S	_	14	cc	_	LiLaflcat=i
+16	uxoris	uxor	NOUN	A3	Case=Gen|Gender=Fem|InflClass=IndEurX|Number=Sing	13	nmod	_	LiLaflcat=n3
+17	semel	semel	ADV	D6	NumType=Mult	18	advmod	_	LiLaflcat=i
+18	transigitur	transigo	VERB	B3	Aspect=Imp|InflClass=LatX|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	10	conj	_	LiLaflcat=v3|TraditionalMood=Indicativus|TraditionalTense=Praesens
+
+# sent_id = SenHerFu-P-15-356
+# text = en ultro uocat omnis deorum coetus et laxat fores una uetante
+# token_count = 11
+1	en	en	INTJ	U	_	3	discourse	_	LiLaflcat=i
+2	ultro	ultro	ADV	M	Degree=Pos	3	advmod	_	LiLaflcat=i
+3	uocat	uoco	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	LiLaflcat=v1
+4	omnis	omnis	DET	L	Case=Nom|Gender=Masc|InflClass=IndEurI|Number=Sing|PronType=Tot	6	det	_	LiLaflcat=n7
+5	deorum	deus	NOUN	A2	Case=Gen|Gender=Masc|InflClass=IndEurO|Number=Plur	6	nmod	_	LiLaflcat=n2
+6	coetus	coetus	NOUN	A4	Case=Nom|Gender=Masc|InflClass=IndEurU|Number=Sing	3	nsubj	_	LiLaflcat=n4
+7	et	et	CCONJ	S	_	8	cc	_	LASLAVariant=2|LiLaflcat=i
+8	laxat	laxo	VERB	B1	Aspect=Imp|InflClass=LatA|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	3	conj	_	LiLaflcat=v1
+9	fores	foris	NOUN	A3	Case=Acc|Gender=Fem|InflClass=IndEurI|Number=Plur	8	obj	_	LASLAVariant=1|LiLaflcat=n3
+10	una	unus	NUM	D1	Case=Abl|Gender=Fem|InflClass=IndEurA|Number=Sing|NumType=Card	11	nsubj	_	LiLaflcat=n6
+11	uetante	ueto	VERB	B1	Aspect=Imp|Case=Abl|Degree=Pos|Gender=Fem|InflClass=LatA|InflClass[nominal]=IndEurI|Number=Sing|VerbForm=Part|Voice=Act	8	advcl:abs	_	LiLaflcat=v1
+

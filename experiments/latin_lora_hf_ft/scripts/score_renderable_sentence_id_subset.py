@@ -158,7 +158,8 @@ def main():
     parser = argparse.ArgumentParser(
         description=(
             "Score the renderable subset of a sentence-ID HEAD/DEPREL run by "
-            "excluding sentence indices reported in render_error.txt."
+            "excluding sentence indices reported in render_error.txt, then "
+            "excluding dependency-tree-invalid rendered predictions."
         )
     )
     parser.add_argument("--run-dir", type=Path, required=True)
@@ -184,16 +185,27 @@ def main():
         type=Path,
         default=Path("../latin_lora_mlx_ft/scripts/conll18_ud_eval.py"),
     )
+    parser.add_argument(
+        "--allow-no-render-errors",
+        action="store_true",
+        help=(
+            "Continue with all predictions when rendering succeeded and the run "
+            "only needs tree-validity filtering."
+        ),
+    )
     args = parser.parse_args()
 
     pred_jsonl = args.pred_jsonl or args.run_dir / "id_head_deprel_predictions.jsonl"
     render_error = args.render_error or args.run_dir / "render_error.txt"
     out_dir = args.run_dir / args.out_name
 
-    error_payload = extract_error_json(render_error.read_text(encoding="utf-8", errors="replace"))
-    errors = error_payload.get("errors", [])
-    bad_indices = {int(error["index"]) for error in errors if "index" in error}
-    if not bad_indices:
+    errors = []
+    bad_indices = set()
+    if render_error.exists() and render_error.stat().st_size > 0:
+        error_payload = extract_error_json(render_error.read_text(encoding="utf-8", errors="replace"))
+        errors = error_payload.get("errors", [])
+        bad_indices = {int(error["index"]) for error in errors if "index" in error}
+    if not bad_indices and not args.allow_no_render_errors:
         raise ValueError("No error indices found in render error payload")
 
     input_records = load_jsonl(args.input_jsonl)

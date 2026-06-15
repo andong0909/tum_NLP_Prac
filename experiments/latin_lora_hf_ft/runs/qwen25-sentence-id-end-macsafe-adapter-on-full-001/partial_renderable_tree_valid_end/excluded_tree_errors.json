@@ -1,0 +1,107 @@
+{
+  "excluded_count": 20,
+  "kept_count": 62,
+  "pre_tree_count": 82,
+  "excluded": [
+    {
+      "kept_index": 1,
+      "sent_id": "SenHerFu-P-15-65",
+      "error": "Cycle detected while following token 8: revisited 12"
+    },
+    {
+      "kept_index": 5,
+      "sent_id": "SenHerFu-P-15-352",
+      "error": "Cycle detected while following token 9: revisited 11"
+    },
+    {
+      "kept_index": 6,
+      "sent_id": "SenHerFu-P-15-166",
+      "error": "Cycle detected while following token 25: revisited 25"
+    },
+    {
+      "kept_index": 13,
+      "sent_id": "TacGerma-Q-01-231",
+      "error": "Cycle detected while following token 6: revisited 11"
+    },
+    {
+      "kept_index": 15,
+      "sent_id": "TacGerma-Q-01-45",
+      "error": "Cycle detected while following token 12: revisited 13"
+    },
+    {
+      "kept_index": 20,
+      "sent_id": "SenHerFu-P-15-72",
+      "error": "Cycle detected while following token 18: revisited 18"
+    },
+    {
+      "kept_index": 23,
+      "sent_id": "SenHerFu-P-15-2",
+      "error": "Cycle detected while following token 26: revisited 26"
+    },
+    {
+      "kept_index": 24,
+      "sent_id": "TacGerma-Q-01-78-bis",
+      "error": "Cycle detected while following token 18: revisited 18"
+    },
+    {
+      "kept_index": 25,
+      "sent_id": "SenHerFu-P-15-89",
+      "error": "Cycle detected while following token 18: revisited 18"
+    },
+    {
+      "kept_index": 32,
+      "sent_id": "SenHerFu-P-15-54",
+      "error": "Cycle detected while following token 16: revisited 16"
+    },
+    {
+      "kept_index": 36,
+      "sent_id": "TacGerma-Q-01-92",
+      "error": "Cycle detected while following token 16: revisited 16"
+    },
+    {
+      "kept_index": 37,
+      "sent_id": "SenHerFu-P-15-546",
+      "error": "Cycle detected while following token 15: revisited 15"
+    },
+    {
+      "kept_index": 39,
+      "sent_id": "SenHerFu-P-15-483",
+      "error": "Cycle detected while following token 17: revisited 18"
+    },
+    {
+      "kept_index": 42,
+      "sent_id": "SenHerFu-P-15-521",
+      "error": "Cycle detected while following token 17: revisited 17"
+    },
+    {
+      "kept_index": 48,
+      "sent_id": "TacGerma-Q-01-7",
+      "error": "Cycle detected while following token 11: revisited 12"
+    },
+    {
+      "kept_index": 53,
+      "sent_id": "SenHerFu-P-15-131",
+      "error": "Cycle detected while following token 10: revisited 10"
+    },
+    {
+      "kept_index": 62,
+      "sent_id": "SenHerFu-P-15-219",
+      "error": "Cycle detected while following token 17: revisited 18"
+    },
+    {
+      "kept_index": 69,
+      "sent_id": "SenHerFu-P-15-306",
+      "error": "Cycle detected while following token 17: revisited 17"
+    },
+    {
+      "kept_index": 70,
+      "sent_id": "TacGerma-Q-01-87",
+      "error": "Cycle detected while following token 1: revisited 49"
+    },
+    {
+      "kept_index": 76,
+      "sent_id": "TacGerma-Q-01-226",
+      "error": "Cycle detected while following token 8: revisited 12"
+    }
+  ]
+}
