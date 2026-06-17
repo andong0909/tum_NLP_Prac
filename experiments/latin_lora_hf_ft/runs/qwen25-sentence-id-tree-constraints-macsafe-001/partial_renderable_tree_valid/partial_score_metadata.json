@@ -1,0 +1,38 @@
+{
+  "label": "Partial diagnostic score over renderable and tree-valid sentence subset only. Not an official full-split score.",
+  "run_dir": "runs/qwen25-sentence-id-tree-constraints-macsafe-001",
+  "input_jsonl": "latin_sentence_id_tree_constraints_data_macsafe_2048/test.jsonl",
+  "pred_jsonl": "runs/qwen25-sentence-id-tree-constraints-macsafe-001/id_head_deprel_predictions.jsonl",
+  "total_sentences": 58,
+  "renderable_sentences": 58,
+  "tree_valid_sentences": 55,
+  "render_excluded_sentences": 0,
+  "tree_excluded_sentences": 3,
+  "render_excluded_indices": [],
+  "tree_excluded": [
+    {
+      "kept_index": 5,
+      "sent_id": "SenHerFu-P-15-527",
+      "error": "Cycle detected while following token 6: revisited 6"
+    },
+    {
+      "kept_index": 39,
+      "sent_id": "SenHerFu-P-15-131",
+      "error": "Expected exactly one root, got 0 roots: []"
+    },
+    {
+      "kept_index": 54,
+      "sent_id": "TacGerma-Q-01-279",
+      "error": "Cycle detected while following token 6: revisited 6"
+    }
+  ],
+  "scores": {
+    "system": "lora_qwen25_sentence_id_tree_constraints_macsafe_partial",
+    "UPOS": "100.00",
+    "UAS": "43.17",
+    "LAS": "35.79",
+    "CLAS": "35.44",
+    "MLAS": "29.80",
+    "BLEX": "35.44"
+  }
+}

@@ -13,6 +13,9 @@ preparation live in:
 For the chronological record of attempts, motivations, outcomes, and next
 steps, see [`EXPERIMENT_LOG.md`](EXPERIMENT_LOG.md).
 
+For the next-stage requirements and dataset expansion plan, see
+[`NEXT_EXPERIMENT_REQUIREMENTS.md`](NEXT_EXPERIMENT_REQUIREMENTS.md).
+
 ## Current Status
 
 The most successful protocol so far remains the sentence-level
@@ -55,10 +58,13 @@ the parsing result:
 | Sentence-ID | Mac-safe | 57/58 | 55/58 | 100.00 | 49.36 | 40.47 | 39.02 | 33.70 | 39.02 | Best diagnostic so far |
 | Sentence-ID + `END` | Mac-safe | 58/58 | 52/58 | 100.00 | 40.36 | 31.81 | 30.53 | 26.44 | 30.53 | Better rendering, worse trees |
 | Sentence-ID + `END`, Mac-safe adapter | Full 85 | 82/85 | 62/85 | 100.00 | 32.95 | 25.75 | 23.20 | 19.38 | 23.20 | Generalization diagnostic |
+| Sentence-ID + tree constraints | Mac-safe | 58/58 | 55/58 | 100.00 | 43.17 | 35.79 | 35.44 | 29.80 | 35.44 | Fewer invalid trees than `END`, below H2 LAS |
 
 These are partial diagnostic scores, not official full-split scores. The `END`
 variant shows that row-count control is not enough: the main bottleneck is now
-tree validity, especially cycles and self-head predictions.
+tree validity, especially cycles and self-head predictions. The E1 tree
+constraint prompt reduced invalid trees relative to `END`, but still did not
+beat the original sentence-ID baseline.
 
 ## Protocol
 
@@ -119,6 +125,98 @@ Predict Latin dependencies. Given blank CoNLL-U, output only ID<TAB>HEAD<TAB>DEP
 
 This keeps sentence context while avoiding the earlier ambiguity of returning
 bare `HEAD<TAB>DEPREL` lines.
+
+### E1 Tree-Constrained Sentence-ID Variant
+
+This is the next experiment after H3. It keeps the stronger H2 shape, but adds
+explicit tree-validity constraints to the system prompt:
+
+```text
+Predict Latin dependencies. Given blank CoNLL-U, output only ID<TAB>HEAD<TAB>DEPREL rows, one per syntactic token, in input order. HEAD must be 0 or another token ID. HEAD must never equal ID. Exactly one row must have HEAD=0. The dependencies must form one acyclic tree.
+```
+
+Build the E1 splits:
+
+```sh
+python3 scripts/convert_chat_conllu_to_sentence_id_tree_constraints.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data \
+  --out-dir latin_sentence_id_tree_constraints_data
+
+python3 scripts/convert_chat_conllu_to_sentence_id_tree_constraints.py \
+  --input-dir ../latin_lora_mlx_ft/latin_lora_data_macsafe_2048 \
+  --out-dir latin_sentence_id_tree_constraints_data_macsafe_2048
+```
+
+Gold-path validation has passed on both:
+
+```text
+Mac-safe test: 58/58 render, 100 self-score
+Full test: 85/85 render, 100 self-score
+```
+
+Mac-safe evaluation result:
+
+```text
+Rendered: 58/58
+Tree-valid scored: 55/58
+Partial diagnostic: UAS 43.17 / LAS 35.79
+Tree exclusions: SenHerFu-P-15-527, SenHerFu-P-15-131, TacGerma-Q-01-279
+```
+
+This improved over H3's tree-valid count and LAS, but did not beat H2's LAS
+40.47.
+
+Train the Mac-safe split first:
+
+```sh
+DATA_DIR="latin_sentence_id_tree_constraints_data_macsafe_2048" \
+OUTPUT_DIR="hf_outputs/qwen25-05b-sentence-id-tree-constraints-macsafe" \
+MAX_SEQ_LENGTH=2048 \
+MAX_STEPS=-1 \
+EPOCHS=3 \
+PRECISION=bf16 \
+sbatch run_training.slurm
+```
+
+Evaluate the Mac-safe adapter:
+
+```sh
+RUN_ID="qwen25-sentence-id-tree-constraints-macsafe-001" \
+SYSTEM_NAME="lora_qwen25_sentence_id_tree_constraints_macsafe" \
+ADAPTER_PATH="hf_outputs/qwen25-05b-sentence-id-tree-constraints-macsafe" \
+TEST_FILE="latin_sentence_id_tree_constraints_data_macsafe_2048/test.jsonl" \
+MAX_NEW_TOKENS=1024 \
+PRECISION=bf16 \
+sbatch \
+  --job-name=latin-tree-eval58 \
+  --output=slurm-%x-%j.out \
+  --gpus=a100-40 \
+  --mem=48G \
+  --cpus-per-task=4 \
+  --time=01:00:00 \
+  --wrap='./run_sentence_id_evaluation.sh "$RUN_ID"'
+```
+
+If official scoring fails because of cycles, run the partial diagnostic:
+
+```sh
+sbatch \
+  --job-name=latin-tree-partial58 \
+  --output=slurm-%x-%j.out \
+  --time=00:15:00 \
+  --mem=8G \
+  --cpus-per-task=1 \
+  --wrap='
+cd ~/tum_NLP_Prac/experiments/latin_lora_hf_ft
+python3 scripts/score_renderable_sentence_id_subset.py \
+  --run-dir runs/qwen25-sentence-id-tree-constraints-macsafe-001 \
+  --input-jsonl latin_sentence_id_tree_constraints_data_macsafe_2048/test.jsonl \
+  --out-name partial_renderable_tree_valid \
+  --system-name lora_qwen25_sentence_id_tree_constraints_macsafe_partial \
+  --adapter-path hf_outputs/qwen25-05b-sentence-id-tree-constraints-macsafe \
+  --allow-no-render-errors
+'
+```
 
 ### Sentence-Level ID/HEAD/DEPREL + END Variant
 
