@@ -1,0 +1,7 @@
+runs/qwen25-15b-sentence-id-full-001/pred.conllu
+  sentence_blocks: 85
+  with_sent_id: 85
+  with_text: 85
+  fully_valid_shape: 85
+  token_rows: 1519
+  rows_with_10_columns: 1519

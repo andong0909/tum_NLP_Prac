@@ -18,12 +18,40 @@ For the next-stage requirements and dataset expansion plan, see
 
 ## Current Status
 
-The most successful protocol so far remains the sentence-level
-`ID<TAB>HEAD<TAB>DEPREL` variant without an explicit `END` marker. It keeps the
-full blank CoNLL-U sentence as input, uses a short system prompt, and asks the
-model to emit one compact row per syntactic token.
+The strongest result so far is the sentence-level
+`ID<TAB>HEAD<TAB>DEPREL` protocol without an explicit `END` marker, scaled from
+Qwen2.5-0.5B to Qwen2.5-1.5B. It keeps the full blank CoNLL-U sentence as input,
+uses a short system prompt, and asks the model to emit one compact row per
+syntactic token.
 
-Latest result from the Mac-safe 2048-token split:
+Best result from the Mac-safe 2048-token split:
+
+```text
+Model: Qwen/Qwen2.5-1.5B-Instruct
+Adapter: hf_outputs/qwen25-15b-sentence-id-full/
+Training data: latin_sentence_id_head_deprel_data/
+Training: normal LoRA, bf16, 3 epochs, A100 40 GB Slurm job
+Evaluation data: latin_sentence_id_head_deprel_data_macsafe_2048/test.jsonl
+```
+
+This produced the first clean official LLM fine-tuning score in this project:
+
+| System | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `lora_qwen25_15b_sentence_id_macsafe` | 58/58 Mac-safe test sentences | 100.00 | 66.33 | 60.44 | 56.43 | 54.15 | 56.43 |
+
+The same 1.5B adapter rendered all 85 full-test sentences, but the official
+scorer still rejected the full file because 8 sentences contained dependency
+cycles. The partial diagnostic score over the 77/85 tree-valid sentences is:
+
+| System | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `lora_qwen25_15b_sentence_id_full_partial` | 77/85 full-test tree-valid sentences | 100.00 | 64.16 | 59.04 | 56.30 | 53.31 | 56.30 |
+
+This confirms that model scale helped substantially. The remaining blocker is
+not formatting: it is valid-tree enforcement on the full split.
+
+Previous best result from the 0.5B Mac-safe run:
 
 ```text
 Model: Qwen/Qwen2.5-0.5B-Instruct
@@ -45,9 +73,10 @@ sentences:
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `lora_qwen25_sentence_id_head_deprel_partial` | 55/58 Mac-safe test sentences | 100.00 | 49.36 | 40.47 | 39.02 | 33.70 | 39.02 |
 
-This is not an official full-split score. It is a useful diagnostic that shows
-the sentence-ID protocol is scoreable for most short examples and materially
-better than the original unanchored `HEAD<TAB>DEPREL` target.
+This older 0.5B result is not an official full-split score. It remains a useful
+diagnostic control that shows the sentence-ID protocol is scoreable for most
+short examples and materially better than the original unanchored
+`HEAD<TAB>DEPREL` target.
 
 A follow-up `# token_count = N` + `END` protocol was tested to improve output
 stopping. It did improve rendering on the Mac-safe split, but it did not improve
@@ -55,16 +84,18 @@ the parsing result:
 
 | Protocol | Scope | Rendered | Tree-valid scored | UPOS | UAS | LAS | CLAS | MLAS | BLEX | Status |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Sentence-ID | Mac-safe | 57/58 | 55/58 | 100.00 | 49.36 | 40.47 | 39.02 | 33.70 | 39.02 | Best diagnostic so far |
+| Sentence-ID, Qwen2.5-1.5B | Mac-safe | 58/58 | 58/58 | 100.00 | 66.33 | 60.44 | 56.43 | 54.15 | 56.43 | Best official LLM score so far |
+| Sentence-ID, Qwen2.5-1.5B | Full 85 | 85/85 | 77/85 | 100.00 | 64.16 | 59.04 | 56.30 | 53.31 | 56.30 | Best full diagnostic so far |
+| Sentence-ID, Qwen2.5-0.5B | Mac-safe | 57/58 | 55/58 | 100.00 | 49.36 | 40.47 | 39.02 | 33.70 | 39.02 | 0.5B control |
 | Sentence-ID + `END` | Mac-safe | 58/58 | 52/58 | 100.00 | 40.36 | 31.81 | 30.53 | 26.44 | 30.53 | Better rendering, worse trees |
 | Sentence-ID + `END`, Mac-safe adapter | Full 85 | 82/85 | 62/85 | 100.00 | 32.95 | 25.75 | 23.20 | 19.38 | 23.20 | Generalization diagnostic |
 | Sentence-ID + tree constraints | Mac-safe | 58/58 | 55/58 | 100.00 | 43.17 | 35.79 | 35.44 | 29.80 | 35.44 | Fewer invalid trees than `END`, below H2 LAS |
 
-These are partial diagnostic scores, not official full-split scores. The `END`
-variant shows that row-count control is not enough: the main bottleneck is now
-tree validity, especially cycles and self-head predictions. The E1 tree
-constraint prompt reduced invalid trees relative to `END`, but still did not
-beat the original sentence-ID baseline.
+Rows with fewer than all sentences scored are partial diagnostic scores, not
+official full-split scores. The `END` variant shows that row-count control is
+not enough: the main bottleneck is now tree validity, especially cycles and
+self-head predictions. The E1 tree constraint prompt reduced invalid trees
+relative to `END`, but still did not beat the original sentence-ID baseline.
 
 ## Protocol
 

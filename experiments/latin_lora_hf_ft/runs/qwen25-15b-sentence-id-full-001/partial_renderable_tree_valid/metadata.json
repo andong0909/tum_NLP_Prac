@@ -1,0 +1,28 @@
+{
+  "run_id": "partial_renderable_tree_valid",
+  "run_timestamp": "20260618T053051+0800",
+  "task": "Latin dependency parsing to CoNLL-U",
+  "system": "lora_qwen25_15b_sentence_id_full_partial",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter_path": "hf_outputs/qwen25-15b-sentence-id-full",
+  "gold_file": "runs/qwen25-15b-sentence-id-full-001/partial_renderable_tree_valid/gold.conllu",
+  "prediction_file": "runs/qwen25-15b-sentence-id-full-001/partial_renderable_tree_valid/pred.conllu",
+  "score_file": "runs/qwen25-15b-sentence-id-full-001/partial_renderable_tree_valid/lora_qwen25_15b_sentence_id_full_partial.score.txt",
+  "ok": true,
+  "scores": {
+    "Tokens": 100.0,
+    "Sentences": 100.0,
+    "Words": 100.0,
+    "UPOS": 100.0,
+    "XPOS": 100.0,
+    "UFeats": 100.0,
+    "AllTags": 100.0,
+    "Lemmas": 100.0,
+    "UAS": 64.16,
+    "LAS": 59.04,
+    "CLAS": 56.3,
+    "MLAS": 53.31,
+    "BLEX": 56.3
+  },
+  "error": null
+}

@@ -1,6 +1,7 @@
 # Next Experiment Requirements: Valid Latin Dependency Parsing
 
-This document defines the next research step after the H2/H3 LoRA experiments.
+This document defines the next research step after the H2/H3/H4 LoRA
+experiments.
 The goal is to move toward a usable parser rather than keep nudging output
 formatting.
 
@@ -29,26 +30,32 @@ predict valid HEAD/DEPREL rows that render into a valid dependency tree.
 
 ## 2. Lessons From Current Experiments
 
-### H2: Sentence-ID Baseline
+### H2/H4: Sentence-ID Baseline
 
-Current best LLM diagnostic baseline:
+Current best LLM protocol:
 
 ```text
 Input: full blank CoNLL-U sentence
 Target: ID<TAB>HEAD<TAB>DEPREL rows
 ```
 
-Mac-safe diagnostic result:
+The 0.5B H2 run established the format:
 
 | Scope | Rendered | Tree-valid scored | UAS | LAS | Status |
 | --- | ---: | ---: | ---: | ---: | --- |
 | H2 sentence-ID | 57/58 | 55/58 | 49.36 | 40.47 | Best LLM diagnostic so far |
 
+The 1.5B H4 run confirmed that model scale helps:
+
+| Scope | Rendered | Tree-valid scored | UAS | LAS | Status |
+| --- | ---: | ---: | ---: | ---: | --- |
+| H4 Qwen2.5-1.5B Mac-safe | 58/58 | 58/58 | 66.33 | 60.44 | Best official LLM result so far |
+| H4 Qwen2.5-1.5B full 85 | 85/85 | 77/85 | 64.16 | 59.04 | Best full-test diagnostic so far |
+
 Main failure modes:
 
-- occasional row-count mismatch
-- occasional dependency cycles
-- official scorer cannot produce a full score when any sentence is malformed or cyclic
+- occasional dependency cycles on the full 85-sentence test set
+- official scorer cannot produce a full score when any sentence is cyclic
 
 ### H3: Token Count + END
 
@@ -68,7 +75,8 @@ Row-count control is not enough. The next bottleneck is dependency-tree validity
 
 ## 3. Required Next Experiment
 
-The next experiment must target valid trees directly.
+The next experiment must target valid trees directly while preserving the H4
+score gains.
 
 ### Requirement R1: Preserve the H2 Input Shape
 
@@ -261,10 +269,20 @@ is not yet a win.
 
 ## 5. Model Requirements
 
-### Requirement M1: Keep Qwen2.5-0.5B as the Control
+### Requirement M1: Keep Qwen2.5-1.5B H2 as the Main Control
 
-The next experiment should first use the same Qwen2.5-0.5B setup so changes are
-attributable to data/target design rather than model size.
+The next experiment should compare against the Qwen2.5-1.5B H2 result, because
+it is now the strongest LLM baseline.
+
+Current control:
+
+```text
+Mac-safe official: UAS 66.33 / LAS 60.44 on 58/58
+Full diagnostic: UAS 64.16 / LAS 59.04 on 77/85 tree-valid
+```
+
+Keep Qwen2.5-0.5B only as a cheap ablation/control when debugging format or
+evaluation scripts.
 
 ### Requirement M2: Add ByT5 as a Separate Branch
 
@@ -291,16 +309,21 @@ Recommended ByT5 target:
 Do not mix ByT5 results with Qwen results unless the training data and
 evaluation split are identical.
 
-### Requirement M3: Larger Models Come After Tree Metrics
+### Requirement M3: Larger Models Are Now a Confirmed Positive Branch
 
-Do not move to a larger model until the evaluator reports self-heads, roots,
-missing heads, cycles, and render failures automatically.
+Qwen2.5-1.5B improved substantially over Qwen2.5-0.5B. Larger Qwen models are
+worth trying, but only if the run uses the same H2 target and reports the same
+tree-validity diagnostics.
 
-Reason:
+Recommended next larger-model candidates:
 
 ```text
-Without these metrics, a larger model can look better or worse for unclear reasons.
+Qwen/Qwen2.5-3B-Instruct
+Qwen/Qwen2.5-7B-Instruct, only if GPU time and memory allow
 ```
+
+Success should mean fewer full-test cycles or higher full-test partial LAS, not
+only lower training loss.
 
 ## 6. Evaluation Gates
 
@@ -337,19 +360,19 @@ Target:
 
 The next experiment must beat H2 on the same diagnostic basis.
 
-Current H2 target:
+Current 1.5B H4 target:
 
 ```text
-55/58 tree-valid
-UAS 49.36
-LAS 40.47
+58/58 tree-valid
+UAS 66.33
+LAS 60.44
 ```
 
 Minimum meaningful improvement:
 
 ```text
->=55/58 tree-valid
-LAS > 40.47
+58/58 tree-valid
+LAS > 60.44
 ```
 
 ### Gate 4: Full-Set Generalization
@@ -366,9 +389,9 @@ no official scorer crash
 Diagnostic minimum:
 
 ```text
->=82/85 rendered
-more than 62/85 tree-valid
-LAS > 25.75 on comparable partial score
+85/85 rendered
+more than 77/85 tree-valid
+LAS > 59.04 on comparable partial score
 ```
 
 ## 7. Proposed Experiment Sequence
@@ -402,6 +425,27 @@ Partial UAS 43.17 / LAS 35.79.
 This improved over H3 but did not beat the H2 LAS baseline.
 ```
 
+### H4: Larger Qwen2.5-1.5B on H2 Format
+
+Purpose:
+
+```text
+Test whether model scale improves parsing while keeping the same H2 data and target.
+```
+
+Result:
+
+```text
+Mac-safe official: 58/58 rendered and tree-valid, UAS 66.33 / LAS 60.44.
+Full test: 85/85 rendered, 77/85 tree-valid, partial UAS 64.16 / LAS 59.04.
+```
+
+Conclusion:
+
+```text
+Scale helps. The remaining end-goal blocker is full-test tree validity.
+```
+
 ### E2: Constraint Prompt on H3 Format
 
 Purpose:
@@ -416,7 +460,7 @@ Success:
 58/58 renderable and at least 55/58 tree-valid.
 ```
 
-### E3: Latin Expansion
+### E3: Latin Expansion on H4/H2 Format
 
 Purpose:
 
@@ -435,7 +479,8 @@ UD_Latin-PROIEL
 Success:
 
 ```text
-Improves full-set tree-valid count and LAS without reducing Mac-safe score.
+Improves full-set tree-valid count beyond 77/85 and LAS beyond 59.04 without
+reducing Mac-safe official LAS below 60.44.
 ```
 
 ### E4: Related Ancient IE Expansion
@@ -473,7 +518,8 @@ Test whether a byte-level seq2seq model handles structured CoNLL-U transduction 
 Success:
 
 ```text
-Lower render failure and cycle rate than Qwen on identical data.
+Lower cycle rate than Qwen2.5-1.5B on identical data, with comparable or better
+LAS.
 ```
 
 ## 8. Non-Goals
@@ -495,10 +541,13 @@ Do not optimize for:
 3. Train Qwen2.5-0.5B on Mac-safe H2 + constraints. Done as E1.
 4. Compare against H2 and H3 on the same Mac-safe split. Done: E1 improves on
    H3 but remains below H2 LAS.
-5. If tree-validity improves, run full 85-sentence evaluation.
-6. Only then build the Latin expansion dataset.
-7. After Latin expansion, branch into related ancient IE data.
-8. After the data protocol stabilizes, test ByT5-small.
+5. Train Qwen2.5-1.5B on full H2 data. Done as H4.
+6. Record H4 as the new control: Mac-safe official LAS 60.44; full diagnostic
+   LAS 59.04 on 77/85 tree-valid.
+7. Improve full-test tree-validity reporting and target the 8 remaining cycles.
+8. Build the Latin expansion dataset on the H2/H4 target.
+9. After Latin expansion, branch into related ancient IE data.
+10. Test ByT5-small on the same target and splits.
 
 ## 10. Source Notes
 

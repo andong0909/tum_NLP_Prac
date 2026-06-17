@@ -1,0 +1,47 @@
+{
+  "excluded_count": 8,
+  "kept_count": 77,
+  "pre_tree_count": 85,
+  "excluded": [
+    {
+      "kept_index": 4,
+      "sent_id": "SenHerFu-P-15-75",
+      "error": "Cycle detected while following token 4: revisited 4"
+    },
+    {
+      "kept_index": 27,
+      "sent_id": "TacGerma-Q-01-125",
+      "error": "Cycle detected while following token 32: revisited 33"
+    },
+    {
+      "kept_index": 30,
+      "sent_id": "SenHerFu-P-15-449",
+      "error": "Cycle detected while following token 11: revisited 11"
+    },
+    {
+      "kept_index": 38,
+      "sent_id": "TacGerma-Q-01-92",
+      "error": "Cycle detected while following token 7: revisited 7"
+    },
+    {
+      "kept_index": 44,
+      "sent_id": "SenHerFu-P-15-521",
+      "error": "Cycle detected while following token 20: revisited 27"
+    },
+    {
+      "kept_index": 65,
+      "sent_id": "TacGerma-Q-01-236",
+      "error": "Cycle detected while following token 14: revisited 14"
+    },
+    {
+      "kept_index": 66,
+      "sent_id": "TacGerma-Q-01-221",
+      "error": "Cycle detected while following token 18: revisited 24"
+    },
+    {
+      "kept_index": 72,
+      "sent_id": "TacGerma-Q-01-87",
+      "error": "Cycle detected while following token 11: revisited 11"
+    }
+  ]
+}

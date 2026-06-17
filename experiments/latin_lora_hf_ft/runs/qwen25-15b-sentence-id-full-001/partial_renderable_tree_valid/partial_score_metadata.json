@@ -1,0 +1,63 @@
+{
+  "label": "Partial diagnostic score over renderable and tree-valid sentence subset only. Not an official full-split score.",
+  "run_dir": "runs/qwen25-15b-sentence-id-full-001",
+  "input_jsonl": "latin_sentence_id_head_deprel_data/test.jsonl",
+  "pred_jsonl": "runs/qwen25-15b-sentence-id-full-001/id_head_deprel_predictions.jsonl",
+  "total_sentences": 85,
+  "renderable_sentences": 85,
+  "tree_valid_sentences": 77,
+  "render_excluded_sentences": 0,
+  "tree_excluded_sentences": 8,
+  "render_excluded_indices": [],
+  "tree_excluded": [
+    {
+      "kept_index": 4,
+      "sent_id": "SenHerFu-P-15-75",
+      "error": "Cycle detected while following token 4: revisited 4"
+    },
+    {
+      "kept_index": 27,
+      "sent_id": "TacGerma-Q-01-125",
+      "error": "Cycle detected while following token 32: revisited 33"
+    },
+    {
+      "kept_index": 30,
+      "sent_id": "SenHerFu-P-15-449",
+      "error": "Cycle detected while following token 11: revisited 11"
+    },
+    {
+      "kept_index": 38,
+      "sent_id": "TacGerma-Q-01-92",
+      "error": "Cycle detected while following token 7: revisited 7"
+    },
+    {
+      "kept_index": 44,
+      "sent_id": "SenHerFu-P-15-521",
+      "error": "Cycle detected while following token 20: revisited 27"
+    },
+    {
+      "kept_index": 65,
+      "sent_id": "TacGerma-Q-01-236",
+      "error": "Cycle detected while following token 14: revisited 14"
+    },
+    {
+      "kept_index": 66,
+      "sent_id": "TacGerma-Q-01-221",
+      "error": "Cycle detected while following token 18: revisited 24"
+    },
+    {
+      "kept_index": 72,
+      "sent_id": "TacGerma-Q-01-87",
+      "error": "Cycle detected while following token 11: revisited 11"
+    }
+  ],
+  "scores": {
+    "system": "lora_qwen25_15b_sentence_id_full_partial",
+    "UPOS": "100.00",
+    "UAS": "64.16",
+    "LAS": "59.04",
+    "CLAS": "56.30",
+    "MLAS": "53.31",
+    "BLEX": "56.30"
+  }
+}

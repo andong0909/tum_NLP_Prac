@@ -115,24 +115,28 @@ fallback-assisted.
 
 The newer sentence-level `ID<TAB>HEAD<TAB>DEPREL` protocol is the current best
 candidate. It keeps full sentence context in the prompt but anchors every
-generated row with a token id. On the Mac-safe 2048-token split, a fully trained
-adapter rendered 57/58 test sentences and produced valid dependency trees for
-55/58. The partial diagnostic score over those 55 renderable and tree-valid
+generated row with a token id.
+
+The strongest LLM run so far is `Qwen/Qwen2.5-1.5B-Instruct` with LoRA on the
+full sentence-ID training split. On the Mac-safe 2048-token test split, it
+rendered and scored all 58 sentences cleanly:
+
+| Split | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Mac-safe test | 58/58 official raw score | 100.00 | 66.33 | 60.44 | 56.43 | 54.15 | 56.43 |
+
+On the full 85-sentence test split, the same adapter rendered all 85 sentences,
+but 8 predictions formed dependency cycles, so the official scorer rejected the
+full file. The partial diagnostic score over the remaining 77 tree-valid
 sentences was:
 
 | Split | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Mac-safe test | 55/58 renderable + tree-valid sentences | 100.00 | 49.36 | 40.47 | 39.02 | 33.70 | 39.02 |
+| Full test | 77/85 tree-valid diagnostic subset | 100.00 | 64.16 | 59.04 | 56.30 | 53.31 | 56.30 |
 
-This is not an official full-split score because one sentence failed rendering
-and two rendered sentences formed invalid dependency trees. The excluded
-sentences were:
-
-- render-excluded: `TacGerma-Q-01-112` (model generated 17 rows for 18 tokens)
-- tree-excluded: `SenHerFu-P-15-401`, `TacGerma-Q-01-93`
-
-Current next steps are to add a token-count cue and/or an explicit `END` marker
-to reduce early stopping and over-generation, then rerun the full official split.
+Current next steps are to reduce the remaining full-split cycles, then test
+Latin data expansion, ByT5, or a larger Qwen model on the same sentence-ID
+target.
 
 Generated adapters, run logs, and prediction outputs are intentionally ignored
 by Git under:
