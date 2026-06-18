@@ -1,0 +1,14 @@
+{
+  "run_id": "qwen25-3b-sentence-id-macsafe-001",
+  "run_timestamp": "20260618T205945+0800",
+  "task": "Latin dependency parsing to CoNLL-U",
+  "system": "lora_qwen25_3b_sentence_id_macsafe",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "adapter_path": "hf_outputs/qwen25-3b-sentence-id-full",
+  "gold_file": "runs/qwen25-3b-sentence-id-macsafe-001/gold.conllu",
+  "prediction_file": "runs/qwen25-3b-sentence-id-macsafe-001/pred.conllu",
+  "score_file": "runs/qwen25-3b-sentence-id-macsafe-001/lora_qwen25_3b_sentence_id_macsafe.score.txt",
+  "ok": false,
+  "scores": {},
+  "error": "Traceback (most recent call last):\n  File \"/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py\", line 532, in <module>\n    main()\n  File \"/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py\", line 500, in main\n    evaluation = evaluate_wrapper(args)\n                 ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py\", line 483, in evaluate_wrapper\n    system_ud = load_conllu_file(args.system_file)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py\", line 478, in load_conllu_file\n    return load_conllu(_file)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py\", line 209, in load_conllu\n    process_word(word)\n  File \"/home/a/andong/tum_NLP_Prac/experiments/latin_lora_hf_ft/../latin_lora_mlx_ft/scripts/conll18_ud_eval.py\", line 201, in process_word\n    raise UDError(\"HEAD '{}' points outside of the sentence\".format(_encode(word.columns[HEAD])))\nUDError: HEAD '12' points outside of the sentence"
+}

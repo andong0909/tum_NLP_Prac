@@ -1,0 +1,68 @@
+{
+  "label": "Partial diagnostic score over renderable and tree-valid sentence subset only. Not an official full-split score.",
+  "run_dir": "runs/qwen25-3b-sentence-id-full-001",
+  "input_jsonl": "latin_sentence_id_head_deprel_data/test.jsonl",
+  "pred_jsonl": "runs/qwen25-3b-sentence-id-full-001/id_head_deprel_predictions.jsonl",
+  "total_sentences": 85,
+  "renderable_sentences": 85,
+  "tree_valid_sentences": 76,
+  "render_excluded_sentences": 0,
+  "tree_excluded_sentences": 9,
+  "render_excluded_indices": [],
+  "tree_excluded": [
+    {
+      "kept_index": 20,
+      "sent_id": "SenHerFu-P-15-72",
+      "error": "Cycle detected while following token 3: revisited 3"
+    },
+    {
+      "kept_index": 21,
+      "sent_id": "SenHerFu-P-15-335",
+      "error": "Token 11 points to missing HEAD 12"
+    },
+    {
+      "kept_index": 26,
+      "sent_id": "SenHerFu-P-15-89",
+      "error": "Cycle detected while following token 8: revisited 14"
+    },
+    {
+      "kept_index": 30,
+      "sent_id": "SenHerFu-P-15-449",
+      "error": "Cycle detected while following token 11: revisited 18"
+    },
+    {
+      "kept_index": 36,
+      "sent_id": "TacGerma-Q-01-97",
+      "error": "Cycle detected while following token 10: revisited 15"
+    },
+    {
+      "kept_index": 45,
+      "sent_id": "SenHerFu-P-15-50",
+      "error": "Cycle detected while following token 6: revisited 7"
+    },
+    {
+      "kept_index": 65,
+      "sent_id": "TacGerma-Q-01-236",
+      "error": "Cycle detected while following token 7: revisited 7"
+    },
+    {
+      "kept_index": 71,
+      "sent_id": "SenHerFu-P-15-306",
+      "error": "Cycle detected while following token 24: revisited 27"
+    },
+    {
+      "kept_index": 76,
+      "sent_id": "TacGerma-Q-01-102",
+      "error": "Cycle detected while following token 9: revisited 9"
+    }
+  ],
+  "scores": {
+    "system": "lora_qwen25_3b_sentence_id_full_partial",
+    "UPOS": "100.00",
+    "UAS": "70.34",
+    "LAS": "65.72",
+    "CLAS": "63.44",
+    "MLAS": "60.74",
+    "BLEX": "63.44"
+  }
+}

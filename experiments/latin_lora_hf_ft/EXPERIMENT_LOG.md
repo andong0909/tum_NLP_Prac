@@ -8,28 +8,30 @@ tree-validity constraints and multilingual data expansion, see
 
 ## Current Best Read
 
-The best LLM fine-tuning direction so far is the **sentence-level `ID<TAB>HEAD<TAB>DEPREL` protocol** scaled to `Qwen/Qwen2.5-1.5B-Instruct`:
+The best LLM fine-tuning direction so far is the **sentence-level `ID<TAB>HEAD<TAB>DEPREL` protocol** scaled to `Qwen/Qwen2.5-3B-Instruct`:
 
 - input: full blank CoNLL-U sentence with tokenization, lemmas, POS, morphology, and blank `HEAD`/`DEPREL`
 - target: one compact dependency row per syntactic token, in input order
-- model: `Qwen/Qwen2.5-1.5B-Instruct`
+- model: `Qwen/Qwen2.5-3B-Instruct`
 - training: Hugging Face PEFT normal LoRA, bf16, A100 Slurm job
-- strongest official result: 58/58 Mac-safe test sentences rendered and scored
-- strongest full-test diagnostic result: 77/85 tree-valid full-test sentences scored after excluding 8 cyclic predictions
+- strongest official result: Qwen2.5-1.5B scored 58/58 Mac-safe test sentences
+- strongest partial diagnostic result: Qwen2.5-3B scored 76/85 full-test tree-valid sentences after excluding 9 invalid-tree predictions
 
 | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX | Status |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Qwen2.5-3B Mac-safe 55/58 tree-valid subset | 100.00 | 74.37 | 67.92 | 65.69 | 63.88 | 65.69 | Best Mac-safe partial diagnostic so far |
+| Qwen2.5-3B full 76/85 tree-valid subset | 100.00 | 70.34 | 65.72 | 63.44 | 60.74 | 63.44 | Best full-test partial diagnostic so far |
 | Qwen2.5-1.5B Mac-safe 58/58 official | 100.00 | 66.33 | 60.44 | 56.43 | 54.15 | 56.43 | Best official LLM result so far |
-| Qwen2.5-1.5B full 77/85 tree-valid subset | 100.00 | 64.16 | 59.04 | 56.30 | 53.31 | 56.30 | Best full-test diagnostic so far |
+| Qwen2.5-1.5B full 77/85 tree-valid subset | 100.00 | 64.16 | 59.04 | 56.30 | 53.31 | 56.30 | 1.5B full-test diagnostic |
 | Mac-safe 55/58 renderable + tree-valid subset | 100.00 | 49.36 | 40.47 | 39.02 | 33.70 | 39.02 | Partial diagnostic, not official |
 | `END` Mac-safe 52/58 tree-valid subset | 100.00 | 40.36 | 31.81 | 30.53 | 26.44 | 30.53 | Partial diagnostic, worse than H2 |
 | `END` Mac-safe adapter on full 62/85 tree-valid subset | 100.00 | 32.95 | 25.75 | 23.20 | 19.38 | 23.20 | Partial diagnostic, generalization check |
 | Tree-constrained Mac-safe 55/58 tree-valid subset | 100.00 | 43.17 | 35.79 | 35.44 | 29.80 | 35.44 | Partial diagnostic, fewer invalid trees than H3 but below H2 LAS |
 
-The result is promising because the 1.5B model is the first LoRA setup that
-produces a clean official Mac-safe score and a strong full-test diagnostic. It
-is still not an official full-test result because 8/85 full-test predictions
-formed cycles.
+The result is promising because the 3B model improves LAS substantially over
+1.5B on comparable partial diagnostics. It is still not an official full-test
+result because invalid trees remain: 3/58 invalid on Mac-safe and 9/85 invalid
+on the full split.
 
 ## Experiment Table
 
@@ -48,6 +50,7 @@ formed cycles.
 | H3 | Sentence-level `ID<TAB>HEAD<TAB>DEPREL` + `END` | Fix the H2 row-count and stopping failures directly. | Input: full blank CoNLL-U with `# token_count = N`. Target: exactly N `ID<TAB>HEAD<TAB>DEPREL` rows followed by `END`. | Qwen2.5-0.5B, HF LoRA, Mac-safe split, A100 Slurm job. | Mac-safe rendered 58/58, but only 52/58 were tree-valid: UAS 40.36 / LAS 31.81. Full-set diagnostic with the Mac-safe adapter rendered 82/85 and scored 62/85 tree-valid: UAS 32.95 / LAS 25.75. | `END` improves row-count control but worsens tree validity and score versus H2. Do not treat H3 as the best model; next work should target tree constraints. |
 | E1 | Sentence-level `ID<TAB>HEAD<TAB>DEPREL` + tree constraints | Keep the better H2 output shape while targeting H3's major failure mode: self-heads and cycles. | Input: full blank CoNLL-U. Target: one `ID<TAB>HEAD<TAB>DEPREL` line per token. System prompt states `HEAD != ID`, exactly one root, and acyclic tree. | Qwen2.5-0.5B, HF LoRA, Mac-safe split, A100 Slurm job. | Mac-safe rendered 58/58 and scored 55/58 tree-valid: UAS 43.17 / LAS 35.79. Tree exclusions: `SenHerFu-P-15-527`, `SenHerFu-P-15-131`, `TacGerma-Q-01-279`. | The constraint prompt reduced invalid trees versus H3 and restored the H2 tree-valid count, but LAS remained below H2. Next step should improve tree validity metrics/evaluator and then test Latin data expansion or ByT5 on the same E1/H2-style target. |
 | H4 | Larger Qwen2.5-1.5B sentence-ID model | Test whether model scale solves more of the task without changing the H2 target contract. | Input: full blank CoNLL-U. Target: one `ID<TAB>HEAD<TAB>DEPREL` line per token. Trained on the full H2 data and evaluated on Mac-safe plus full test. | Qwen2.5-1.5B, HF LoRA, full H2 data, A100 Slurm job. | Mac-safe rendered and scored 58/58 with UAS 66.33 / LAS 60.44. Full test rendered 85/85; partial tree-valid score over 77/85 was UAS 64.16 / LAS 59.04. | Model scale helps substantially. The next end-goal step is not more prompt nudging; it is reducing the remaining full-test cycles, then testing 3B/ByT5 or Latin expansion on the same protocol. |
+| H5 | Larger Qwen2.5-3B sentence-ID model | Test whether scaling beyond 1.5B improves accuracy on the same H2 target. | Same full blank CoNLL-U input and `ID<TAB>HEAD<TAB>DEPREL` target as H4. Trained on full H2 data and evaluated on Mac-safe plus full test. | Qwen2.5-3B, HF LoRA, full H2 data, A100 Slurm job. | Mac-safe rendered 58/58; partial tree-valid score over 55/58 was UAS 74.37 / LAS 67.92. Full test rendered 85/85; partial tree-valid score over 76/85 was UAS 70.34 / LAS 65.72. | 3B is the strongest model by partial diagnostics, but invalid trees increased relative to 1.5B. Next work should target official scoreability through tree-valid decoding/repair or compare 7B/ByT5 with the same strict invalid-tree reporting. |
 | S0 | Partial renderable/tree-valid scoring | Get an honest diagnostic score when a nearly valid run has a few failures. | Filter render failures, then filter dependency-tree-invalid predictions before scoring. | `score_renderable_sentence_id_subset.py`. | Produced clear 55/58 Mac-safe partial score and recorded exclusions. | Useful for analysis only. Do not present as official benchmark result. Official result still requires all sentences to render and form valid trees. |
 
 ## Important Failure Modes Observed
@@ -80,23 +83,27 @@ formed cycles.
 | `runs/qwen25-sentence-id-tree-constraints-macsafe-001/` | E1 tree-constrained Mac-safe evaluation artifacts and partial score. | Yes |
 | `runs/qwen25-15b-sentence-id-macsafe-001/` | Qwen2.5-1.5B Mac-safe official evaluation artifacts. | Yes |
 | `runs/qwen25-15b-sentence-id-full-001/` | Qwen2.5-1.5B full-test rendered artifacts and partial tree-valid score. | Yes |
+| `runs/qwen25-3b-sentence-id-macsafe-001/` | Qwen2.5-3B Mac-safe rendered artifacts and partial tree-valid score. | Yes |
+| `runs/qwen25-3b-sentence-id-full-001/` | Qwen2.5-3B full-test rendered artifacts and partial tree-valid score. | Yes |
 | `hf_outputs/qwen25-05b-sentence-id-head-deprel-a100-lora-full/` | Trained adapter weights on cluster. | No, ignored because large |
 | `hf_outputs/qwen25-05b-sentence-id-head-deprel-end-macsafe/` | Trained `END` adapter on the cluster. | No, ignored because large |
 | `hf_outputs/qwen25-15b-sentence-id-full/` | Trained Qwen2.5-1.5B H2 adapter on the cluster. | No, ignored because large |
+| `hf_outputs/qwen25-3b-sentence-id-full/` | Trained Qwen2.5-3B H2 adapter on the cluster. | No, ignored because large |
 
 ## Near-Term Plan
 
-1. Treat Qwen2.5-1.5B H2 as the new LLM baseline.
+1. Treat Qwen2.5-3B H2 as the new diagnostic baseline.
 
-   The Mac-safe official LAS 60.44 and full-test partial LAS 59.04 are large
-   improvements over all 0.5B variants. Future experiments should compare
-   against this, not only against the older H2 0.5B score.
+   The 3B run improves partial LAS to 67.92 on Mac-safe and 65.72 on the full
+   split. Future experiments should compare against these diagnostics while
+   keeping the 1.5B official Mac-safe score as the clean raw-score baseline.
 
 2. Improve tree-validity diagnostics in the evaluator.
 
-   H4 renders all full-test sentences, so the main remaining blocker is cycles.
-   Before another major training run, the evaluator should summarize
-   self-heads, root-count errors, missing heads, and cycles automatically.
+   H5 renders all full-test sentences, so the main remaining blocker is invalid
+   tree structure. Before another major training run, the evaluator should
+   summarize outside-head errors, self-heads, root-count errors, missing heads,
+   and cycles automatically.
 
 3. Add tree-validity constraints or decoding-time validation only if clearly
    separated from raw model scoring.

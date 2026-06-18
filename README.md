@@ -117,26 +117,26 @@ The newer sentence-level `ID<TAB>HEAD<TAB>DEPREL` protocol is the current best
 candidate. It keeps full sentence context in the prompt but anchors every
 generated row with a token id.
 
-The strongest LLM run so far is `Qwen/Qwen2.5-1.5B-Instruct` with LoRA on the
-full sentence-ID training split. On the Mac-safe 2048-token test split, it
-rendered and scored all 58 sentences cleanly:
+The strongest clean official LLM run so far is `Qwen/Qwen2.5-1.5B-Instruct`
+with LoRA on the full sentence-ID training split. On the Mac-safe 2048-token
+test split, it rendered and scored all 58 sentences cleanly:
 
 | Split | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Mac-safe test | 58/58 official raw score | 100.00 | 66.33 | 60.44 | 56.43 | 54.15 | 56.43 |
 
-On the full 85-sentence test split, the same adapter rendered all 85 sentences,
-but 8 predictions formed dependency cycles, so the official scorer rejected the
-full file. The partial diagnostic score over the remaining 77 tree-valid
-sentences was:
+Scaling the same protocol to `Qwen/Qwen2.5-3B-Instruct` improved the partial
+diagnostic scores substantially, but did not yet produce a clean official score
+because some predictions still contained invalid trees.
 
 | Split | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Full test | 77/85 tree-valid diagnostic subset | 100.00 | 64.16 | 59.04 | 56.30 | 53.31 | 56.30 |
+| Mac-safe test, Qwen2.5-3B | 55/58 tree-valid diagnostic subset | 100.00 | 74.37 | 67.92 | 65.69 | 63.88 | 65.69 |
+| Full test, Qwen2.5-3B | 76/85 tree-valid diagnostic subset | 100.00 | 70.34 | 65.72 | 63.44 | 60.74 | 63.44 |
 
-Current next steps are to reduce the remaining full-split cycles, then test
-Latin data expansion, ByT5, or a larger Qwen model on the same sentence-ID
-target.
+Current next steps are to reduce invalid trees so the 3B-quality predictions
+can become an official full-split score, then test Latin data expansion, ByT5,
+or a larger Qwen model on the same sentence-ID target.
 
 Generated adapters, run logs, and prediction outputs are intentionally ignored
 by Git under:

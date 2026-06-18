@@ -1,0 +1,38 @@
+{
+  "label": "Partial diagnostic score over renderable and tree-valid sentence subset only. Not an official full-split score.",
+  "run_dir": "runs/qwen25-3b-sentence-id-macsafe-001",
+  "input_jsonl": "latin_sentence_id_head_deprel_data_macsafe_2048/test.jsonl",
+  "pred_jsonl": "runs/qwen25-3b-sentence-id-macsafe-001/id_head_deprel_predictions.jsonl",
+  "total_sentences": 58,
+  "renderable_sentences": 58,
+  "tree_valid_sentences": 55,
+  "render_excluded_sentences": 0,
+  "tree_excluded_sentences": 3,
+  "render_excluded_indices": [],
+  "tree_excluded": [
+    {
+      "kept_index": 24,
+      "sent_id": "SenHerFu-P-15-335",
+      "error": "Token 11 points to missing HEAD 12"
+    },
+    {
+      "kept_index": 29,
+      "sent_id": "TacGerma-Q-01-97",
+      "error": "Cycle detected while following token 10: revisited 15"
+    },
+    {
+      "kept_index": 32,
+      "sent_id": "SenHerFu-P-15-50",
+      "error": "Cycle detected while following token 6: revisited 7"
+    }
+  ],
+  "scores": {
+    "system": "lora_qwen25_3b_sentence_id_macsafe_partial",
+    "UPOS": "100.00",
+    "UAS": "74.37",
+    "LAS": "67.92",
+    "CLAS": "65.69",
+    "MLAS": "63.88",
+    "BLEX": "65.69"
+  }
+}
