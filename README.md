@@ -117,26 +117,25 @@ The newer sentence-level `ID<TAB>HEAD<TAB>DEPREL` protocol is the current best
 candidate. It keeps full sentence context in the prompt but anchors every
 generated row with a token id.
 
-The strongest clean official LLM run so far is `Qwen/Qwen2.5-1.5B-Instruct`
-with LoRA on the full sentence-ID training split. On the Mac-safe 2048-token
-test split, it rendered and scored all 58 sentences cleanly:
+For final reporting, we now prioritize the **full 85-sentence EvaLatin test
+split**. Partial scores are useful diagnostics, but they are optimistic because
+they exclude invalid predicted trees. Penalized full scores keep all 85
+sentences by replacing invalid predicted trees with adversarial dummy valid
+trees before running the official CoNLL-18 scorer.
 
-| Split | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Mac-safe test | 58/58 official raw score | 100.00 | 66.33 | 60.44 | 56.43 | 54.15 | 56.43 |
+Current full-test results:
 
-Scaling the same protocol to `Qwen/Qwen2.5-3B-Instruct` improved the partial
-diagnostic scores substantially, but did not yet produce a clean official score
-because some predictions still contained invalid trees.
+| Model | Score Type | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Qwen2.5-1.5B LoRA | Penalized full | 85/85, 8 dummy-replaced | 100.00 | 51.16 | 47.07 | 42.71 | 40.44 | 42.71 |
+| Qwen2.5-3B LoRA | Penalized full | 85/85, 9 dummy-replaced | 100.00 | 62.11 | 58.03 | 54.13 | 51.83 | 54.13 |
+| Qwen2.5-1.5B LoRA | Partial diagnostic | 77/85 tree-valid only | 100.00 | 64.16 | 59.04 | 56.30 | 53.31 | 56.30 |
+| Qwen2.5-3B LoRA | Partial diagnostic | 76/85 tree-valid only | 100.00 | 70.34 | 65.72 | 63.44 | 60.74 | 63.44 |
 
-| Split | Scope | UPOS | UAS | LAS | CLAS | MLAS | BLEX |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Mac-safe test, Qwen2.5-3B | 55/58 tree-valid diagnostic subset | 100.00 | 74.37 | 67.92 | 65.69 | 63.88 | 65.69 |
-| Full test, Qwen2.5-3B | 76/85 tree-valid diagnostic subset | 100.00 | 70.34 | 65.72 | 63.44 | 60.74 | 63.44 |
-
-Current next steps are to reduce invalid trees so the 3B-quality predictions
-can become an official full-split score, then test Latin data expansion, ByT5,
-or a larger Qwen model on the same sentence-ID target.
+The 3B model is strongest under both fairer penalized full scoring and the
+older partial diagnostic view. The remaining blocker is invalid-tree reduction:
+the model is accurate when it produces a valid tree, but invalid predictions
+must count against the full score.
 
 Generated adapters, run logs, and prediction outputs are intentionally ignored
 by Git under:

@@ -58,7 +58,8 @@ trees:
 | Scope | Rendered | Tree-valid scored | UAS | LAS | Status |
 | --- | ---: | ---: | ---: | ---: | --- |
 | H5 Qwen2.5-3B Mac-safe | 58/58 | 55/58 | 74.37 | 67.92 | Best Mac-safe partial diagnostic so far |
-| H5 Qwen2.5-3B full 85 | 85/85 | 76/85 | 70.34 | 65.72 | Best full-test partial diagnostic so far |
+| H5 Qwen2.5-3B full 85 partial | 85/85 | 76/85 | 70.34 | 65.72 | Best full-test partial diagnostic so far |
+| H5 Qwen2.5-3B full 85 penalized | 85/85 | 85/85 with 9 dummy-replaced | 62.11 | 58.03 | Best fairer full-test score so far |
 
 Main failure modes:
 
@@ -286,8 +287,8 @@ diagnostic accuracy, because it is now the strongest LLM baseline by LAS.
 Current control:
 
 ```text
-Mac-safe diagnostic: UAS 74.37 / LAS 67.92 on 55/58 tree-valid
-Full diagnostic: UAS 70.34 / LAS 65.72 on 76/85 tree-valid
+Full penalized: UAS 62.11 / LAS 58.03 on all 85 sentences
+Full partial diagnostic: UAS 70.34 / LAS 65.72 on 76/85 tree-valid
 ```
 
 Keep Qwen2.5-1.5B as the official raw-score control because it scored all 58
@@ -333,7 +334,7 @@ Qwen/Qwen2.5-7B-Instruct, only if GPU time and memory allow
 ```
 
 Success should mean fewer invalid trees, an official raw score, or higher
-full-test partial LAS. Lower training loss alone is not enough.
+full-test penalized LAS. Lower training loss alone is not enough.
 
 ## 6. Evaluation Gates
 
@@ -407,8 +408,8 @@ Diagnostic minimum:
 
 ```text
 85/85 rendered
-more than 76/85 tree-valid
-LAS > 65.72 on comparable partial score
+penalized LAS > 58.03 on all 85 sentences
+or more than 76/85 tree-valid with LAS > 65.72 on comparable partial score
 ```
 
 ## 7. Proposed Experiment Sequence
@@ -476,6 +477,7 @@ Result:
 ```text
 Mac-safe: 58/58 rendered, 55/58 tree-valid, partial UAS 74.37 / LAS 67.92.
 Full test: 85/85 rendered, 76/85 tree-valid, partial UAS 70.34 / LAS 65.72.
+Penalized full: 85/85 scored with 9 dummy replacements, UAS 62.11 / LAS 58.03.
 ```
 
 Conclusion:
@@ -584,8 +586,8 @@ Do not optimize for:
 6. Record H4 as the new control: Mac-safe official LAS 60.44; full diagnostic
    LAS 59.04 on 77/85 tree-valid.
 7. Train Qwen2.5-3B on full H2 data. Done as H5.
-8. Record H5 as the new diagnostic control: Mac-safe partial LAS 67.92; full
-   diagnostic LAS 65.72 on 76/85 tree-valid.
+8. Record H5 as the new full-test control: penalized full LAS 58.03 on all
+   85 sentences; partial diagnostic LAS 65.72 on 76/85 tree-valid.
 9. Improve full-test tree-validity reporting and target invalid trees.
 10. Build the Latin expansion dataset on the H2/H5 target.
 11. After Latin expansion, branch into related ancient IE data.

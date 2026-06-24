@@ -1,0 +1,87 @@
+{
+  "label": "Penalized full score: invalid prediction trees replaced with adversarial dummy valid trees.",
+  "run_dir": "runs/qwen25-15b-sentence-id-full-001",
+  "gold": "runs/qwen25-15b-sentence-id-full-001/gold.conllu",
+  "raw_pred": "runs/qwen25-15b-sentence-id-full-001/pred.conllu",
+  "penalized_pred": "runs/qwen25-15b-sentence-id-full-001/penalized_full_score/pred_penalized.conllu",
+  "total_sentences": 85,
+  "valid_raw_sentences": 77,
+  "dummy_replaced_sentences": 8,
+  "dummy_strategy": "Use a gold non-root leaf as predicted root, attach all other tokens to it, use DEPREL=dep:dummy.",
+  "guarantee": "For multi-token sentences this guarantees zero UAS/LAS for the replaced sentence. For one-token sentences UAS cannot be forced to zero while keeping a valid tree.",
+  "replacements": [
+    {
+      "index": 4,
+      "sent_id": "SenHerFu-P-15-75",
+      "raw_error": "Cycle detected while following token 4: revisited 4",
+      "dummy_root": 1,
+      "dummy_strategy": "gold_non_root_leaf",
+      "expected_dependency_score": "guaranteed_zero_uas_las_for_multi_token_sentence"
+    },
+    {
+      "index": 27,
+      "sent_id": "TacGerma-Q-01-125",
+      "raw_error": "Cycle detected while following token 32: revisited 33",
+      "dummy_root": 2,
+      "dummy_strategy": "gold_non_root_leaf",
+      "expected_dependency_score": "guaranteed_zero_uas_las_for_multi_token_sentence"
+    },
+    {
+      "index": 30,
+      "sent_id": "SenHerFu-P-15-449",
+      "raw_error": "Cycle detected while following token 11: revisited 11",
+      "dummy_root": 2,
+      "dummy_strategy": "gold_non_root_leaf",
+      "expected_dependency_score": "guaranteed_zero_uas_las_for_multi_token_sentence"
+    },
+    {
+      "index": 38,
+      "sent_id": "TacGerma-Q-01-92",
+      "raw_error": "Cycle detected while following token 7: revisited 7",
+      "dummy_root": 1,
+      "dummy_strategy": "gold_non_root_leaf",
+      "expected_dependency_score": "guaranteed_zero_uas_las_for_multi_token_sentence"
+    },
+    {
+      "index": 44,
+      "sent_id": "SenHerFu-P-15-521",
+      "raw_error": "Cycle detected while following token 20: revisited 27",
+      "dummy_root": 1,
+      "dummy_strategy": "gold_non_root_leaf",
+      "expected_dependency_score": "guaranteed_zero_uas_las_for_multi_token_sentence"
+    },
+    {
+      "index": 65,
+      "sent_id": "TacGerma-Q-01-236",
+      "raw_error": "Cycle detected while following token 14: revisited 14",
+      "dummy_root": 1,
+      "dummy_strategy": "gold_non_root_leaf",
+      "expected_dependency_score": "guaranteed_zero_uas_las_for_multi_token_sentence"
+    },
+    {
+      "index": 66,
+      "sent_id": "TacGerma-Q-01-221",
+      "raw_error": "Cycle detected while following token 18: revisited 24",
+      "dummy_root": 1,
+      "dummy_strategy": "gold_non_root_leaf",
+      "expected_dependency_score": "guaranteed_zero_uas_las_for_multi_token_sentence"
+    },
+    {
+      "index": 72,
+      "sent_id": "TacGerma-Q-01-87",
+      "raw_error": "Cycle detected while following token 11: revisited 11",
+      "dummy_root": 1,
+      "dummy_strategy": "gold_non_root_leaf",
+      "expected_dependency_score": "guaranteed_zero_uas_las_for_multi_token_sentence"
+    }
+  ],
+  "scores": {
+    "system": "lora_qwen25_15b_sentence_id_full_penalized",
+    "UPOS": "100.00",
+    "UAS": "51.16",
+    "LAS": "47.07",
+    "CLAS": "42.71",
+    "MLAS": "40.44",
+    "BLEX": "42.71"
+  }
+}
